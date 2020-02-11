@@ -1,5 +1,12 @@
 # Chapter1 采集处理
-[toc]
+
+- [Chapter1 采集处理](Chapter1.md#Chapter1-采集处理)
+    - [1.1 输入文本](Chapter1.md##1.1-输入文本)
+      - [1.1.1 输入参数说明](Chapter1.md###1.1.1-输入参数说明)
+      - [1.1.2 输入实例](Chapter1.md###1.1.2-输入实例)
+    - [1.2 输出文本](Chapter1.md##1.2-输出文本)
+      - [1.2.1 输出参数说明](Chapter1.md###1.2.1-输出参数说明)
+      - [1.2.2 输出实例](Chapter1.md###1.2.2-输出实例)
 
 ## 1.1 输入文本
 
@@ -67,9 +74,9 @@
 |-------------------|-----------------|-------|----------|----------------------------------|
 | WellName          | 井名             |       | string   |                                  |
 | **CalculationStatus** | 计算状态         |       |          |                                   |
-| ResultStatus      | 计算结果状态      |       | int      | 详见表底注释[1]                    |
+| ResultStatus      | 计算结果状态      |       | int      | 不同值代表不同状态，详见表底注释[1]     |
 | ResultCode        | 诊断结果         |       | int      |                                   |
-| **Verification**  | 数据校验         |       |          |                                   |
+| **Verification**      | 数据校验         |       |          |                                   |
 | ErrorCounter      | 错误参数计数器    |       | int      | 错误参数个数                        |
 | ErrorString       | 错误参数字符串    |       | string   | 数据错误，计算不成功                 |
 | WarningCounter    | 报警计数器       |       | int      | 报警参数个数                        |
@@ -88,7 +95,8 @@
 | CNT               | 点数           |       | int      |                                    |
 | F                 | 载荷           | kN    | float64  |                                    |
 | S                 | 位移           | m     | float64  |                                    |
-[1] ***计算结果状态:1:计算成功，-44:请求数据读取失败，-55:请求数据json解码失败， -66:井数许可超限，-77:计算异常， -88:响应数据json编码失败， -99:数据校验错误*** 
+
+[1]***1:计算成功，-44:请求数据读取失败，-55:请求数据json解码失败， -66:井数许可超限，-77:计算异常， -88:响应数据json编码失败， -99:数据校验错误*** 
 
 *表3 诊断结果代码说明表*
 | 序号  | 诊断结果代码   | 诊断结果说明                            |
@@ -164,4 +172,4 @@
     }
 }
 ```
-----[返回章节目录](https://github.com/cosog-chentr/acmd/blob/master/README.md)----[Chapter2 功图诊断&计产](https://github.com/cosog-chentr/acmd/blob/master/Chapter2)----
+----[返回章节目录](https://github.com/cosog-chentr/acmd/blob/master/README.md)----[Chapter2 功图诊断&计产](https://github.com/cosog-chentr/acmd/blob/master/Chapter2/Chapter2.md)----

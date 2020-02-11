@@ -1,6 +1,24 @@
 # Chapter2 功图诊断&计产
 
-[toc]
+- [Chapter2 功图诊断&计产](Chapter2.md#Chapter2-功图诊断&计产)
+   - [2.1 输入文本（完整版）](Chapter2.md##2.1-输入文本（完整版）)
+     - [2.1.1 输入参数说明](Chapter2.md###2.1.1-输入参数说明)
+     - [2.1.2 输入实例（无尾管）](Chapter2.md###2.1.2-输入实例（无尾管）)
+     - [2.1.3 输入实例（有尾管、滤管）](Chapter2.md###2.1.3-输入实例（有尾管、滤管）)
+     - [2.1.4 数据收集表](Chapter2.md###2.1.4-数据收集表)
+        - [2.1.4.1 油井数据收集表](Chapter2.md####2.1.4.1-油井数据收集表)
+        - [2.1.4.2 煤层气井数据收集表](Chapter2.md####2.1.4.2-煤层气井数据收集表)
+   - [2.2 输出文本（完整版）](Chapter2.md##2.2-输出文本（完整版）)
+     - [2.2.1 输出参数说明](Chapter2.md###2.2.1-输出参数说明)
+     - [2.2.2 输出实例](Chapter2.md###2.2.2-输出实例)
+     - [2.2.3 工况类型代码](Chapter2.md###2.2.3-工况类型代码)
+   - [2.3 输入文本（精简版）](Chapter2.md##2.3-输入文本（精简版)
+     - [2.3.1 输入参数说明](Chapter2.md###2.3.1-输入参数说明)
+     - [2.3.2 输入实例](Chapter2.md###2.3.2-输入实例)
+   - [2.4 输出文本（精简版）](Chapter2.md##2.4-输出文本（精简版）)
+     - [2.4.1 输出参数说明](Chapter2.md###2.4.1-输出参数说明)
+     - [2.4.2 输出实例](Chapter2.md###2.4.2-输出实例)
+     - [2.4.3 工况类型代码](Chapter2.md###2.4.3-工况类型代码)
 
 ## 2.1 输入文本（完整版）
 
@@ -501,7 +519,7 @@
 | 1        |               |                 |            |            |               |                 |             |                 |               |         |
 | 2        |               |                 |            |            |               |                 |             |                 |               |         |
 
-#### 1.1.4.2 煤层气井数据收集表
+#### 2.1.4.2 煤层气井数据收集表
 
 *表2-6 区块数据*
 
@@ -1155,4 +1173,4 @@
 | 25   | 1232         | 采集异常         | 检查采集仪表       |
 | 26   | 1302         | 停抽             |                    |
 
-----[Chapter1 采集处理](https://github.com/cosog-chentr/acmd/blob/master/Chapter1)----[返回章节目录](https://github.com/cosog-chentr/acmd/blob/master/README.md)----[Chapter3 功图平衡](https://github.com/cosog-chentr/acmd/blob/master/Chapter3)----
+----[Chapter1 采集处理](https://github.com/cosog-chentr/acmd/blob/master/Chapter1/Chapter1.md)----[返回章节目录](https://github.com/cosog-chentr/acmd/blob/master/README.md)----[Chapter3 功图平衡](https://github.com/cosog-chentr/acmd/blob/master/Chapter3/Chapter3.md)----
