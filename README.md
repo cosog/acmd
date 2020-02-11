@@ -100,10 +100,10 @@ AgileCalculation SDK V7.1.2版（以下简称SDK）提供http接口服务，采�
 
 AgileCalculation.exe运行后在指定端口提供http服务，通过post模式进行访问。在Windows系统下点击运行AgileCalculation.exe，桌面上会出现程序运行框。
 
-![](https://github.com/cosog-chentr/acmd/blob/master/Image/2.png?raw=true)  
+![](https://github.com/cosog-chentr/acmd/blob/master/Image/1.png?raw=true)  
 *图1 SDK运行程序图标*
 
-![](https://github.com/cosog-chentr/acmd/blob/master/Image/1.png?raw=true)  
+![](https://github.com/cosog-chentr/acmd/blob/master/Image/2.png?raw=true)  
 *图2 SDK运行状态窗口*
 
 # 端口配置说明
