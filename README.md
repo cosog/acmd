@@ -89,11 +89,11 @@ AgileCalculation SDK V7.1.2版（以下简称SDK）提供http接口服务，采�
 | 5        | 电参诊断-抽油机    | http://服务器IP:端口/api/calculation/electric/etvalue/diagnosis/pumpingunit  |
 | 6        | 电参诊断-螺杆泵    | http://服务器IP:端口/api/calculation/electric/etvalue/diagnosis/screwpump    |
 | 7        | 电参平衡           | http://服务器IP:端口/api/calculation/electric/esdiagram/balance/back         |
-| 8        | 电参时率           | http://服务器IP:端口/api/calculation/run   |
-| 9        | 电参能耗           | http://服务器IP:端口/api/calculation/energy|
+| 8        | 电参时率           | http://服务器IP:端口/api/calculation/run                                     |
+| 9        | 电参能耗           | http://服务器IP:端口/api/calculation/energy                                  |
 | 10       | 电参反演           | http://服务器IP:端口/api/calculation/electric/esdiagram/inversion/motorauto |
 | 11       | 转速计产           | http://服务器IP:端口/api/calculation/rpm/screwpump                           |
-| 12       | 通信计算           | http://服务器IP:端口/api/calculation/comm  |
+| 12       | 通信计算           | http://服务器IP:端口/api/calculation/comm                                   |
 | 13       | 单井全天汇总       | http://服务器IP:端口/api/analysis/total/well                                 |
 
 # 软件使用
