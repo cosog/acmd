@@ -23,7 +23,7 @@
 | Manufacturer                     | 厂商               |       | string   |          |                                                         |
 | Model                            | 型号               |       | string   |          |                                                         |
 | Type                             | 类型               |       | int      |          | 1-前置式，2-后置式（默认），3-立式                      |
-| CrankRotationDirection           | 曲柄旋转方向       |       | string   | *        | Clockwise－顺时针，Anticlockwise－逆时针，立式抽油机无  |
+| CrankRotationDirection           | 曲柄旋转方向       |       | string   | *        | Clockwise－顺时针，Anticlockwise－逆时针，立式无        |
 | OffsetAngleOfCrank               | 曲柄偏置角         | °     | float64  | *        | 非异相型抽油机填0                                       |
 | InitialAngleOfCrank              | 曲柄初始角度       | °     | float64  |          | 非异相型默认0度，异相型默认12度，前置型默认15度         |
 | CrankGravityRadius               | 曲柄重心半径       | m     | float64  | *        |                                                         |
@@ -32,7 +32,7 @@
 | StructuralUnbalance              | 结构不平衡重       | kN    | float64  | *        | 复合平衡尾平衡按角度档位可调的                          |
 | **Balance**                      | **平衡块**         |       |          |          |                                                         |
 | MaxCNT                           | 标配平衡块数       |       | int      |          |                                                         |
-| **EveryBalance**                 | **每个平衡块参数** |       |          |          |                                                         |
+| **EveryBalance**                 | **平衡块参数**     |       |          |          |                                                         |
 | Position                         | 目前位置           | m     | float64  | *        |                                                         |
 | Weight                           | 重量               | kN    | float64  | *        |                                                         |
 | **PRTF**                         | **位置扭矩因数**   |       |          |          |                                                         |
@@ -177,7 +177,7 @@
 | Balance                       | 平衡块扭矩             | kN·m   | float64  |                                         |
 | Crank                         | 曲柄扭矩               | kN·m   | float64  |                                         |
 | Net                           | 减速箱输出轴净扭矩     | kN·m   | float64  |                                         |
-| **NetAnalysis**               | **减速箱输出轴净扭矩** |        |          |                                         |
+| **NetAnalysis**               | **净扭矩曲线分析**     |        |          |                                         |
 | MeanSquareRoot                | 曲线均方根值           |        | float64  |                                         |
 | UpStrokeMaxValue              | 上冲程最大值           |        | float64  |                                         |
 | DownStrokeMaxValue            | 下冲程最大值           |        | float64  |                                         |
@@ -194,7 +194,7 @@
 | **TorqueCurve**               | **扭矩曲线**           |        |          |                                         |
 | Balance                       | 平衡块扭矩             | kN·m   | float64  |                                         |
 | Net                           | 减速箱输出轴净扭矩     | kN·m   | float64  |                                         |
-| **NetAnalysis**               | **减速箱输出轴净扭矩** |        |          |                                         |
+| **NetAnalysis**               | **净扭矩曲线分析**     |        |          |                                         |
 | MeanSquareRoot                | 曲线均方根值           |        | float64  |                                         |
 | UpStrokeMaxValue              | 上冲程最大值           |        | float64  |                                         |
 | DownStrokeMaxValue            | 下冲程最大值           |        | float64  |                                         |
@@ -216,7 +216,7 @@
 | **TorqueCurve**               | **扭矩曲线**           |        |          |                                         |
 | Balance                       | 平衡块扭矩             | kN·m   | float64  |                                         |
 | Net                           | 减速箱输出轴净扭矩     | kN·m   | float64  |                                         |
-| **NetAnalysis**               | **减速箱输出轴净扭矩** |        |          |                                         |
+| **NetAnalysis**               | **净扭矩曲线分析**     |        |          |                                         |
 | MeanSquareRoot                | 曲线均方根值           |        | float64  |                                         |
 | UpStrokeMaxValue              | 上冲程最大值           |        | float64  |                                         |
 | DownStrokeMaxValue            | 下冲程最大值           |        | float64  |                                         |
@@ -238,7 +238,7 @@
 | **TorqueCurve**               | **扭矩曲线**           |        |          |                                         |
 | Balance                       | 平衡块扭矩             | kN·m   | float64  |                                         |
 | Net                           | 减速箱输出轴净扭矩     | kN·m   | float64  |                                         |
-| **NetAnalysis**               | **减速箱输出轴净扭矩** |        |          |                                         |
+| **NetAnalysis**               | **净扭矩曲线分析**     |        |          |                                         |
 | MeanSquareRoot                | 曲线均方根值           |        | float64  |                                         |
 | UpStrokeMaxValue              | 上冲程最大值           |        | float64  |                                         |
 | DownStrokeMaxValue            | 下冲程最大值           |        | float64  |                                         |
@@ -277,7 +277,7 @@
         "WarningCounter": 0,
         "WarningString": ""
     },
-    "CurrentTorqueCurve": {               //（3）目前扭矩曲线
+    "CurrentTorqueCurve": {                   //（3）目前扭矩曲线
         "Load": [
             0,
             0,

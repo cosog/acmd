@@ -31,8 +31,8 @@
 | AKString                            | 应用密钥                |           | string   |          | 预留字段                                |
 | WellName                            | 井名                    |           | string   | *        |                                         |
 | **FluidPVT**                        | **流体PVT物性**         |           |          |          |                                         |
-| CrudeOilDensity                     | 原油密度                | g/cm\^3   | float64  | *        | 煤层气井不填写                          |
-| WaterDensity                        | 水密度                  | g/cm\^3   | float64  | *        |                                         |
+| CrudeOilDensity                     | 原油密度                | g/cm^3    | float64  | *        | 煤层气井不填写                          |
+| WaterDensity                        | 水密度                  | g/cm^3    | float64  | *        |                                         |
 | NaturalGasRelativeDensity           | 天然气相对密度          |           | float64  | *        |                                         |
 | SaturationPressure                  | 饱和压力                | MPa       | float64  | *        | 煤层气井不填写                          |
 | **Reservoir**                       | **油气藏物性**          |           |          |          |                                         |
@@ -45,18 +45,18 @@
 | AzimuthAngle                        | 方位角                  | °         | float64  |          |                                         |
 | **RodString**                       | **抽油杆参数**          |           |          |          |                                         |
 | Type                                | 抽油杆类型              |           | int      |          | 1-实心抽油杆，2-空心抽油杆              |
-| Grade                               | 杆级别                  |           | string   | *        | A，B，C，K，D，KD，HL，HY               |
+| Grade                               | 杆级别                  |           | string   | *        | A,B,C,K,D,KD,HL,HY                      |
 | Length                              | 杆长                    | m         | float64  | *        | 不包含光杆和泵上拉杆                    |
 | OutsideDiameter                     | 杆外径                  | m         | float64  | *        |                                         |
 | InsideDiameter                      | 杆内径                  | m         | float64  |          | 为空心抽油杆预留                        |
-| Density                             | 杆密度                  | g/cm\^3   | float64  |          | 默认值为7.85                            |
+| Density                             | 杆密度                  | g/cm^3    | float64  |          | 默认值为7.85                            |
 | WeightPerMeter                      | 每米杆重                | kN/m      | float64  |          | 杆重（含节箍）                          |
 | **TubingString**                    | **油管参数**            |           |          |          |                                         |
 | Grade                               | 油管钢级                |           | string   |          | 详见表底注释[1]                         |
 | OutsideDiameter                     | 油管外径                | m         | float64  |          |                                         |
 | InsideDiameter                      | 油管内径                | m         | float64  | *        | 默认0.062m                              |
 | Length                              | 油管长度                | m         | float64  |          |                                         |
-| Density                             | 油管密度                | g/cm\^3   | float64  |          |                                         |
+| Density                             | 油管密度                | g/cm^3    | float64  |          |                                         |
 | WeightPerMeter                      | 每米管重                | kN/m      | float64  |          |                                         |
 | **Pump**                            | **抽油泵参数**          |           |          |          |                                         |
 | PumpType                            | 泵类型                  |           | string   |          | R-杆式泵 T-管式泵                       |
@@ -73,7 +73,7 @@
 | OutsideDiameter                     | 尾管外径                | m         | float64  |          |                                         |
 | InsideDiameter                      | 尾管内径                | m         | float64  |          |                                         |
 | Length                              | 尾管长度                | m         | float64  |          |                                         |
-| Density                             | 尾管密度                | g/cm\^3   | float64  |          |                                         |
+| Density                             | 尾管密度                | g/cm^3    | float64  |          |                                         |
 | WeightPerMeter                      | 每米管重                | kN/m      | float64  |          |                                         |
 | GasAnchorEfficiency                 | 气锚效率                | 小数      | float64  |          | 无气锚填0                               |
 | **CasingString**                    | **生产套管参数**        |           |          |          |                                         |
@@ -81,11 +81,11 @@
 | OutsideDiameter                     | 套管外径                | m         | float64  |          |                                         |
 | InsideDiameter                      | 套管内径                | m         | float64  | *        | 默认0.127m                              |
 | Length                              | 套管长度                | m         | float64  |          |                                         |
-| Density                             | 套管密度                | g/cm\^3   | float64  |          |                                         |
+| Density                             | 套管密度                | g/cm^3    | float64  |          |                                         |
 | WeightPerMeter                      | 每米管重                | kN/m      | float64  |          |                                         |
 | **ProductionParameter**             | **生产数据**            |           |          |          |                                         |
 | WaterCut                            | 体积含水率              | %         | float64  | *        | 煤层气井填100                           |
-| ProductionGasOilRatio               | 生产气油比              | m\^3/m\^3 | float64  | *        | 煤层气井不填                            |
+| ProductionGasOilRatio               | 生产气油比              | m^3/m^3   | float64  | *        | 煤层气井不填                            |
 | TubingPressure                      | 油压（回压）            | MPa       | float64  | *        | 如无油压，可录入回压                    |
 | CasingPressure                      | 套压                    | MPa       | float64  | *        |                                         |
 | WellHeadFluidTemperature            | 井口油温                | ℃        | float64  |          |                                         |
@@ -793,10 +793,10 @@
         "PlungerStroke": 2.7,
         "AvailablePlungerStroke": 0.82,
         "F": [
-            [                  ==//各项值代表意义：光杆功图载荷、各级杆顶端功图载荷，按实际杆数依次填写，泵顶端载荷即为泵功图载荷==
-				26.53,         ==//光杆功图载荷（一级杆顶端功图载荷）==
-				14.33,         ==//二级杆顶端功图载荷==
-				1.06           ==//泵功图载荷==
+            [                  //各项值代表意义：光杆功图载荷、各级杆顶端功图载荷，按实际杆数依次填写，泵顶端载荷即为泵功图载荷
+				26.53,         //光杆功图载荷（一级杆顶端功图载荷）
+				14.33,         //二级杆顶端功图载荷
+				1.06           //泵功图载荷
 				],
             [
                 27.69,
@@ -816,10 +816,10 @@
             ]
         ],
         "S": [
-            [               ==//各项值代表意义：光杆功图位移、各级杆顶端功图位移，按实际杆数依次填写，泵顶端位移即为泵功图位移==
-				0,          ==//光杆功图位移（一级杆顶端功图位移）==
-				-0.0054     ==//二级杆柱顶端功图位移==
-				-0.0174     ==//泵功图位移==
+            [               //各项值代表意义：光杆功图位移、各级杆顶端功图位移，按实际杆数依次填写，泵顶端位移即为泵功图位移
+				0,          //光杆功图位移（一级杆顶端功图位移）
+				-0.0054     //二级杆柱顶端功图位移
+				-0.0174     //泵功图位移
 				],
             [
                 0.01,
