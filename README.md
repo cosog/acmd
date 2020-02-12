@@ -1,31 +1,28 @@
-# 《油气生产敏捷计算SDK V7.1.2》用户手册
+# 《油气生产敏捷计算SDK V7.1》用户手册
 
 ## 软件介绍 
 
-AgileCalculation SDK V7.1.2版（以下简称SDK）提供http接口服务，采用post请求模式，json数据格式，实现分布式并行云计算。功能包括：采集处理；功图诊断、功图计产、功图平衡；电参诊断、电参时率、电参能耗、电参平衡、电参反演；转速计产；通信计算；汇总计算等。
+AgileCalculation SDK V7.1版（以下简称SDK）提供http接口服务，采用post请求模式，json数据格式，实现分布式并行云计算。功能包括：采集处理；功图诊断、功图计产、功图平衡；电参诊断、电参时率、电参能耗、电参平衡、电参反演；转速计产；通信计算；汇总计算等。
 
 ## 章节目录
 
-* Chapter 1: [采集处理](https://github.com/cosog-chentr/acmd/blob/master/Chapter1/Chapter1.md)
-* Chapter 2: [功图诊断&计产](https://github.com/cosog-chentr/acmd/blob/master/Chapter2/Chapter2.md)
-* Chapter 3: [功图平衡](https://github.com/cosog-chentr/acmd/blob/master/Chapter3/Chapter3.md)
-* Chapter 4: [电参诊断](https://github.com/cosog-chentr/acmd/blob/master/Chapter4/Chapter4.md)
-* Chapter 5: [电参平衡](https://github.com/cosog-chentr/acmd/blob/master/Chapter5/Chapter5.md)
-* Chapter 6: [电参时率](https://github.com/cosog-chentr/acmd/blob/master/Chapter6/Chapter6.md)
-* Chapter 7: [电参能耗](https://github.com/cosog-chentr/acmd/blob/master/Chapter7/Chapter7.md)
-* Chapter 8: [电参反演](https://github.com/cosog-chentr/acmd/blob/master/Chapter8/Chapter8.md)
-* Chapter 9: [转速计产](https://github.com/cosog-chentr/acmd/blob/master/Chapter9/Chapter9.md)
-* Chapter 10: [通信计算](https://github.com/cosog-chentr/acmd/blob/master/Chapter10/Chapter10.md)
-* Chapter 11: [全井汇总](https://github.com/cosog-chentr/acmd/blob/master/Chapter11/Chapter11.md)
+* [第一章：采集处理](https://github.com/cosog/acmd/blob/master/Chapter1)
+* [第二章：功图诊断&计产](https://github.com/cosog/acmd/blob/master/Chapter2)
+* [第三章：功图平衡](https://github.com/cosog/acmd/blob/master/Chapter3)
+* [第四章：电参诊断](https://github.com/cosog/acmd/blob/master/Chapter4)
+* [第五章：电参平衡](https://github.com/cosog/acmd/blob/master/Chapter5)
+* [第六章：电参时率](https://github.com/cosog/acmd/blob/master/Chapter6)
+* [第七章：电参能耗](https://github.com/cosog/acmd/blob/master/Chapter7)
+* [第八章：电参反演](https://github.com/cosog/acmd/blob/master/Chapter8)
+* [第九章：转速计产](https://github.com/cosog/acmd/blob/master/Chapter9)
+* [第十章：通信计算](https://github.com/cosog/acmd/blob/master/Chapter10)
+* [第十一章：全井汇总](https://github.com/cosog/acmd/blob/master/Chapter11)
 
 ## 版本更新
 
-**SDK V7.1.2**  
-（1）整合通信计算及单井通信汇总，更新输入、输出结构体格式。  
-（2）整合计算，将电参时率&能耗及单井时率&能耗汇总中的时率和能耗分开，形成时率计算输入、输出结构体和能耗计算输入、输出结构体。   
-（3）增加电参能耗计算URL及输入、输出结构体。  
-（4）规范全井汇总中的部分字段。  
-（5）取消MongoDB数据库。  
+**SDK V7.1**  
+（1）取消MongoDB数据库。  
+（2）电参时率、电参能耗、通信计算不再依赖MongDB数据库。  
 
 **SDK V6.7.7**  
 （1）功图诊断&计产中增加功图诊断（精简版），只需要功图数据即可对功图工况进行诊断；增加功图诊断（精简版）接口URL。  
@@ -74,47 +71,46 @@ AgileCalculation SDK V7.1.2版（以下简称SDK）提供http接口服务，采�
 
 # 公有云访问
 
-演示案例访问地址：**http://47.93.123.217:18200**
+示例：**http://47.93.123.217:18200**
 
-阿里云SDK服务器IP、端口号：**139.129.166.94:18100**
+公有云服务器：**139.129.166.94:18100**
 
 # 接口模式
 
-| **序号** | **模块**           | **接口URL**                                |
-|----------|--------------------|--------------------------------------------|
-| 1        | 采集处理           | http://服务器IP:端口/api/acquisition/fa2fs |
-| 2        | 功图诊断&计产      | http://服务器IP:端口/api/calculation/fsdiagram/diagnosis                     |
-| 3        | 功图诊断（精简版） | http://服务器IP:端口/api/calculation/fsdiagram/diagnosis/lite                |
-| 4        | 功图平衡           | http://服务器IP:端口/api/calculation/fsdiagram/balance/back                  |
-| 5        | 电参诊断-抽油机    | http://服务器IP:端口/api/calculation/electric/etvalue/diagnosis/pumpingunit  |
-| 6        | 电参诊断-螺杆泵    | http://服务器IP:端口/api/calculation/electric/etvalue/diagnosis/screwpump    |
-| 7        | 电参平衡           | http://服务器IP:端口/api/calculation/electric/esdiagram/balance/back         |
-| 8        | 电参时率           | http://服务器IP:端口/api/calculation/run                                     |
-| 9        | 电参能耗           | http://服务器IP:端口/api/calculation/energy                                  |
-| 10       | 电参反演           | http://服务器IP:端口/api/calculation/electric/esdiagram/inversion/motorauto |
-| 11       | 转速计产           | http://服务器IP:端口/api/calculation/rpm/screwpump                           |
-| 12       | 通信计算           | http://服务器IP:端口/api/calculation/comm                                   |
-| 13       | 单井全天汇总       | http://服务器IP:端口/api/analysis/total/well                                 |
+| **序号** | **模块**           | **URL**                                                                |
+|----------|--------------------|------------------------------------------------------------------------|
+| 1        | 采集处理           | http://IP:端口/api/acquisition/fa2fs                                   |
+| 2        | 功图诊断&计产      | http://IP:端口/api/calculation/fsdiagram/diagnosis                     |
+| 3        | 功图诊断（精简版） | http://IP:端口/api/calculation/fsdiagram/diagnosis/lite                |
+| 4        | 功图平衡           | http://IP:端口/api/calculation/fsdiagram/balance/back                  |
+| 5        | 电参诊断-抽油机    | http://IP:端口/api/calculation/electric/etvalue/diagnosis/pumpingunit  |
+| 6        | 电参诊断-螺杆泵    | http://IP:端口/api/calculation/electric/etvalue/diagnosis/screwpump    |
+| 7        | 电参平衡           | http://IP:端口/api/calculation/electric/esdiagram/balance/back         |
+| 8        | 电参时率           | http://IP:端口/api/calculation/run                                     |
+| 9        | 电参能耗           | http://IP:端口/api/calculation/energy                                  |
+| 10       | 电参反演           | http://IP:端口/ api/calculation/electric/esdiagram/inversion/motorauto |
+| 11       | 转速计产           | http://IP:端口/api/calculation/rpm/screwpump                           |
+| 12       | 通信计算           | http://IP:端口/api/calculation/comm                                    |
+| 13       | 单井全天汇总       | http://IP:端口/api/analysis/total/well                                 |
 
 # 软件使用
 
-AgileCalculation.exe运行后在指定端口提供http服务，通过post模式进行访问。在Windows系统下点击运行AgileCalculation.exe，桌面上会出现程序运行框。
+AgileCalculation软件运行后在指定端口提供http服务，通过post模式进行访问。
 
 ![](https://github.com/cosog-chentr/acmd/blob/master/Image/1.png?raw=true)  
-*图1 SDK运行程序图标*
+*图1 运行程序图标(Windows)*
 
 ![](https://github.com/cosog-chentr/acmd/blob/master/Image/2.png?raw=true)  
-*图2 SDK运行状态窗口*
+*图2 运行状态窗口(Windows)*
 
 # 端口配置说明
 
 软件安装完成之后，可对SDK端口进行配置，在本机防火墙中将下列TCP端口设置例外：**18100（SDK端口）**。如果涉及外网访问SDK端口，还需映射端口18100，映射对应的外部端口可以选择与内部端口一致。  
 
-# 公司介绍
-北京科斯奇石油科技有限公司（www.cosogoil.com） 成立于2006年，是一家专注于油气生产物联网与大数据领域的智能算法研究、开发和应用的公司。公司主要从事为油气企业客户提供大数据智能计算分析服务；为油气生产物联网集成厂商提供智能算法和配套产品服务；为设备制造厂商提供深度融合的嵌入式智能应用系统；为合作方提供产品分销服务。  
-公司地址及联系方式：  
-名称：北京科斯奇石油科技有限公司  
-地址：北京市海淀区安宁庄路26号楼7层705  
-邮编：100085  
-电话：010 - 82921872  
-网址：http://www.cosogoil.com
+# 联系我们
+地址及联系方式：  
+**名称**：北京科斯奇石油科技有限公司  
+**地址**：北京市海淀区安宁庄路26号楼7层705  
+**邮编**：100085  
+**电话**：010 - 82921872  
+**网址**：http://www.cosogoil.com
