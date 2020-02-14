@@ -8,7 +8,7 @@
      - [6.2.1 输出参数说明](Chapter6.md#621-输出参数说明)
      - [6.2.2 输出实例](Chapter6.md#622-输出实例)
 
-## 6.1输入文本
+## 6.1 输入文本
 
 ### 6.1.1 输入参数说明
 
@@ -64,7 +64,7 @@
 }
 ```
 
-## 6.2输出文本
+## 6.2 输出文本
 
 ### 6.2.1 输出参数说明
 
@@ -105,7 +105,7 @@
 **[1]** *计算结果状态:1:计算成功，-44:请求数据读取失败，-55:请求数据json解码失败， -66:井数许可超限，-77:计算异常， -88:响应数据json编码失败， -99:数据校验错误*  
 **[2]** *开始时间/结束时间:1、 StartTime="" EndTime=""-全天运行 2、 StartTime="00:00" EndTime="00:00"-全天停止 3、其他-按区间段运行*
 
-### 8.2.2 输出实例
+### 6.2.2 输出实例
 
 ```
 {
@@ -156,4 +156,4 @@
 }
 ```
 
-----[第五章 电参平衡](https://github.com/cosog/acmd/blob/master/Chapter5/Chapter5.md)----[返回章节目录](https://github.com/cosog/acmd/blob/master/README.md)----[第七章 电参能耗](https://github.com/cosog/acmd/blob/master/Chapter7/Chapter7.md)----
+----[第五章 电参平衡](.././Chapter5/Chapter5.md)----[返回章节目录](.././README.md)----[第七章 电参能耗](.././Chapter7/Chapter7.md)----

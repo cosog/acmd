@@ -619,4 +619,4 @@
 }
 ```
 
-----[第十章 通信计算](https://github.com/cosog/acmd/blob/master/Chapter10/Chapter10.md)----[返回章节目录](https://github.com/cosog/acmd/blob/master/README.md)----
+----[第十章 通信计算](.././Chapter10/Chapter10.md)----[返回章节目录](.././README.md)----

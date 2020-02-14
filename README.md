@@ -6,17 +6,17 @@ AgileCalculation SDK V7.1版（以下简称SDK）提供http接口服务，采用
 
 ## 章节目录
 
-* [第一章：采集处理](https://github.com/cosog/acmd/blob/master/Chapter1/Chapter1.md)
-* [第二章：功图诊断&计产](https://github.com/cosog/acmd/blob/master/Chapter2/Chapter2.md)
-* [第三章：功图平衡](https://github.com/cosog/acmd/blob/master/Chapter3/Chapter3.md)
-* [第四章：电参诊断](https://github.com/cosog/acmd/blob/master/Chapter4/Chapter4.md)
-* [第五章：电参平衡](https://github.com/cosog/acmd/blob/master/Chapter5/Chapter5.md)
-* [第六章：电参时率](https://github.com/cosog/acmd/blob/master/Chapter6/Chapter6.md)
-* [第七章：电参能耗](https://github.com/cosog/acmd/blob/master/Chapter7/Chapter7.md)
-* [第八章：电参反演](https://github.com/cosog/acmd/blob/master/Chapter8/Chapter8.md)
-* [第九章：转速计产](https://github.com/cosog/acmd/blob/master/Chapter9/Chapter9.md)
-* [第十章：通信计算](https://github.com/cosog/acmd/blob/master/Chapter10/Chapter10.md)
-* [第十一章：全井汇总](https://github.com/cosog/acmd/blob/master/Chapter11/Chapter11.md)
+* [第一章：采集处理](./Chapter1/Chapter1.md)
+* [第二章：功图诊断&计产](./Chapter2/Chapter2.md)
+* [第三章：功图平衡](./Chapter3/Chapter3.md)
+* [第四章：电参诊断](./Chapter4/Chapter4.md)
+* [第五章：电参平衡](./Chapter5/Chapter5.md)
+* [第六章：电参时率](./Chapter6/Chapter6.md)
+* [第七章：电参能耗](./Chapter7/Chapter7.md)
+* [第八章：电参反演](./Chapter8/Chapter8.md)
+* [第九章：转速计产](./Chapter9/Chapter9.md)
+* [第十章：通信计算](./Chapter10/Chapter10.md)
+* [第十一章：全井汇总](./Chapter11/Chapter11.md)
 
 ## 版本更新
 
