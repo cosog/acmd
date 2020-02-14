@@ -7,7 +7,7 @@
    - [4.2 输出文本](Chapter4.md#42-输出文本)
      - [4.2.1 输出参数说明](Chapter4.md#421-输出参数说明)
      - [4.2.2 输出实例](Chapter4.md#422-输出实例)
-     - [4.2.3 工况类型代码](Chapter4.md#422-输出实例)
+     - [4.2.3 工况类型代码](Chapter4.md#423-工况类型代码)
 
 ## 4.1 输入文本
 
@@ -192,4 +192,4 @@
 | 8    | 1324     | 三相电流不均衡（防盗电）                                     |
 | 9    | 0        | 空（停止时对应的响应工况）                                   |
 
-----[第三章 功图平衡](https://github.com/cosog/acmd/blob/master/Chapter3/Chapter3.md)----[返回章节目录](https://github.com/cosog/acmd/blob/master/README.md)----[第五章 电参平衡](https://github.com/cosog/acmd/blob/master/Chapter5/Chapter5.md)----
+----[第三章 功图平衡](.././Chapter3/Chapter3.md)----[返回章节目录](.././README.md)----[第五章 电参平衡](.././Chapter5/Chapter5.md)----

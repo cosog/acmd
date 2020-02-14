@@ -200,4 +200,4 @@
 }
 ```
 
-----[第六章 电参时率](https://github.com/cosog/acmd/blob/master/Chapter6/Chapter6.md)----[返回章节目录](https://github.com/cosog/acmd/blob/master/README.md)----[第八章 电参反演](https://github.com/cosog/acmd/blob/master/Chapter8/Chapter8.md)----
+----[第六章 电参时率](.././Chapter6/Chapter6.md)----[返回章节目录](.././README.md)----[第八章 电参反演](.././Chapter8/Chapter8.md)----
