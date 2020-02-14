@@ -162,7 +162,7 @@
 
 | 序号      | 井名* | 厂家 | 型号 | 类型 | 曲柄旋转方向* | 曲柄偏置角(°)*   | 曲柄重心半径(m)*  | 单块曲柄重量(kN)*  | 结构不平衡重(kN)*   |
 |----------|-------|------------|------------|------------|---------------|------------------|-------------------|--------------------|---------------------|
-| 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |         |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       |          |       |          |         |
+| 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       |          |       |          |         |
 | 2        |       |            |            |            |               |                  |                   |                    |                     |
 | 3        |       |            |            |            |               |                  |                   |                    |                     |
 
