@@ -28,7 +28,7 @@
 
 | 代码                                | 名称                    | 单位      | 类型     | 必填     | 备注                                    |
 |-------------------------------------|-------------------------|-----------|----------|----------|-----------------------------------------|
-| AKString    | 应用密钥                |           | string   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          | 预留字段                |
+| AKString    | 应用密钥                |           | string   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          | 预留字段     |
 | WellName                            | 井名                    |           | string   | *        |                                         |
 | **FluidPVT**                        | **流体PVT物性**         |           |          |          |                                         |
 | CrudeOilDensity                     | 原油密度                | g/cm^3    | float64  | *        | 煤层气井不填写                          |
