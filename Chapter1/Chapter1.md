@@ -174,4 +174,4 @@
 | 6    | 1109         | 功图点数多于目标上限，优化重新采集      |
 | 7    | 1362         | 停抽                                    |
 
-----[返回章节目录](https://github.com/cosog/acmd/blob/master/README.md)----[第二章 功图诊断&计产](https://github.com/cosog/acmd/blob/master/Chapter2/Chapter2.md)----
+----[返回章节目录](README.md)----[第二章 功图诊断&计产](./Chapter2/Chapter2.md)----

@@ -6,8 +6,8 @@ AgileCalculation SDK V7.1版（以下简称SDK）提供http接口服务，采用
 
 ## 章节目录
 
-* [第一章：采集处理](https://github.com/cosog/acmd/blob/master/Chapter1/Chapter1.md)
-* [第二章：功图诊断&计产](https://github.com/cosog/acmd/blob/master/Chapter2/Chapter2.md)
+* [第一章：采集处理](./Chapter1/Chapter1.md)
+* [第二章：功图诊断&计产](./Chapter2/Chapter2.md)
 * [第三章：功图平衡](https://github.com/cosog/acmd/blob/master/Chapter3/Chapter3.md)
 * [第四章：电参诊断](https://github.com/cosog/acmd/blob/master/Chapter4/Chapter4.md)
 * [第五章：电参平衡](https://github.com/cosog/acmd/blob/master/Chapter5/Chapter5.md)
