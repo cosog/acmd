@@ -157,7 +157,7 @@
 
 *表5-2 抽油机数据表*
 
-| 序号     | 井名* | 厂家 | 型号 | 类型 | 曲柄旋转方*向 | 曲柄偏置角 (°)* |
+| 序号     | 井名* | 厂家 | 型号 | 类型 | 曲柄旋转方向* | 曲柄偏置角 (°)* |
 |----------|-------|------------|------------|------------|---------------|------------------|
 | 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   |     |        |
 | 2        |       |            |            |            |               |                  |
