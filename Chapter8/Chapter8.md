@@ -218,7 +218,7 @@
 *表8-2 数据收集表*
 
 <html>
-        <table border="1">
+        <table>
             <tr>
                  <th colspan="2">数据</th>
                  <th >备注</th>

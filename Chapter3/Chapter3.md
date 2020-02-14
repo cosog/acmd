@@ -177,7 +177,7 @@
 *表3-4 抽油机特性曲线（选填）*
 
 <html>
-        <table border="1">
+        <table>
             <tr>
                  <th colspan="7">光杆位置因数和扭矩因数</th>
             </tr>
