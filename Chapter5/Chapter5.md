@@ -30,7 +30,7 @@
 | **Balance**              | **平衡块数据**     |       |          |          |                                                             |
 | MaxCNT                   | 出厂标配平衡块数   |       | int      |          |                                                             |
 | **EveryBalance**         | **每块平衡块数据** |       |          |          |                                                             |
-| Position                 | 目前位置           | m     | float64  |          |                                                             |
+| Position                 | 目前位置           | m     | float64  | *         |                                                             |
 | Weight                   | 重量               | kN    | float64  | *        |                                                             |
 | **PRTF**                 | **位置扭矩因数**   |       |          |          |                                                             |
 | CrankAngle               | 曲柄转角           | °     | float64  |          |                                                             |
