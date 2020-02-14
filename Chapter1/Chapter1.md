@@ -76,7 +76,7 @@
 | WellName              | 井名             |       | string  |                                   |
 | **CalculationStatus** | **计算状态**     |       |         |                                   |
 | ResultStatus          | 计算结果状态     |       | int     | 详见表底注释[1]                   |
-| ResultCode            | 诊断结果         |       | int     | 详见表3                           |
+| ResultCode            | 诊断结果         |       | int     | 详见表1-3                           |
 | **Verification**      | **数据校验**     |       |         |                                   |
 | ErrorCounter          | 错误参数计数器   |       | int     | 错误参数个数                      |
 | ErrorString           | 错误参数字符串   |       | string  | 数据错误，计算不成功              |
