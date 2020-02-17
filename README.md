@@ -80,7 +80,7 @@ AgileCalculation SDK V7.1版（以下简称SDK）提供http接口服务，采用
 | **序号** | **模块**           | **URL**                                                                |
 |----------|--------------------|------------------------------------------------------------------------|
 | 1        | 采集处理           | http://IP:端口/api/acquisition/fa2fs                                   |
-| 2        | 功图诊断&计产      | http://IP:端口/api/calculation/fsdiagram/diagnosis                     |
+| 2        | 功图诊断&计产（标准版）      | http://IP:端口/api/calculation/fsdiagram/diagnosis                     |
 | 3        | 功图诊断（精简版） | http://IP:端口/api/calculation/fsdiagram/diagnosis/lite                |
 | 4        | 功图平衡           | http://IP:端口/api/calculation/fsdiagram/balance/back                  |
 | 5        | 电参诊断-抽油机    | http://IP:端口/api/calculation/electric/etvalue/diagnosis/pumpingunit  |
