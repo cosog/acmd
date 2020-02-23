@@ -35,9 +35,9 @@
 | WaterDensity                        | 水密度                  | g/cm^3    | float64  | *        |                                         |
 | NaturalGasRelativeDensity           | 天然气相对密度          |           | float64  | *        |                                         |
 | SaturationPressure                  | 饱和压力                | MPa       | float64  | *        | 煤层气井不填写                          |
-| **Reservoir**                       | **油气藏物性**          |           |          |          |                                         |
-| Depth                               | 油气藏深度              | m         | float64  | *        | 油气藏中部（测量）深度                  |
-| Temperature                         | 油气藏温度              | ℃        | float64  | *        | 油气藏中部温度                          |
+| **Reservoir**                       | **油层数据**          |           |          |          |                                         |
+| Depth                               | 油层中部深度              | m         | float64  | *        | 油层中部（测量）深度                  |
+| Temperature                         | 油层中部温度              | ℃        | float64  | *        |                           |
 | **WellboreTrajectory**              | **井身轨迹**            |           |          |          |                                         |
 | MeasuringDepth                      | 测量深度                | m         | float64  |          | 如直井可不填写，非直井按 实际数据填写   |
 | VerticalDepth                       | 垂直深度                | m         | float64  |          |                                         |
@@ -125,7 +125,7 @@
 		"NaturalGasRelativeDensity": 0.7,
 		"SaturationPressure": 9.6
 	},
-	"Reservoir": {                    //（4） 油气藏物性 
+	"Reservoir": {                    //（4） 油层数据 
 		"Depth": 1350,
 		"Temperature": 66
 	},
@@ -291,7 +291,7 @@
 		"NaturalGasRelativeDensity": 0.7,
 		"SaturationPressure": 9.6
 	},
-	"Reservoir": {                  //（4） 油藏物性 
+	"Reservoir": {                  //（4） 油层数据
 		"Depth": 1350,
 		"Temperature": 66
 	},
