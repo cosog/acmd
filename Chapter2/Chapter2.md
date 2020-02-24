@@ -98,8 +98,8 @@
 | SPM                                 | 冲次                    | 1/min     | float64  | *        |                                         |
 | F                                   | 载荷                    | kN        | float64  | *        |                                         |
 | S                                   | 位移                    | m         | float64  | *        |                                         |
-| P                                   | 三相总有功功率          | kW        | float64  |          |                                         |
-| A                                   | 三相平均电流            | A         | float64  |          |                                         |
+| Watt                                | 三相总有功功率          | kW        | float64  |          |                                         |
+| I                                   | 三相平均电流            | A         | float64  |          |                                         |
 | **SystemEfficiency**                | **系统效率**            |           |          |          |                                         |
 | MotorInputActivePower               | 电机输入有功功率        | kW        | float64  |          | 用于计算系统效率                        |
 | **ManualIntervention**              | **人工干预**            |           |          |          |                                         |
@@ -243,7 +243,7 @@
 			[0.01],
 			[0]
 			],
-		"P": [
+		"Watt": [
 			0.3,
 			0.6,
 			0.3,
@@ -256,7 +256,7 @@
 			0.9,
 			1.8
 			],
-		"A": [
+		"I": [
 			17.54,
 			17.52,
 			17.48,
@@ -438,7 +438,7 @@
 			[0.01],
 			[0]
 			],
-		"P": [
+		"Watt": [
 			0.3,
 			0.6,
 			0.3,
@@ -451,7 +451,7 @@
 			0.9,
 			1.8
 			],
-		"A": [
+		"I": [
 			17.54,
 			17.52,
 			17.48,
@@ -636,21 +636,21 @@
 | AvailablePlungerStroke                     | 柱塞有效冲程               | m           | float64  |                                   |
 | F                                          | 载荷                       | kN          | float64  | 功图载荷                          |
 | S                                          | 位移                       | m           | float64  | 功图位移                          |
-| P                                          | 三相总有功功率             | kW          | float64  |                                   |
-| A                                          | 三相平均电流               | A           | float64  |                                   |
+| Watt                                       | 三相总有功功率             | kW          | float64  |                                   |
+| I                                          | 三相平均电流               | A           | float64  |                                   |
 | FMax                                       | 最大载荷                   | kN          | float64  | 各级功图最大载荷                  |
 | FMin                                       | 最小载荷                   | kN          | float64  | 各级功图最小载荷                  |
 | SMaxIndex                                  | 位移最大值索引             |             | int      |                                   |
 | SMinIndex                                  | 位移最小值索引             |             | int      |                                   |
-| UpStrokePMax                               | 上冲程功率最大值           | kW          | float64  |                                   |
-| DownStrokePMax                             | 下冲程功率最大值           | kW          | float64  |                                   |
-| PDegreeOfBalance                           | 功率平衡度                 | %           | float64  |                                   |
-| PMaxRatioString                            | 功率比字符串               |             | string   |                                   |
-| AverageP                                   | 平均总有功功率             | kW          | float64  |                                   |
-| UpStrokeAMax                               | 上冲程电流最大值           | A           | float64  |                                   |
-| DownStrokeAMax                             | 下冲程电流最大值           | A           | float64  |                                   |
-| ADegreeOfBalance                           | 电流平衡度                 | %           | float64  |                                   |
-| AMaxRatioString                            | 电流比字符串               |             | string   |                                   |
+| UpStrokeWattMax                            | 上冲程功率最大值           | kW          | float64  |                                   |
+| DownStrokeWattMax                          | 下冲程功率最大值           | kW          | float64  |                                   |
+| WattDegreeBalance                          | 功率平衡度                 | %           | float64  |                                   |
+| WattMaxRatioString                         | 功率比字符串               |             | string   |                                   |
+| AverageWatt                                | 平均总有功功率             | kW          | float64  |                                   |
+| UpStrokeIMax                               | 上冲程电流最大值           | A           | float64  |                                   |
+| DownStrokeIMax                             | 下冲程电流最大值           | A           | float64  |                                   |
+| IDegreeBalance                             | 电流平衡度                 | %           | float64  |                                   |
+| IMaxRatioString                            | 电流比字符串               |             | string   |                                   |
 | **PumpEfficiency**                         | **泵效**                   |             |          |                                   |
 | RodFlexLength                              | 抽油杆伸长量               | m           | float64  |                                   |
 | TubingFlexLength                           | 油管伸缩值                 | m           | float64  |                                   |
@@ -828,7 +828,7 @@
                 -0.0010
             ]
         ],
-		"P": [
+		"Watt": [
 				0.3, 
 				0.6, 
 				0.3, 
@@ -841,7 +841,7 @@
 				0.9, 
 				1.8
 		],
-		"A": [
+		"I": [
 				17.54, 
 				17.52, 
 				17.48, 
@@ -866,34 +866,34 @@
         ],
         "SMaxIndex": 99,
         "SMinIndex": 0,
-        "UpStrokePMax": 93,
-        "DownStrokePMax": 84.6,
-        "PDegreeOfBalance": 90.97,
-        "PMaxRatioString": 20.1/22.09,
-        "AverageP": 28.14,
-        "UpStrokeAMax": 58.1,
-        "DownStrokeAMax": 51.04,
-        "ADegreeOfBalance": 87.85,
-        "AMaxRatioString": 18.4/20.94
+        "UpStrokeWattMax": 93,
+        "DownStrokeWattMax": 84.6,
+        "WattDegreeBalance": 90.97,
+        "WattMaxRatioString": 20.1/22.09,
+        "AverageWatt": 28.14,
+        "UpStrokeIMax": 58.1,
+        "DownStrokeIMax": 51.04,
+        "IDegreeBalance": 87.85,
+        "IMaxRatioString": 18.4/20.94
     },
     "PumpEfficiency": {                    //（7）泵效
-        "PumpEff1": 0,
-        "RodFlexLength": 0,
-        "TubingFlexLength": 0,
-        "InertiaLength": 0,
-        "PumpEff2": 0,
-        "PumpEff3": 0,
-        "PumpEff4": 0,
-        "PumpEff": 0
+        "PumpEff1": 0.66,
+        "RodFlexLength": 0.221,
+        "TubingFlexLength": 0.054,
+        "InertiaLength": 0.022,
+        "PumpEff2": 0.588,
+        "PumpEff3": 0.937,
+        "PumpEff4": 0.892,
+        "PumpEff": 0.325
     },
     "SystemEfficiency": {                  //（8）系统效率
-        "SurfaceSystemEfficiency": 0,
-        "WellDownSystemEfficiency": 0,
-        "SystemEfficiency": 0,
-        "PowerConsumptionPerTHM": 26.93,
-        "MotorInputActivePower": 0,
-        "PolishRodPower": 2.23,
-        "WaterPower": 0 
+        "SurfaceSystemEfficiency": 0.184,
+        "WellDownSystemEfficiency": 0.268,
+        "SystemEfficiency": 0.0492,
+        "PowerConsumptionPerTHM": 5.54,
+        "MotorInputActivePower": 12.86,
+        "PolishRodPower": 2.36,
+        "WaterPower": 0.633 
     }
    }
 ```
