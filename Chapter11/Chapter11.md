@@ -33,7 +33,7 @@
 | TubingPressure             | 油压           | MPa        | float64  |          |               |
 | CasingPressure             | 套压           | MPa        | float64  |          |               |
 | WellHeadFluidTemperature   | 井口油温       | ℃         | float64  |          |               |
-| ProductionGasOilRatio      | 生产气油比     | m^3/m^3    | float64  | *        |               |
+| ProductionGasOilRatio      | 生产气油比     | m^3/t      | float64  | *        |               |
 | FSResultCode               | 功图工况代码   |            | int      | *        |               |
 | Stroke                     | 功图冲程       | m          | float64  | *        |               |
 | SPM                        | 功图冲次       | 1/min      | float64  | *        |               |
@@ -280,9 +280,9 @@
 | Max                              | 最大值            | ℃         | float64  |                                      |
 | Min                              | 最小值            | ℃         | float64  |                                      |
 | **ProductionGasOilRatio**        | **生产气油比**    |            |          |                                      |
-| Value                            | 值                | m^3/m^3    | float64  |                                      |
-| Max                              | 最大值            | m^3/m^3    | float64  |                                      |
-| Min                              | 最小值            | m^3/m^3    | float64  |                                      |
+| Value                            | 值                | m^3/t      | float64  |                                      |
+| Max                              | 最大值            | m^3/t      | float64  |                                      |
+| Min                              | 最小值            | m^3/t      | float64  |                                      |
 | **FullnessCoefficient**          | **充满系数**      |            |          |                                      |
 | Value                            | 值                | 小数       | float64  |                                      |
 | Max                              | 最大值            | 小数       | float64  |                                      |
