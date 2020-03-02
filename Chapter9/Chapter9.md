@@ -74,7 +74,7 @@
 | WeightPerMeter                     | 每米管重         | kN/m      | float64  |          |                                                |
 | **ProductionParameter**            | **生产数据**     |           |          |          |                                                |
 | WaterCut                           | 体积含水率       | %         | float64  | *        |                                                |
-| ProductionGasOilRatio              | 生产气油比       | m^3/m^3   | float64  | *        |                                                |
+| ProductionGasOilRatio              | 生产气油比       | m^3/t     | float64  | *        |                                                |
 | TubingPressure                     | 油压             | MPa       | float64  | *        | 如无油压数据，可录入回压数据                   |
 | CasingPressure                     | 套压             | MPa       | float64  | *        |                                                |
 | BackPressure                       | 回压             | MPa       | float64  |          | 如无油压数据，可录入回压数据                   |
@@ -278,7 +278,7 @@
 | StressRatio                        | 应力范围比         | 小数        | float64  |                                         |
 | **ProductionParameter**            | **生产参数**       |             |          |                                         |
 | WaterCut                           | 体积含水率         | %           | float64  |                                         |
-| ProductionGasOilRatio              | 生产气油比         | m^3/m^3     | float64  |                                         |
+| ProductionGasOilRatio              | 生产气油比         | m^3/t     | float64  |                                         |
 | TubingPressure                     | 油压               | MPa         | float64  |                                         |
 | CasingPressure                     | 套压               | MPa         | float64  |                                         |
 | BackPressure                       | 回压               | MPa         | float64  |                                         |
@@ -288,12 +288,12 @@
 | Submergence                        | 沉没度             | m           | float64  |                                         |
 | PumpIntakeP                        | 泵入口压力         | MPa         | float64  |                                         |
 | PumpIntakeT                        | 泵入口温度         | ℃          | float64  |                                         |
-| PumpIntakeGOL                      | 泵入口就地气液比   |             | float64  |                                         |
+| PumpIntakeGOL                      | 泵入口就地气液比   | m^3/m^3      | float64  |                                         |
 | PumpIntakeVisl                     | 泵入口粘度         | mPa·s       | float64  |                                         |
 | PumpIntakeBo                       | 泵入口原油体积系数 | 小数        | float64  |                                         |
 | PumpOutletP                        | 泵出口压力         | MPa         | float64  |                                         |
 | PumpOutletT                        | 泵出口温度         | ℃          | float64  |                                         |
-| PumpOutletGOL                      | 泵出口就地气液比   |             | float64  |                                         |
+| PumpOutletGOL                      | 泵出口就地气液比   | m^3/m^3      | float64  |                                         |
 | PumpOutletVisl                     | 泵出口粘度         | mPa·s       | float64  |                                         |
 | PumpOutletBo                       | 泵出口原油体积系数 | 小数        | float64  |                                         |
 | TheoreticalProduction              | 理论排量           | m^3/d       | float64  |                                         |

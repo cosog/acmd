@@ -85,7 +85,7 @@
 | WeightPerMeter                      | 每米管重                | kN/m      | float64  |          |                                         |
 | **ProductionParameter**             | **生产数据**            |           |          |          |                                         |
 | WaterCut                            | 体积含水率              | %         | float64  | *        | 煤层气井填100                           |
-| ProductionGasOilRatio               | 生产气油比              | m^3/m^3   | float64  | *        | 煤层气井不填                            |
+| ProductionGasOilRatio               | 生产气油比              | m^3/t     | float64  | *        | 煤层气井不填                            |
 | TubingPressure                      | 油压（回压）            | MPa       | float64  | *        | 如无油压，可录入回压                    |
 | CasingPressure                      | 套压                    | MPa       | float64  | *        |                                         |
 | WellHeadFluidTemperature            | 井口油温                | ℃        | float64  |          |                                         |
@@ -574,10 +574,10 @@
 | Length                                     | 杆长                       | m           | float64  |                                   |
 | OutsideDiameter                            | 杆外径                     | m           | float64  |                                   |
 | InsideDiameter                             | 杆内径                     | m           | float64  |                                   |
-| Area                                       | 杆截面积                   | m\^2        | float64  |                                   |
+| Area                                       | 杆截面积                   | m^2        | float64  |                                   |
 | Weight                                     | 杆重                       | kN          | float64  |                                   |
 | BuoyancyForce                              | 杆柱浮力                   | kN          | float64  |                                   |
-| Density                                    | 杆柱密度                   | g/cm\^3     | float64  |                                   |
+| Density                                    | 杆柱密度                   | g/cm^3     | float64  |                                   |
 | WeightPerMeter                             | 每米杆重                   | kN/m        | float64  |                                   |
 | TE                                         | 抽油杆最小抗张强度         | MPa         | float64  |                                   |
 | SF                                         | 抽油杆使用系数             | 小数        | float64  |                                   |
@@ -588,7 +588,7 @@
 | StressRatio                                | 应力范围比                 | 小数        | float64  |                                   |
 | **ProductionParameter**                    | **生产参数**               |             |          |                                   |
 | WaterCut                                   | 体积含水率                 | %           | float64  | 煤层气井为100                     |
-| ProductionGasOilRatio                      | 生产气油比                 | m\^3/m\^3   | float64  |                                   |
+| ProductionGasOilRatio                      | 生产气油比                 | m^3/t     | float64  |                                   |
 | TubingPressure                             | 油压（回压）               | MPa         | float64  |                                   |
 | CasingPressure                             | 套压                       | MPa         | float64  |                                   |
 | WellHeadFluidTemperature                   | 井口流温                   | ℃          | float64  |                                   |
@@ -597,24 +597,24 @@
 | Submergence                                | 沉没度                     | m           | float64  |                                   |
 | PumpIntakeP                                | 泵入口压力                 | MPa         | float64  |                                   |
 | PumpIntakeT                                | 泵入口温度                 | ℃          | float64  |                                   |
-| PumpIntakeGOL                              | 泵入口就地气液比           |             | float64  |                                   |
+| PumpIntakeGOL                              | 泵入口就地气液比           | m^3/m^3            | float64  |                                   |
 | PumpInletVisl                              | 泵入口粘度                 | mPa·s       | float64  |                                   |
 | PumpInletBo                                | 泵入口原油体积系数         | 小数        | float64  |                                   |
 | PumpOutletP                                | 泵出口压力                 | MPa         | float64  |                                   |
 | PumpOutletT                                | 泵出口温度                 | ℃          | float64  |                                   |
-| PumpOutletGOL                              | 泵出口就地气液比           |             | float64  |                                   |
+| PumpOutletGOL                              | 泵出口就地气液比           | m^3/m^3            | float64  |                                   |
 | PumpOutletVisl                             | 泵出口粘度                 | mPa·s       | float64  |                                   |
 | PumpOutletBo                               | 泵出口原油体积系数         | 小数        | float64  |                                   |
 | NetGrossRatio                              | 净毛比                     | 小数        | float64  |                                   |
-| TheoreticalProduction                      | 理论排量                   | m\^3/d      | float64  |                                   |
-| LiquidVolumetricProduction                 | 产液量（方）               | m\^3/d      | float64  | 煤层气井取产液量                  |
-| OilVolumetricProduction                    | 产油量（方）               | m\^3/d      | float64  |                                   |
-| WaterVolumetricProduction                  | 产水量（方）               | m\^3/d      | float64  |                                   |
-| AvailablePlungerStrokeVolumetricProduction | 柱塞有效冲程计算产量（方） | m\^3/d      | float64  |                                   |
-| PumpClearanceLeakVolumetricProduction      | 泵间隙漏失量（方）         | m\^3/d      | float64  |                                   |
-| TVLeakVolumetricProduction                 | 游动凡尔漏失量（方）       | m\^3/d      | float64  |                                   |
-| SVLeakVolumetricProduction                 | 固定凡尔漏失量（方）       | m\^3/d      | float64  |                                   |
-| GasInfluenceVolumetricProduction           | 气影响（方）               | m\^3/d      | float64  |                                   |
+| TheoreticalProduction                      | 理论排量                   | m^3/d      | float64  |                                   |
+| LiquidVolumetricProduction                 | 产液量（方）               | m^3/d      | float64  | 煤层气井取产液量                  |
+| OilVolumetricProduction                    | 产油量（方）               | m^3/d      | float64  |                                   |
+| WaterVolumetricProduction                  | 产水量（方）               | m^3/d      | float64  |                                   |
+| AvailablePlungerStrokeVolumetricProduction | 柱塞有效冲程计算产量（方） | m^3/d      | float64  |                                   |
+| PumpClearanceLeakVolumetricProduction      | 泵间隙漏失量（方）         | m^3/d      | float64  |                                   |
+| TVLeakVolumetricProduction                 | 游动凡尔漏失量（方）       | m^3/d      | float64  |                                   |
+| SVLeakVolumetricProduction                 | 固定凡尔漏失量（方）       | m^3/d      | float64  |                                   |
+| GasInfluenceVolumetricProduction           | 气影响（方）               | m^3/d      | float64  |                                   |
 | LiquidWeightProduction                     | 产液量（吨）               | t/d         | float64  | 煤层气井取产液量                  |
 | OilWeightProduction                        | 产油量（吨）               | t/d         | float64  |                                   |
 | WaterWeightProduction                      | 产水量（吨）               | t/d         | float64  |                                   |
