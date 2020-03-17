@@ -20,7 +20,7 @@ AgileCalculation SDK V7.2版（以下简称SDK）提供http接口服务，采用
 ## 版本更新
 
 **SDK V7.2**  
-（1）修改了接口URL。
+（1）修改了接口URL。  
 （2）增加功图软件专业版（Pro版）。  
 
 **SDK V7.1**  
