@@ -244,8 +244,6 @@
 | ErrorString                      | 错误参数字符串    |            | string   |                                      |
 | WarningCounter                   | 报警计数器        |            | int      |                                      |
 | WarningString                    | 报警字符串        |            | string   |                                      |
-| SDKPlusCounter                   | Plus版报警计数器  |            | int      | 预留                                 |
-| SDKPlusString                    | Plus版报警字符串  |            | string   | 预留                                 |
 | CommStatus                       | 通信状态          |            | int      |                                      |
 | CommTime                         | 在线时间          |            | float64  |                                      |
 | CommTimeEfficiency               | 在线时率          |            | float64  |                                      |

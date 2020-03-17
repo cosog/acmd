@@ -122,8 +122,6 @@
 | ErrorString          | 错误参数字符串   |        | string   | 数据错误，计算不成功                   |
 | WarningCounter       | 报警计数器       |        | int      | 报警参数个数                           |
 | WarningString        | 报警字符串       |        | string   | 报警参数（取默认值，计算正常进行）     |
-| SDKPlusCounter       | Plus版报警计数器 |        | int      | 预留                                   |
-| SDKPlusString        | Plus版报警字符串 |        | string   | 预留                                   |
 | **Current**          | **本次电能**     |        |          |                                        |
 | AcquisitionTime      | 采集时间         |        | string   |                                        |
 | **Total**            | **累计电能**     |        |          |                                        |
@@ -164,9 +162,7 @@
         "ErrorCounter": 0,
         "ErrorString": "",
         "WarningCounter": 0,
-        "WarningString": "",
-        "SDKPlusCounter": 0,
-        "SDKPlusString": ""
+        "WarningString": ""
     },
     "Current": {
         "AcquisitionTime": "2020-01-16 01: 00: 00",

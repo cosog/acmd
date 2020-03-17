@@ -240,14 +240,12 @@
 | OutsideDiameter                     | 杆外径                  | m         | float64  | *        |                                         |
 | InsideDiameter                      | 杆内径                  | m         | float64  |          | 为空心抽油杆预留                        |
 | Density                             | 杆密度                  | g/cm^3    | float64  |          | 默认值为7.85                            |
-| WeightPerMeter                      | 每米杆重                | kN/m      | float64  |          | 杆重（含节箍）                          |
 | **TubingString**                    | **油管参数**            |           |          |          |                                         |
 | Grade                               | 油管钢级                |           | string   |          | 详见表底注释[1]                         |
 | OutsideDiameter                     | 油管外径                | m         | float64  |          |                                         |
 | InsideDiameter                      | 油管内径                | m         | float64  | *        | 默认0.062m                              |
 | Length                              | 油管长度                | m         | float64  |          |                                         |
 | Density                             | 油管密度                | g/cm^3    | float64  |          |                                         |
-| WeightPerMeter                      | 每米管重                | kN/m      | float64  |          |                                         |
 | **Pump**                            | **抽油泵参数**          |           |          |          |                                         |
 | PumpType                            | 泵类型                  |           | string   |          | R-杆式泵 T-管式泵                       |
 | BarrelType                          | 泵筒类型                |           | string   |          | 详见表底注释[2]                         |
@@ -264,7 +262,6 @@
 | InsideDiameter                      | 尾管内径                | m         | float64  |          |                                         |
 | Length                              | 尾管长度                | m         | float64  |          |                                         |
 | Density                             | 尾管密度                | g/cm^3    | float64  |          |                                         |
-| WeightPerMeter                      | 每米管重                | kN/m      | float64  |          |                                         |
 | GasAnchorEfficiency                 | 气锚效率                | 小数      | float64  |          | 无气锚填0                               |
 | **CasingString**                    | **生产套管参数**        |           |          |          |                                         |
 | Grade                               | 套管钢级                |           | string   |          | 详见表底注释[1]                         |
@@ -272,7 +269,6 @@
 | InsideDiameter                      | 套管内径                | m         | float64  | *        | 默认0.127m                              |
 | Length                              | 套管长度                | m         | float64  |          |                                         |
 | Density                             | 套管密度                | g/cm^3    | float64  |          |                                         |
-| WeightPerMeter                      | 每米管重                | kN/m      | float64  |          |                                         |
 | **Production**                      | **生产数据**            |           |          |          |                                         |
 | DailyFluidProduction                | 日产液量                | m^3/d     | float64  |          | 有产量计量数据时输入，只诊断不计产            |
 | WaterCut                            | 体积含水率              | %         | float64  | *        | 煤层气井填100                           |
@@ -343,8 +339,7 @@
 				"Length": 329.86,
 				"OutsideDiameter": 0.022,
 				"InsideDiameter": 0,
-				"Density": 7.85,
-				"WeightPerMeter": 0
+				"Density": 7.85
 				},
 			{
 				"Type": 1,
@@ -352,8 +347,7 @@
 				"Length": 668.52,
 				"OutsideDiameter": 0.019,
 				"InsideDiameter": 0,
-				"Density": 7.85,
-				"WeightPerMeter": 0
+				"Density": 7.85
 				}
 				]
 	},
@@ -364,8 +358,7 @@
 				"length": 1000,
 				"OutsideDiameter": 0.073,
 				"InsideDiameter": 0.062,
-				"Density": 7.85,
-				"WeightPerMeter": 0
+				"Density": 7.85
 				}
 				]
 	},
@@ -386,8 +379,7 @@
 				"OutsideDiameter": 0.139,
 				"InsideDiameter": 0.127,
 				"Length": 3000,
-				"Density": 7.85,
-				"WeightPerMeter": 0
+				"Density": 7.85
 				}
 				]
 	},
@@ -504,8 +496,7 @@
 				"Length": 329.86,
 				"OutsideDiameter": 0.022,
 				"InsideDiameter": 0,
-				"Density": 7.85,
-				"WeightPerMeter": 0
+				"Density": 7.85
 				},
 			{
 				"Type": 1,
@@ -513,8 +504,7 @@
 				"Length": 668.52,
 				"OutsideDiameter": 0.019,
 				"InsideDiameter": 0,
-				"Density": 7.85,
-				"WeightPerMeter": 0
+				"Density": 7.85
 				}
 				]
 	},
@@ -525,8 +515,7 @@
 				"length": 1000,
 				"OutsideDiameter": 0.073,
 				"InsideDiameter": 0.062,
-				"Density": 7.85,
-				"WeightPerMeter": 0
+				"Density": 7.85
 				}
 				]
 	},
@@ -575,8 +564,7 @@
 				"OutsideDiameter": 0.139,
 				"InsideDiameter": 0.127,
 				"Length": 3000,
-				"Density": 7.85,
-				"WeightPerMeter": 0
+				"Density": 7.85
 				}
 				]
 	},
@@ -1161,7 +1149,7 @@
 
 | **代码**                       | **名称**                | **单位** | **类型**  | **必填** | **备注**                                          |
 |--------------------------------|-------------------------|----------|-----------|----------|---------------------------------------------------|
-| AKString                       | 应用密钥                |          | string    |          | 预留字段                                          |
+| AKString                       | 应用密钥                |          | string    | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 预留字段  |
 | WellName                       | 井名                    |          | string    | *        |                                                   |
 | **FluidPVT**                   | **流体PVT物性**         |          |           |          |                                                   |
 | CrudeOilDensity                | 原油密度                | g/cm^3   | float64   | *        | 煤层气井不填写                                    |
@@ -1182,14 +1170,12 @@
 | OutsideDiameter                | 杆外径                  | m        | float64   | *        |                                                   |
 | InsideDiameter                 | 杆内径                  | m        | float64   |          | 为空心抽油杆预留                                  |
 | Density                        | 杆密度                  | g/cm^3   | float64   |          | 默认值为7.85                                      |
-| WeightPerMeter                 | 每米杆重                | kN/m     | float64   |          | 杆重（含节箍）                                    |
 | **TubingString**               | **油管参数**            |          |           |          |                                                   |
 | Grade                          | 油管钢级                |          | string    |          | 详见表底注释[1]                                   |
 | OutsideDiameter                | 油管外径                | m        | float64   |          |                                                   |
 | InsideDiameter                 | 油管内径                | m        | float64   | *        | 默认0.062m                                        |
 | Length                         | 油管长度                | m        | float64   |          |                                                   |
 | Density                        | 油管密度                | g/cm^3   | float64   |          |                                                   |
-| WeightPerMeter                 | 每米管重                | kN/m     | float64   |          |                                                   |
 | **Pump**                       | **抽油泵参数**          |          |           |          |                                                   |
 | PumpType                       | 泵类型                  |          | string    |          | R-杆式泵 T-管式泵                                 |
 | BarrelType                     | 泵筒类型                |          | string    |          | 详见表底注释[2]                                   |
@@ -1206,7 +1192,6 @@
 | InsideDiameter                 | 尾管内径                | m        | float64   |          |                                                   |
 | Length                         | 尾管长度                | m        | float64   |          |                                                   |
 | Density                        | 尾管密度                | g/cm^3   | float64   |          |                                                   |
-| WeightPerMeter                 | 每米管重                | kN/m     | float64   |          |                                                   |
 | GasAnchorEfficiency            | 气锚效率                | 小数     | float64   |          | 无气锚填0                                         |
 | **CasingString**               | **生产套管参数**        |          |           |          |                                                   |
 | Grade                          | 套管钢级                |          | string    |          | 详见表底注释[1]                                   |
@@ -1214,7 +1199,6 @@
 | InsideDiameter                 | 套管内径                | m        | float64   | *        | 默认0.127m                                        |
 | Length                         | 套管长度                | m        | float64   |          |                                                   |
 | Density                        | 套管密度                | g/cm^3   | float64   |          |                                                   |
-| WeightPerMeter                 | 每米管重                | kN/m     | float64   |          |                                                   |
 | **PumpingUnit**                | **抽油机参数**          |          |           |          |                                                   |
 | Manufacturer                   | 厂商                    |          | string    |          |                                                   |
 | Model                          | 型号                    |          | string    |          |                                                   |
@@ -1270,7 +1254,7 @@
 | BeltEfficiency                 | 皮带效率                | 小数     | float64   |          |                                                   |
 | GearReducerEfficiency          | 减速箱效率              | 小数     | float64   |          |                                                   |
 | FourBarLinkageEfficiency       | 四连杆效率              | 小数     | float64   |          |                                                   |
-| MotorInputWatt                 | 电机输入有功功率        | kW       | float64   |          |                                                   |
+| MotorInputWatt                 | 电机输入有功功率        | kW       | float64   |          | 在没有有功功率曲线情况下用于计算系统效率                  |
 | **ManualIntervention**         | **人工干预**            |          |           |          |                                                   |
 | Code                           | 人工干预                |          | int       |          | 0-不干预，其他工况类型-干预                       |
 | NetGrossRatio                  | 净毛比                  | 小数     | float64   |          | 实际产量/软件计算产量，不标定产量直接填写1        |
@@ -1340,8 +1324,7 @@
                 "Length":329.86,
                 "OutsideDiameter":0.022,
                 "InsideDiameter":0,
-                "Density":7.85,
-                "WeightPerMeter":0
+                "Density":7.85
             },
             {
                 "Type":1,
@@ -1349,8 +1332,7 @@
                 "Length":668.52,
                 "OutsideDiameter":0.019,
                 "InsideDiameter":0,
-                "Density":7.85,
-                "WeightPerMeter":0
+                "Density":7.85
             }
         ]
     },
@@ -1361,8 +1343,7 @@
                 "length":1000,
                 "OutsideDiameter":0.073,
                 "InsideDiameter":0.062,
-                "Density":7.85,
-                "WeightPerMeter":0
+                "Density":7.85
             }
         ]
     },
@@ -1383,8 +1364,7 @@
                 "OutsideDiameter":0.139,
                 "InsideDiameter":0.127,
                 "Length":3000,
-                "Density":7.85,
-                "WeightPerMeter":0
+                "Density":7.85
             }
         ]
     },
@@ -1567,8 +1547,7 @@
                 "Length":329.86,
                 "OutsideDiameter":0.022,
                 "InsideDiameter":0,
-                "Density":7.85,
-                "WeightPerMeter":0
+                "Density":7.85
             },
             {
                 "Type":1,
@@ -1576,8 +1555,7 @@
                 "Length":668.52,
                 "OutsideDiameter":0.019,
                 "InsideDiameter":0,
-                "Density":7.85,
-                "WeightPerMeter":0
+                "Density":7.85
             }
         ]
     },
@@ -1588,8 +1566,7 @@
                 "length":1000,
                 "OutsideDiameter":0.073,
                 "InsideDiameter":0.062,
-                "Density":7.85,
-                "WeightPerMeter":0
+                "Density":7.85
             }
         ]
     },
@@ -1638,8 +1615,7 @@
                 "OutsideDiameter":0.139,
                 "InsideDiameter":0.127,
                 "Length":3000,
-                "Density":7.85,
-                "WeightPerMeter":0
+                "Density":7.85
             }
         ]
     },
@@ -1795,10 +1771,10 @@
 
 表1-22 抽油机数据表
 
-| **序号** | **井名*** | **厂家** | **型号** | **曲柄旋转方向*** | **曲柄偏置角* （°）** | **曲柄重心半径* （m）** | **单块曲柄重量* （kN）** | **结构不平衡重* （kN）** | **单块平衡块重量* （kN）** |
-|----------|------------|----------|----------|--------------------|------------------------|--------------------------|---------------------------|---------------------------|-----------------------------|
-| 1        |            |          |          |                    |                        |                          |                           |                           |                             |
-| 2        |            |          |          |                    |                        |                          |                           |                           |                             |
+| 序号 | 井名* | 厂家 | 型号 | 曲柄旋转方向* | 曲柄偏置角(°)* | 曲柄重心半径(m)* | 单块曲柄重量(kN)* | 结构不平衡重(kN)* | 单块平衡块重量(kN)* |
+|-----|------|-----|------|------------|---------------|----------------|------------------|-----------------|------------------|
+| 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         |           |               |                 |              |               |                |
+| 2     |        |          |          |           |               |                 |              |               |                |
 
 #### 1.5.4.2 煤层气井数据收集表
 
@@ -1834,10 +1810,10 @@
 
 表1-27 抽油机数据表
 
-| **序号** | **井名*** | **厂家** | **型号** | **曲柄旋转方向*** | **曲柄偏置角* （°）** | **曲柄重心半径* （m）** | **单块曲柄重量* （kN）** | **结构不平衡重* （kN）** | **单块平衡块重量* （kN）** |
-|----------|------------|----------|----------|--------------------|------------------------|--------------------------|---------------------------|---------------------------|-----------------------------|
-| 1        |            |          |          |                    |                        |                          |                           |                           |                             |
-| 2        |            |          |          |                    |                        |                          |                           |                           |                             |
+| 序号 | 井名* | 厂家 | 型号 | 曲柄旋转方向* | 曲柄偏置角(°)* | 曲柄重心半径(m)* | 单块曲柄重量(kN)* | 结构不平衡重(kN)* | 单块平衡块重量(kN)* |
+|-----|------|-----|------|------------|---------------|----------------|------------------|-----------------|------------------|
+| 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         |           |               |                 |              |               |                |
+| 2     |        |          |          |           |               |                 |              |               |                |
 
 ## 1.6 输出文本（Pro版）
 
@@ -2459,9 +2435,7 @@
         "WaterPower": 1
     }
    }
-
 ```
-
 
 ### 3.6.3 工况类型代码
 

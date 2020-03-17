@@ -247,8 +247,6 @@
 | ErrorString                        | 错误参数字符串     |             | string   | 数据错误，计算不成功                    |
 | WarningCounter                     | 报警计数器         |             | int      | 报警参数个数                            |
 | WarningString                      | 报警字符串         |             | string   | 报警参数（取默认值，计算正常进行）      |
-| SDKPlusCounter                     | Plus版报警计数器   |             | int      | 预留                                    |
-| SDKPlusString                      | Plus版报警字符串   |             | string   | 预留                                    |
 | **RodString**                      | **抽油杆参数**     |             |          |                                         |
 | CNT                                | 杆数               |             | int      |                                         |
 | LengthAll                          | 总杆长             | m           | float64  |                                         |

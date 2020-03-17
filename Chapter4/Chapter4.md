@@ -233,7 +233,7 @@
             </tr>
             <tr>
                  <th rowspan="7">抽油机基础数据</th>
-                 <td style="width:160">厂家</td>
+                 <td style="width:200">厂家</td>
                  <td>该项数据可在抽油机说明书中寻找。对于大庆油田装备制造集团生产的抽油机，注明厂家型号，大部分型号已有说明书</td>
             </tr>
             <tr>
@@ -308,8 +308,6 @@
 | ErrorString                | Error字符串        |       | string   | 数据错误，计算不成功                         |
 | WarningCounter             | Warning计数器      |       | int      | 报警参数个数                                 |
 | WarningString              | Warning字符串      |       | string   | 报警参数（取默认值，计算正常进行）           |
-| SDKPlusCounter             | Plus版报警计数器   |       | int      | 预留                                         |
-| SDKPlusString              | Plus版报警字符串   |       | string   | 预留                                         |
 | AcquisitionTime            | 采集时间           |       | string   |                                              |
 | Stroke                     | 冲程               | m     | float64  |                                              |
 | SPM                        | 冲次               | 1/min | float64  |                                              |
@@ -341,9 +339,7 @@
         "ErrorCounter": 0,
         "ErrorString": "",
         "WarningCounter": 0,
-        "WarningString": "",
-        "SDKPlusCounter": 0,
-        "SDKPlusString": ""
+        "WarningString": ""
     },
     "AcquisitionTime": "2019-09-17 18:32:53",
     "Stroke": 3,

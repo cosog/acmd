@@ -19,7 +19,7 @@ AgileCalculation SDK V7.2版（以下简称SDK）提供http接口服务，采用
 
 ## 版本更新
 
-**SDK V7.2**
+**SDK V7.2**  
 （1）修改了接口URL。
 （2）增加功图软件专业版（Pro版）。  
 
@@ -102,10 +102,10 @@ AgileCalculation SDK V7.2版（以下简称SDK）提供http接口服务，采用
 
 AgileCalculation软件运行后在指定端口提供http服务，通过post模式进行访问。
 
-![](./Image/1.png?raw=true)  
+![程序图标](./Image/1.png?raw=true)  
 *图1 运行程序图标(Windows)*
 
-![](./Image/2.png?raw=true)  
+![状态窗口](./Image/2.png?raw=true)  
 *图2 运行状态窗口(Windows)*
 
 # 端口配置说明
