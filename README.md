@@ -1,24 +1,27 @@
-# 《油气生产敏捷计算SDK V7.1》用户手册
+# 《油气生产敏捷计算SDK V7.2》用户手册
 
 ## 软件介绍 
 
-AgileCalculation SDK V7.1版（以下简称SDK）提供http接口服务，采用post请求模式，json数据格式，实现分布式并行云计算。功能包括：采集处理；功图诊断、功图计产、功图平衡；电参诊断、电参时率、电参能耗、电参平衡、电参反演；转速计产；通信计算；全井汇总等。
+AgileCalculation SDK V7.2版（以下简称SDK）提供http接口服务，采用post请求模式，json数据格式，实现分布式并行云计算。功能包括：功图诊断、功图计产、全井分析、功图平衡、功率平衡、电功图反演、转速计产、通信计算、时率计算、能耗计算、全井汇总及采集处理和转直角坐标插件等。
 
 ## 章节目录
 
-* [第一章：采集处理](./Chapter1/Chapter1.md)
-* [第二章：功图诊断&计产](./Chapter2/Chapter2.md)
-* [第三章：功图平衡](./Chapter3/Chapter3.md)
-* [第四章：电参诊断](./Chapter4/Chapter4.md)
-* [第五章：电参平衡](./Chapter5/Chapter5.md)
-* [第六章：电参时率](./Chapter6/Chapter6.md)
-* [第七章：电参能耗](./Chapter7/Chapter7.md)
-* [第八章：电参反演](./Chapter8/Chapter8.md)
-* [第九章：转速计产](./Chapter9/Chapter9.md)
-* [第十章：通信计算](./Chapter10/Chapter10.md)
-* [第十一章：全井汇总](./Chapter11/Chapter11.md)
+* [第一章：功图软件](./Chapter1/Chapter1.md)
+* [第二章：功图平衡](./Chapter2/Chapter2.md)
+* [第三章：功率平衡](./Chapter3/Chapter3.md)
+* [第四章：电功图反演](./Chapter4/Chapter4.md)
+* [第五章：转速计产](./Chapter5/Chapter5.md)
+* [第六章：通信计算](./Chapter6/Chapter6.md)
+* [第七章：时率计算](./Chapter7/Chapter7.md)
+* [第八章：能耗计算](./Chapter8/Chapter8.md)
+* [第九章：全井汇总](./Chapter9/Chapter9.md)
+* [第十章：插件](./Chapter10/Chapter10.md)
 
 ## 版本更新
+
+**SDK V7.2**  
+（1）修改了接口URL。  
+（2）增加功图软件专业版（Pro版）。  
 
 **SDK V7.1**  
 （1）取消MongoDB数据库。  
@@ -77,30 +80,32 @@ AgileCalculation SDK V7.1版（以下简称SDK）提供http接口服务，采用
 
 # 接口模式
 
-| **序号** | **模块**           | **URL**                                                                |
-|----------|--------------------|------------------------------------------------------------------------|
-| 1        | 采集处理           | http://IP:端口/api/acquisition/fa2fs                                   |
-| 2        | 功图诊断&计产（标准版）      | http://IP:端口/api/calculation/fsdiagram/diagnosis                     |
-| 3        | 功图诊断（精简版） | http://IP:端口/api/calculation/fsdiagram/diagnosis/lite                |
-| 4        | 功图平衡           | http://IP:端口/api/calculation/fsdiagram/balance/back                  |
-| 5        | 电参诊断-抽油机    | http://IP:端口/api/calculation/electric/etvalue/diagnosis/pumpingunit  |
-| 6        | 电参诊断-螺杆泵    | http://IP:端口/api/calculation/electric/etvalue/diagnosis/screwpump    |
-| 7        | 电参平衡           | http://IP:端口/api/calculation/electric/esdiagram/balance/back         |
-| 8        | 电参时率           | http://IP:端口/api/calculation/run                                     |
-| 9        | 电参能耗           | http://IP:端口/api/calculation/energy                                  |
-| 10       | 电参反演           | http://IP:端口/api/calculation/electric/esdiagram/inversion/motorauto  |
-| 11       | 转速计产           | http://IP:端口/api/calculation/rpm/screwpump                           |
-| 12       | 通信计算           | http://IP:端口/api/calculation/comm                                    |
-| 13       | 单井全天汇总       | http://IP:端口/api/analysis/total/well                                 |
+| **序号** | **模块**             | **接口URL**                                                   |
+|----------|----------------------|---------------------------------------------------------------|
+| 1        | 功图软件精简版       | http://IP:端口/api/calc/rpc/fesdiagram/lite                   |
+| 2        | 功图软件标准版       | http://IP:端口/api/calc/rpc/fesdiagram/classic                |
+| 3        | 功图软件专业版       | http://IP:端口/api/calc/rpc/fesdiagram/pro                    |
+| 4        | 功图平衡             | http://IP:端口/api/calc/rpc/fsdiagram/balance/back            |
+| 5        | 功率平衡             | http://IP:端口/api/calc/rpc/esdiagram/balance/back            |
+| 6        | 电功图反演（自动）   | http://IP:端口/api/calc/rpc/esdiagram/inversion/motorauto     |
+| 7        | 电功图反演（半自动） | http://IP:端口/api/calc/rpc/esdiagram/inversion/motorsemiauto |
+| 8        | 电功图反演（角位移） | http://IP:端口/api/calc/rpc/esdiagram/inversion/beam          |
+| 9        | 转速计产             | http://IP:端口/api/calc/pcp/rpm                               |
+| 10       | 通信计算             | http://IP:端口/api/calc/comm                                  |
+| 11       | 时率计算             | http://IP:端口/api/calc/run                                   |
+| 12       | 能耗计算             | http://IP:端口/api/calc/energy                                |
+| 13       | 全井汇总             | http://IP:端口/api/analy/total/well                           |
+| 14       | 采集处理             | http://IP:端口/api/plugin/fa2fs                               |
+| 15       | 转直角坐标           | http://IP:端口/api/plugin/2xyz                                |
 
 # 软件使用
 
 AgileCalculation软件运行后在指定端口提供http服务，通过post模式进行访问。
 
-![](https://github.com/cosog-chentr/acmd/blob/master/Image/1.png?raw=true)  
+![程序图标](./Image/1.png?raw=true)  
 *图1 运行程序图标(Windows)*
 
-![](https://github.com/cosog-chentr/acmd/blob/master/Image/2.png?raw=true)  
+![状态窗口](./Image/2.png?raw=true)  
 *图2 运行状态窗口(Windows)*
 
 # 端口配置说明

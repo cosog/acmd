@@ -1,426 +1,620 @@
-# 第九章 转速计产
+# 第九章 全井汇总
 
-- [第九章 转速计产](Chapter9.md#第九章-转速计产)
+- [第九章 全井汇总](Chapter9.md#第九章-全井汇总)
    - [9.1 输入文本](Chapter9.md#91-输入文本)
      - [9.1.1 输入参数说明](Chapter9.md#911-输入参数说明)
      - [9.1.2 输入实例](Chapter9.md#912-输入实例)
-	 - [9.1.3 数据收集表](Chapter9.md#913-数据收集表)
    - [9.2 输出文本](Chapter9.md#92-输出文本)
      - [9.2.1 输出参数说明](Chapter9.md#921-输出参数说明)
      - [9.2.2 输出实例](Chapter9.md#922-输出实例)
 
-## 9.1 输入文本 
+## 9.1 输入文本
 
 ### 9.1.1 输入参数说明
 
 *表9-1 输入参数说明表*
 
-| 代码                               | 名称             | 单位      | 类型     | 必填     | 备注                                           |
-|------------------------------------|------------------|-----------|----------|----------|------------------------------------------------|
-| AKString                           | 应用密钥         |           | string   |          | 预留字段                                       |
-| WellName                           | 井名             |           | string   | *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    |                |
-| AcquisitionTime                    | 采集时间         |           | string   | *        |                                                |
-| RPM                                | 转速             | r/min     | float64  | *        |                                                |
-| **FluidPVT**                       | **流体PVT物性**  |           |          |          |                                                |
-| CrudeOilDensity                    | 原油密度         | g/cm^3    | float64  | *        |                                                |
-| WaterDensity                       | 水密度           | g/cm^3    | float64  | *        |                                                |
-| NaturalGasRelativeDensity          | 天然气相对密度   |           | float64  | *        |                                                |
-| SaturationPressure                 | 饱和压力         | MPa       | float64  | *        |                                                |
-| **Reservoir**                      | **油层数据**   |           |          |          |                                                |
-| Depth                              | 油层中部深度       | m         | float64  | *        | 油层中部（测量）深度                         |
-| Temperature                        | 油层中部温度       | ℃        | float64  | *        |                                  |
-| **WellboreTrajectory**             | **井身轨迹**     |           |          |          |                                                |
-| MeasuringDepth                     | 测量深度         | m         | float64  |          | 如直井可不填写，非直井按 实际数据填写          |
-| DeviationAngle                     | 井斜角           | °         | float64  |          |                                                |
-| AzimuthAngle                       | 方位角           | °         | float64  |          |                                                |
-| **RodString**                      | **抽油杆参数**   |           |          |          |                                                |
-| Type                               | 抽油杆类型       |           | int      |          | 1-实心抽油杆，2-空心抽油杆                     |
-| Grade                              | 杆级别           |           | string   | *        | A,B,C,K,D,KD,HL,HY                             |
-| Length                             | 杆长             | m         | float64  | *        | 不包含光杆和泵上拉杆                           |
-| OutsideDiameter                    | 杆外径           | m         | float64  | *        |                                                |
-| InsideDiameter                     | 杆内径           | m         | float64  |          | 为空心抽油杆预留                               |
-| Density                            | 杆密度           | g/cm^3    | float64  |          | 默认值为7.85                                   |
-| WeightPerMeter                     | 每米杆重         | kN/m      | float64  |          | 杆重（含节箍）                                 |
-| **TubingString**                   | **油管参数**     |           |          |          |                                                |
-| Grade                              | 油管钢级         |           | string   |          | 详见表底注释[1]                                |
-| OutsideDiameter                    | 油管外径         | m         | float64  |          |                                                |
-| InsideDiameter                     | 油管内径         | m         | float64  | *        | 默认0.062m                                     |
-| Length                             | 油管长度         | m         | float64  |          |                                                |
-| Density                            | 油管密度         | g/cm^3    | float64  |          |                                                |
-| WeightPerMeter                     | 每米管重         | kN/m      | float64  |          |                                                |
-| **Pump**                           | **螺杆泵参数**   |           |          |          |                                                |
-| Manufacturer                       | 生产厂商         |           | string   |          |                                                |
-| Model                              | 型号             |           | string   |          |                                                |
-| BarrelLength                       | 泵筒长           | m         | float64  |          |                                                |
-| BarrelSeries                       | 泵级数           |           | int      |          |                                                |
-| RotorLength                        | 转子长           | m         | float64  |          |                                                |
-| RotorDiameter                      | 转子直径         | m         | float64  |          |                                                |
-| QPR                                | 每转公称排量     | m^3/r     | float64  | *        |                                                |
-| **TailTubingString**               | **尾管参数**     |           |          |          |                                                |
-| EquipmentType                      | 设备类型         |           | string   |          | 详见表底注释[2]                                |
-| Grade                              | 尾管钢级         |           | string   |          | 详见表底注释[1]                                |
-| OutsideDiameter                    | 尾管外径         | m         | float64  |          |                                                |
-| InsideDiameter                     | 尾管内径         | m         | float64  |          |                                                |
-| Length                             | 尾管长度         | m         | float64  |          |                                                |
-| Density                            | 尾管密度         | g/cm^3    | float64  |          |                                                |
-| WeightPerMeter                     | 每米管重         | kN/m      | float64  |          |                                                |
-| GasAnchorEfficiency                | 气锚效率         | 小数      | float64  |          |                                                |
-| **CasingString**                   | **生产套管参数** |           |          |          |                                                |
-| Grade                              | 套管钢级         |           | string   |          |                                                |
-| OutsideDiameter                    | 套管外径         | m         | float64  |          |                                                |
-| InsideDiameter                     | 套管内径         | m         | float64  | *        | 默认0.127m                                     |
-| Length                             | 套管长度         | m         | float64  |          |                                                |
-| Density                            | 套管密度         | g/cm^3    | float64  |          |                                                |
-| WeightPerMeter                     | 每米管重         | kN/m      | float64  |          |                                                |
-| **ProductionParameter**            | **生产数据**     |           |          |          |                                                |
-| WaterCut                           | 体积含水率       | %         | float64  | *        |                                                |
-| ProductionGasOilRatio              | 生产气油比       | m^3/t     | float64  | *        |                                                |
-| TubingPressure                     | 油压             | MPa       | float64  | *        | 如无油压数据，可录入回压数据                   |
-| CasingPressure                     | 套压             | MPa       | float64  | *        |                                                |
-| BackPressure                       | 回压             | MPa       | float64  |          | 如无油压数据，可录入回压数据                   |
-| WellHeadFluidTemperature           | 井口油温         | ℃        | float64  |          |                                                |
-| ProducingfluidLevel                | 动液面           | m         | float64  | *        |                                                |
-| PumpSettingDepth                   | 泵挂             | m         | float64  | *        |                                                |
-| Submergence                        | 沉没度           | m         | float64  |          |                                                |
-| **SystemEfficiency**               | **系统效率**     |           |          |          |                                                |
-| MotorInputActivePower              | 电机输入有功功率 | kW        | float64  |          | 用于计算系统效率                               |
-| **ManualIntervention**             | **人工干预**     |           |          |          |                                                |
-| Code                               | 人工干预代码     |           | int      |          | 0-不干预，其他工况类型-干预                    |
-| NetGrossRatio                      | 净毛比           | 小数      | float64  |          | 实际产量/软件计算产量，不标定产量直接填写1     |
-
-**[1]** *钢级:H40,J55,K55,N80,M65,L80,C90,C95,T59,P110,Q125*  
-**[2]** *尾管设备类型:TailTubing-尾管，FilterTubing-滤管（花管），Anchor-锚定器，GasAnchor-油气分离器*
+| 代码                       | 名称           | 单位       | 类型     | 必填     | 备注          |
+|----------------------------|----------------|------------|----------|----------|---------------|
+| AKString                   | 应用密钥       |            | string   |          | 预留字段      |
+| WellName                   | 井名           |            | string   | *        |               |
+| **EveryTime**              | **采集点参数** |            |          |          |               |
+| AcquisitionTime            | 采集时间       |            | string   | *        |               |
+| CommStatus                 | 通信状态       |            | int      |          | 0-离线 1-在线 |
+| CommTime                   | 在线时间       |            | float64  |          |               |
+| CommTimeEfficiency         | 在线时率       |            | float64  |          |               |
+| CommRange                  | 在线区间       |            | string   |          |               |
+| RunStatus                  | 运行状态       |            | int      |          | 0-停止 1-运行 |
+| RunTime                    | 运行时间       |            | float64  |          |               |
+| RunTimeEfficiency          | 运行时率       | %          | float64  |          |               |
+| RunRange                   | 运行区间       |            | string   |          |               |
+| StopReason                 | 停抽原因       |            | int      |          |               |
+| StartReason                | 启抽原因       |            | int      |          |               |
+| TubingPressure             | 油压           | MPa        | float64  |          |               |
+| CasingPressure             | 套压           | MPa        | float64  |          |               |
+| WellHeadFluidTemperature   | 井口油温       | ℃         | float64  |          |               |
+| ProductionGasOilRatio      | 生产气油比     | m^3/t      | float64  | *        |               |
+| FSResultCode               | 功图工况代码   |            | int      | *        |               |
+| Stroke                     | 功图冲程       | m          | float64  | *        |               |
+| SPM                        | 功图冲次       | 1/min      | float64  | *        |               |
+| FullnessCoefficient        | 充满系数       | 小数       | float64  | *        |               |
+| LiquidVolumetricProduction | 产液量（方）   | m^3/d      | float64  |          |               |
+| OilVolumetricProduction    | 产油量（方）   | m^3/d      | float64  |          |               |
+| WaterVolumetricProduction  | 产水量（方）   | m^3/d      | float64  |          |               |
+| LiquidWeightProduction     | 产液量（吨）   | t/d        | float64  | *        |               |
+| OilWeightProduction        | 产油量（吨）   | t/d        | float64  | *        |               |
+| WaterWeightProduction      | 产水量（吨）   | t/d        | float64  | *        |               |
+| VolumeWaterCut             | 体积含水率     | %          | float64  |          |               |
+| WeightWaterCut             | 重量含水率     | %          | float64  | *        |               |
+| PumpEff                    | 泵效           | %          | float64  |          |               |
+| PumpBoreDiameter           | 泵径           | m          | float64  |          |               |
+| PumpSettingDepth           | 泵挂           | m          | float64  |          |               |
+| ProducingfluidLevel        | 动液面         | m          | float64  |          |               |
+| Submergence                | 沉没度         | m          | float64  |          |               |
+| ETResultCode               | 电参工况代码   |            | int      |          |               |
+| WattDegreeBalance          | 功率平衡度     | %          | float64  |          |               |
+| IDegreeBalance             | 电流平衡度     | %          | float64  |          |               |
+| DeltaRadius                | 移动距离       | m          | float64  |          |               |
+| SurfaceSystemEfficiency    | 地面效率       | 小数       | float64  |          |               |
+| WellDownSystemEfficiency   | 井下效率       | 小数       | float64  |          |               |
+| SystemEfficiency           | 系统效率       | 小数       | float64  |          |               |
+| PowerConsumptionPerTHM     | 吨液百米耗电量 | kW·h/100·t | float64  |          |               |
+| IA                         | A相电流        | A          | float64  |          |               |
+| IB                         | B相电流        | A          | float64  |          |               |
+| IC                         | C相电流        | A          | float64  |          |               |
+| VA                         | A相电压        | V          | float64  |          |               |
+| VB                         | B相电压        | V          | float64  |          |               |
+| VC                         | C相电压        | V          | float64  |          |               |
+| RunFrequency               | 频率           | HZ         | float64  |          |               |
+| RPM                        | 转速           | r/min      | float64  |          |               |
 
 ### 9.1.2 输入实例
 
 ```
 {
-    "WellName": "03-033",
-    "AcquisitionTime": "2018-10-21 09:00:00",
-    "RPM": 90.15,
-    "FluidPVT": {                                 （1）流体PVT物性
-        "CrudeOilDensity": 0.86,
-        "WaterDensity": 1.00,
-        "NaturalGasRelativeDensity": 0.7,
-        "SaturationPressure": 9.6
-    },
-    "Reservoir": {                                 （2）油层数据
-        "Depth": 1350.15,
-        "Temperature": 66.15
-    },
-    "WellboreTrajectory": {                        （3）井身轨迹
-        "MeasuringDepth": [
-            100,
-            200
-        ],      
-        "DeviationAngle": [
-            0,
-            0
-        ],
-        "AzimuthAngle": [
-            0,
-            0
-        ]
-    },
-    "RodString": {                                 （4）抽油杆参数
-        "EveryRod": [
-            {
-                "Type": 1,
-                "Grade": "D",
-                "Length": 246.8,
-                "OutsideDiameter": 0.022,
-                "InsideDiameter": 0.000,
-                "Density": 7.85
-            },
-            {
-                "Type": 1,
-                "Grade": "D",
-                "Length": 411.3,
-                "OutsideDiameter": 0.019,
-                "InsideDiameter": 0.000,
-                "Density": 7.85
-            }
-        ]
-    },
-    "TubingString": {                              （5）油管参数
-        "EveryTubing": [
-            {
-                "Grade": "K55",
-                "length": 1000.15,
-                "OutsideDiameter": 0.073,
-                "InsideDiameter": 0.062,
-                "Density": 7.85,
-                "WeightPerMeter": 0.00
-            }
-        ]
-    },
-    "Pump": {                                     （6）螺杆泵参数
-        "Manufacturer":"大庆",
-		"Model":"GLB500-20",
-		"BarrelLength": 10.15,
-        "BarrelSeries": 20,
-        "RotorLength": 8.15,
-        "RotorDiameter": 0.059,
-        "QPR": 0.0005
-
-    },
-    "CasingString": {                              （7）套管参数
-        "EveryCasing": [
-            {
-                "Grade": "K55",
-                "OutsideDiameter": 0.139,
-                "InsideDiameter": 0.127,
-                "Length": 3000.15,
-                "Density": 7.85,
-                "WeightPerMeter": 0
-            }
-        ]
-    },
-    "ProductionParameter": {                       （8）生产数据
-        "WaterCut": 80.7,
-        "ProductionGasOilRatio": 4.15,
-        "TubingPressure": 0.7,
-        "CasingPressure": 0.6,
-        "WellHeadFluidTemperature": 35.15,
-        "ProducingfluidLevel": 645.25,
-        "PumpSettingDepth": 674.35
-    },
-
-    "SystemEfficiency": {                          （9）系统效率
-        "MotorInputActivePower": 2.3
-    },
-    "ManualIntervention": {                        （10）人工干预
-        "Code": 0,
-        "NetGrossRatio": 1.00
-    }
+	"AKString": "",
+	"WellName": "J01-001",
+	"EveryTime": [
+		{
+			"AcquisitionTime": "2020-01-15 10:00:00",
+			"CommStatus": 1,
+			"CommTime": 10,
+			"CommTimeEfficiency": 0.42,
+			"CommRange": "00:00-10:00",
+			"RunStatus": 1,
+			"RunTime": 10,
+			"RunTimeEfficiency": 0.42,
+			"RunRange": "00:00-10:00",
+			"StopReason": 1,
+			"StartReason": 1,
+			"TubingPressure": 1.5,
+			"CasingPressure": 1.5,
+			"WellHeadFluidTemperature": 15,
+			"ProductionGasOilRatio": 55,
+			"FSResultCode": 1202,
+			"Stroke": 2.5,
+			"SPM": 3.9,
+			"FullnessCoefficient": 0.7,
+			"LiquidVolumetricProduction": 6,
+			"OilVolumetricProduction": 1.2,
+			"WaterVolumetricProduction": 4.8,
+			"LiquidWeightProduction": 6,
+			"OilWeightProduction": 1.2,
+			"WaterWeightProduction": 4.8,
+			"VolumeWaterCut": 80,
+			"WeightWaterCut": 80,
+			"PumpEff": 80,
+			"PumpBoreDiameter": 0.032,
+			"PumpSettingDepth": 1500,
+			"ProducingfluidLevel": 1280,
+			"Submergence": 220,
+			"ETResultCode": 1202,
+			"WattDegreeBalance": 100,
+			"IDegreeBalance": 100,
+			"DeltaRadius": 0,
+			"SurfaceSystemEfficiency": 60,
+			"WellDownSystemEfficiency": 60,
+			"SystemEfficiency": 36,
+			"PowerConsumptionPerTHM": 1.5,
+			"IA": 15,
+			"IB": 15,
+			"IC": 15,
+			"VA": 380,
+			"VB": 380,
+			"VC": 380,
+			"RunFrequency": 50.5,
+			"RPM": 0
+        },
+		{
+			"AcquisitionTime": "2020-01-15 14:00:00",
+			"CommStatus": 1,
+			"CommTime": 14,
+			"CommTimeEfficiency": 0.58,
+			"CommRange": "00:00-14:00",
+			"RunStatus": 1,
+			"RunTime": 14,
+			"RunTimeEfficiency": 0.58,
+			"RunRange": "00:00-14:00",
+			"StopReason": 1,
+			"StartReason": 1,
+			"TubingPressure": 2.1,
+			"CasingPressure": 2.2,
+			"WellHeadFluidTemperature": 30,
+			"ProductionGasOilRatio": 75,
+			"FSResultCode": 1202,
+			"Stroke": 2.6,
+			"SPM": 4.1,
+			"FullnessCoefficient": 0.85,
+			"LiquidVolumetricProduction": 4.56,
+			"OilVolumetricProduction": 0.91,
+			"WaterVolumetricProduction": 3.65,
+			"LiquidWeightProduction": 4.46,
+			"OilWeightProduction": 0.81,
+			"WaterWeightProduction": 3.65,
+			"VolumeWaterCut": 80,
+			"WeightWaterCut": 80,
+			"PumpEff": 85,
+			"PumpBoreDiameter": 0.032,
+			"PumpSettingDepth": 1500,
+			"ProducingfluidLevel": 1300,
+			"Submergence": 200,
+			"ETResultCode": 1202,
+			"WattDegreeBalance": 104,
+			"IDegreeBalance": 105,
+			"DeltaRadius": -0.2,
+			"SurfaceSystemEfficiency": 70,
+			"WellDownSystemEfficiency": 70,
+			"SystemEfficiency": 40,
+			"PowerConsumptionPerTHM": 0.5,
+			"IA": 11,
+			"IB": 11,
+			"IC": 11,
+			"VA": 360,
+			"VB": 360,
+			"VC": 360,
+			"RunFrequency": 50,
+			"RPM": 0
+        },
+		{
+			"AcquisitionTime": "2020-01-15 20:00:00",
+			"CommStatus": 1,
+			"CommTime": 21,
+			"CommTimeEfficiency": 0.875,
+			"CommRange": "00:00-21:00",
+			"RunStatus": 1,
+			"RunTime": 21,
+			"RunTimeEfficiency": 0.875,
+			"RunRange": "00:00-21:00",
+			"StopReason": 1,
+			"StartReason": 1,
+			"TubingPressure": 2.1,
+			"CasingPressure": 2.2,
+			"WellHeadFluidTemperature": 30,
+			"ProductionGasOilRatio": 75,
+			"FSResultCode": 1202,
+			"Stroke": 2.6,
+			"SPM": 4.1,
+			"FullnessCoefficient": 0.85,
+			"LiquidVolumetricProduction": 4.56,
+			"OilVolumetricProduction": 0.91,
+			"WaterVolumetricProduction": 3.65,
+			"LiquidWeightProduction": 4.46,
+			"OilWeightProduction": 0.81,
+			"WaterWeightProduction": 3.65,
+			"VolumeWaterCut": 80.8,
+			"WeightWaterCut": 80.8,
+			"PumpEff": 85,
+			"PumpBoreDiameter": 0.032,
+			"PumpSettingDepth": 1500,
+			"ProducingfluidLevel": 1300,
+			"Submergence": 200,
+			"ETResultCode": 1202,
+			"WattDegreeBalance": 104,
+			"IDegreeBalance": 105,
+			"DeltaRadius": -0.2,
+			"SurfaceSystemEfficiency": 70,
+			"WellDownSystemEfficiency": 70,
+			"SystemEfficiency": 40,
+			"PowerConsumptionPerTHM": 0.5,
+			"IA": 12,
+			"IB": 12,
+			"IC": 12,
+			"VA": 360,
+			"VB": 360,
+			"VC": 360,
+			"RunFrequency": 50,
+			"RPM": 0
+        }
+    ]
 }
 ```
-
-### 9.1.3 数据收集表
-
-*表9-2 区块数据*
-
-| 序号      | 区块名称*  | 原油密度(g/cm^3)*   | 天然气相对密度*  | 饱和压力(MPa)*  | 中部深度(m)*  | 中部温度(℃) *|  
-|:----------|:-----------|:--------------------|:-----------------|:----------------|:--------------|:---------------|
-| 1         |            |                     |                  |                 |               |                |
-| 2         |            |                     |                  |                 |               |                |
-
-
-*表9-3 井身轨迹数据表*
-
-| 序号      | 井名  | 测量深度 (m)  | 垂直深度 (m)  | 井斜角(°)  | 方位角(°)  |
-|:----------|:------|:--------------|:--------------|:-----------|:-----------|
-| 1         |       |               |               |            |            |
-| 2         |       |               |               |            |            |
-
-*表9-4 生产数据*
-
-| 序号      | 井名                 | 含水率(%)*           | 油压(回压)(MPa)*    | 套压(MPa)*          | 动液面(m)*          | 井口流温(℃)       | 生产气油比 *      |     
-|:----------|:---------------------:|:----------------:|:------------------:|:--------------------:|:--------------------:|:-------------------:|:---------:|
-| 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |         |             |               |               |                    |                   |                  |
-| 2        |                     |                     |                    |                    |                    |                   |                  |
-| **序号** | **泵筒长(m)**         | **泵级数**        | **转子直径(mm)**   | **公称排量(ml/转)***    | **油管内径(m)*** | **一级杆级别*** | **一级杆外径(m)***  |
-| 1        |                     |                     |                    |                    |                    |                   |                  |
-| 2        |                     |                     |                    |                    |                    |                   |                  |
-| **序号** | **一级杆长度(m)***  | **二级杆级别***  | **二级杆外径(m)***    |**二级杆长度(m)***  |**三级杆级别***  | **三级杆外径(m)***  | **三级杆长度(m)***            |
-| 1        |                     |                     |                    |                    |                    |                   |                  |
-| 2        |                     |                     |                    |                    |                    |                   |                  |
-
 
 ## 9.2 输出文本
 
 ### 9.2.1 输出参数说明
 
-*表9-5 输出参数说明表*
+*表9-2 输出参数说明表*
 
-| 代码                               | 名称               | 单位        | 类型     | 备注                                    |
-|------------------------------------|--------------------|-------------|----------|-----------------------------------------|
-| WellName                           | 井名               |             | string   |                                         |
-| AcquisitionTime                    | 采集时间           |             | string   |                                         |
-| RPM                                | 转速               | r/min       | float64  |                                         |
-| RunStatus                          | 运行状态           |             | int      | 0-停止 1-运行                           |
-| **CalculationStatus**              | **计算状态**       |             |          |                                         |
-| ResultStatus                       | 计算结果状态       |             | int      | 详见表底注释[1]                         |
-| ResultCode                         | 工况类型           |             | int      |                                         |
-| **Verification**                   | **数据校验**       |             |          |                                         |
-| ErrorCounter                       | 错误参数计数器     |             | int      | 错误参数个数                            |
-| ErrorString                        | 错误参数字符串     |             | string   | 数据错误，计算不成功                    |
-| WarningCounter                     | 报警计数器         |             | int      | 报警参数个数                            |
-| WarningString                      | 报警字符串         |             | string   | 报警参数（取默认值，计算正常进行）      |
-| SDKPlusCounter                     | Plus版报警计数器   |             | int      | 预留                                    |
-| SDKPlusString                      | Plus版报警字符串   |             | string   | 预留                                    |
-| **RodString**                      | **抽油杆参数**     |             |          |                                         |
-| CNT                                | 杆数               |             | int      |                                         |
-| LengthAll                          | 总杆长             | m           | float64  |                                         |
-| WeightAll                          | 总杆重             | kN          | float64  |                                         |
-| BuoyancyForceAll                   | 总浮力             | kN          | float64  |                                         |
-| LengthString                       | 杆长字符串         |             | string   |                                         |
-| GradeString                        | 杆级别字符串       |             | string   |                                         |
-| OutsideDiameterString              | 杆外径字符串       |             | string   |                                         |
-| InsideDiameterString               | 杆内径字符串       |             | string   |                                         |
-| **EveryRod**                       | **每级杆参数**     |             |          |                                         |
-| Type                               | 抽油杆类型         |             | int      | 1-实心抽油杆 2－空心抽油杆              |
-| Grade                              | 杆级别             |             | string   | A,B,C,K,D,KD,HL,HY                      |
-| Length                             | 杆长               | m           | float64  |                                         |
-| OutsideDiameter                    | 杆外径             | m           | float64  |                                         |
-| InsideDiameter                     | 杆内径             | m           | float64  |                                         |
-| Area                               | 杆截面积           | m^2         | float64  |                                         |
-| Weight                             | 杆重               | kN          | float64  |                                         |
-| BuoyancyForce                      | 杆柱浮力           | kN          | float64  |                                         |
-| Density                            | 杆柱密度           | g/cm^3      | float64  |                                         |
-| WeightPerMeter                     | 每米杆重           | kN/m        | float64  |                                         |
-| TE                                 | 抽油杆最小抗张强度 | MPa         | float64  |                                         |
-| SF                                 | 抽油杆使用系数     | 小数        | float64  |                                         |
-| DampingFactor                      | 每级杆的阻尼系数   |             | float64  |                                         |
-| MaxStress                          | 各级杆最大应力     | MPa         | float64  |                                         |
-| MinStress                          | 各级杆最小应力     | MPa         | float64  |                                         |
-| AllowableStress                    | 各级杆许用应力     | MPa         | float64  |                                         |
-| StressRatio                        | 应力范围比         | 小数        | float64  |                                         |
-| **ProductionParameter**            | **生产参数**       |             |          |                                         |
-| WaterCut                           | 体积含水率         | %           | float64  |                                         |
-| ProductionGasOilRatio              | 生产气油比         | m^3/t     | float64  |                                         |
-| TubingPressure                     | 油压               | MPa         | float64  |                                         |
-| CasingPressure                     | 套压               | MPa         | float64  |                                         |
-| BackPressure                       | 回压               | MPa         | float64  |                                         |
-| WellHeadFluidTemperature           | 井口流温           | ℃          | float64  |                                         |
-| ProducingfluidLevel                | 动液面             | m           | float64  |                                         |
-| PumpSettingDepth                   | 泵挂               | m           | float64  |                                         |
-| Submergence                        | 沉没度             | m           | float64  |                                         |
-| PumpIntakeP                        | 泵入口压力         | MPa         | float64  |                                         |
-| PumpIntakeT                        | 泵入口温度         | ℃          | float64  |                                         |
-| PumpIntakeGOL                      | 泵入口就地气液比   | m^3/m^3      | float64  |                                         |
-| PumpIntakeVisl                     | 泵入口粘度         | mPa·s       | float64  |                                         |
-| PumpIntakeBo                       | 泵入口原油体积系数 | 小数        | float64  |                                         |
-| PumpOutletP                        | 泵出口压力         | MPa         | float64  |                                         |
-| PumpOutletT                        | 泵出口温度         | ℃          | float64  |                                         |
-| PumpOutletGOL                      | 泵出口就地气液比   | m^3/m^3      | float64  |                                         |
-| PumpOutletVisl                     | 泵出口粘度         | mPa·s       | float64  |                                         |
-| PumpOutletBo                       | 泵出口原油体积系数 | 小数        | float64  |                                         |
-| TheoreticalProduction              | 理论排量           | m^3/d       | float64  |                                         |
-| LiquidVolumetricProduction         | 产液量（方）       | m^3/d       | float64  |                                         |
-| OilVolumetricProduction            | 产油量（方）       | m^3/d       | float64  |                                         |
-| WaterVolumetricProduction          | 产水量（方）       | m^3/d       | float64  |                                         |
-| LiquidWeightProduction             | 产液量（吨）       | t/d         | float64  |                                         |
-| OilWeightProduction                | 产油量（吨）       | t/d         | float64  |                                         |
-| WaterWeightProduction              | 产水量（吨）       | t/d         | float64  |                                         |
-| **PumpEfficiency**                 | **泵效**           |             |          |                                         |
-| PumpEff1                           | 容积效率           | 小数        | float64  |                                         |
-| PumpEff2                           | 液体收缩系数       | 小数        | float64  |                                         |
-| PumpEff                            | 泵效               | 小数        | float64  |                                         |
-| **SystemEfficiency**               | **系统效率分析**   |             |          |                                         |
-| SystemEfficiency                   | 系统效率           | 小数        | float64  |                                         |
-| PowerConsumptionPerTHM             | 吨液百米耗电量     | kW·h/100m·t | float64  |                                         |
-| MotorInputActivePower              | 电机输入有功功率   | kW          | float64  |                                         |
-| WaterPower                         | 水功率             | kW          | float64  |                                         |
+| 代码                             | 名称              | 单位       | 类型     | 备注                                 |
+|----------------------------------|-------------------|------------|----------|--------------------------------------|
+| WellName                         | 井名              |            | string   |                                      |
+| ResultStatus                     | 计算结果状态      |            | int      | 详见表底注释[1]                      |
+| **Verification**                 | **数据校验**      |            |          |                                      |
+| ErrorCounter                     | 错误参数计数器    |            | int      |                                      |
+| ErrorString                      | 错误参数字符串    |            | string   |                                      |
+| WarningCounter                   | 报警计数器        |            | int      |                                      |
+| WarningString                    | 报警字符串        |            | string   |                                      |
+| CommStatus                       | 通信状态          |            | int      |                                      |
+| CommTime                         | 在线时间          |            | float64  |                                      |
+| CommTimeEfficiency               | 在线时率          |            | float64  |                                      |
+| CommRange                        | 在线区间          |            | string   |                                      |
+| RunStatus                        | 运行状态          |            | int      |                                      |
+| RunTime                          | 运行时间          |            | float64  |                                      |
+| RunTimeEfficiency                | 运行时率          |            | float64  |                                      |
+| RunRange                         | 运行区间          |            | string   |                                      |
+| StopReason                       | 停抽原因          |            | int      |                                      |
+| StartReason                      | 启抽原因          |            | int      |                                      |
+| FSResultCode                     | 功图工况代码      |            | int      |                                      |
+| FSResultString                   | 功图工况综合      |            | string   |                                      |
+| ExtendedDays                     | 功图延用天数      |            | int      |                                      |
+| **Stroke**                       | **功图冲程**      |            |          |                                      |
+| Value                            | 值                | m          | float64  |                                      |
+| Max                              | 最大值            | m          | float64  |                                      |
+| Min                              | 最小值            | m          | float64  |                                      |
+| **SPM**                          | **功图冲次**      |            |          |                                      |
+| Value                            | 值                | 1/min      | float64  |                                      |
+| Max                              | 最大值            | 1/min      | float64  |                                      |
+| Min                              | 最小值            | 1/min      | float64  |                                      |
+| **TubingPressure**               | **油压**          |            |          |                                      |
+| Value                            | 值                | MPa        | float64  |                                      |
+| Max                              | 最大值            | MPa        | float64  |                                      |
+| Min                              | 最小值            | MPa        | float64  |                                      |
+| **CasingPressure**               | **套压**          |            |          |                                      |
+| Value                            | 值                | MPa        | float64  |                                      |
+| Max                              | 最大值            | MPa        | float64  |                                      |
+| Min                              | 最小值            | MPa        | float64  |                                      |
+| **WellHeadFluidTemperature**     | **井口油温**      |            |          |                                      |
+| Value                            | 值                | ℃         | float64  |                                      |
+| Max                              | 最大值            | ℃         | float64  |                                      |
+| Min                              | 最小值            | ℃         | float64  |                                      |
+| **ProductionGasOilRatio**        | **生产气油比**    |            |          |                                      |
+| Value                            | 值                | m^3/t      | float64  |                                      |
+| Max                              | 最大值            | m^3/t      | float64  |                                      |
+| Min                              | 最小值            | m^3/t      | float64  |                                      |
+| **FullnessCoefficient**          | **充满系数**      |            |          |                                      |
+| Value                            | 值                | 小数       | float64  |                                      |
+| Max                              | 最大值            | 小数       | float64  |                                      |
+| Min                              | 最小值            | 小数       | float64  |                                      |
+| **LiquidVolumetricProduction**   | **日产液量**      |            |          |                                      |
+| Value                            | 值                | m^3/d      | float64  |                                      |
+| Max                              | 最大值            | m^3/d      | float64  |                                      |
+| Min                              | 最小值            | m^3/d      | float64  |                                      |
+| **OilVolumetricProduction**      | **日产油量**      |            |          |                                      |
+| Value                            | 值                | m^3/d      | float64  |                                      |
+| Max                              | 最大值            | m^3/d      | float64  |                                      |
+| Min                              | 最小值            | m^3/d      | float64  |                                      |
+| **WaterVolumetricProduction**    | **日产水量**      |            |          |                                      |
+| Value                            | 值                | m^3/d      | float64  |                                      |
+| Max                              | 最大值            | m^3/d      | float64  |                                      |
+| Min                              | 最小值            | m^3/d      | float64  |                                      |
+| **LiquidWeightProduction**       | **日产液量**      |            |          |                                      |
+| Value                            | 值                | t/d        | float64  |                                      |
+| Max                              | 最大值            | t/d        | float64  |                                      |
+| Min                              | 最小值            | t/d        | float64  |                                      |
+| **OilWeightProduction**          | **日产油量**      |            |          |                                      |
+| Value                            | 值                | t/d        | float64  |                                      |
+| Max                              | 最大值            | t/d        | float64  |                                      |
+| Min                              | 最小值            | t/d        | float64  |                                      |
+| **WaterWeightProduction**        | **日产水量**      |            |          |                                      |
+| Value                            | 值                | t/d        | float64  |                                      |
+| Max                              | 最大值            | t/d        | float64  |                                      |
+| Min                              | 最小值            | t/d        | float64  |                                      |
+| **VolumeWaterCut**               | **体积含水率**    |            |          |                                      |
+| Value                            | 值                | %          | float64  |                                      |
+| Max                              | 最大值            | %          | float64  |                                      |
+| Min                              | 最小值            | %          | float64  |                                      |
+| **WeightWaterCut**               | **重量含水率**    |            |          |                                      |
+| Value                            | 值                | %          | float64  |                                      |
+| Max                              | 最大值            | %          | float64  |                                      |
+| Min                              | 最小值            | %          | float64  |                                      |
+| **PumpEff**                      | **泵效**          |            |          |                                      |
+| Value                            | 值                | %          | float64  |                                      |
+| Max                              | 最大值            | %          | float64  |                                      |
+| Min                              | 最小值            | %          | float64  |                                      |
+| **PumpBoreDiameter**             | **泵径**          |            |          |                                      |
+| Value                            | 值                | m          | float64  |                                      |
+| Max                              | 最大值            | m          | float64  |                                      |
+| Min                              | 最小值            | m          | float64  |                                      |
+| **PumpSettingDepth**             | **泵挂**          |            |          |                                      |
+| Value                            | 值                | m          | float64  |                                      |
+| Max                              | 最大值            | m          | float64  |                                      |
+| Min                              | 最小值            | m          | float64  |                                      |
+| **ProducingfluidLevel**          | **动液面**        |            |          |                                      |
+| Value                            | 值                | m          | float64  |                                      |
+| Max                              | 最大值            | m          | float64  |                                      |
+| Min                              | 最小值            | m          | float64  |                                      |
+| **Submergence**                  | **沉没度**        |            |          |                                      |
+| Value                            | 值                | m          | float64  |                                      |
+| Max                              | 最大值            | m          | float64  |                                      |
+| Min                              | 最小值            | m          | float64  |                                      |
+| ETResultCode                     | 电参工况代码      |            | int      |                                      |
+| ETResultString                   | 电参工况综合      |            | string   |                                      |
+| **WattDegreeBalance**            | **功率平衡度**    |            |          |                                      |
+| Value                            | 值                | %          | float64  |                                      |
+| Max                              | 最大值            | %          | float64  |                                      |
+| Min                              | 最小值            | %          | float64  |                                      |
+| **IdegreeBalance**               | **电流平衡度**    |            |          |                                      |
+| Value                            | 值                | %          | float64  |                                      |
+| Max                              | 最大值            | %          | float64  |                                      |
+| Min                              | 最小值            | %          | float64  |                                      |
+| **DeltaRadius**                  | **移动距离**      |            |          |                                      |
+| Value                            | 值                | m          | float64  | + 代表向外移 -代表向内移            |
+| Max                              | 最大值            | m          | float64  | + 代表向外移 -代表向内移            |
+| Min                              | 最小值            | m          | float64  | + 代表向外移 -代表向内移            |
+| **SurfaceSystemEfficiency**      | **地面效率**      |            |          |                                      |
+| Value                            | 值                | 小数       | float64  |                                      |
+| Max                              | 最大值            | 小数       | float64  |                                      |
+| Min                              | 最小值            | 小数       | float64  |                                      |
+| **WellDownSystemEfficiency**     | **井下效率**      |            |          |                                      |
+| Value                            | 值                | 小数       | float64  |                                      |
+| Max                              | 最大值            | 小数       | float64  |                                      |
+| Min                              | 最小值            | 小数       | float64  |                                      |
+| **SystemEfficiency**             | **系统效率**      |            |          |                                      |
+| Value                            | 值                | 小数       | float64  |                                      |
+| Max                              | 最大值            | 小数       | float64  |                                      |
+| Min                              | 最小值            | 小数       | float64  |                                      |
+| **PowerConsumptionPerTHM**       | **吨液百米耗电量**|            |          |                                      |
+| Value                            | 值                | kW·h/100·t | float64  |                                      |
+| Max                              | 最大值            | kW·h/100·t | float64  |                                      |
+| Min                              | 最小值            | kW·h/100·t | float64  |                                      |
+| DailyAPC                         | 日有功功耗        | kW·h       | float64  |                                      |
+| DailyRPC                         | 日无功功耗        | kVar·h     | float64  |                                      |
+| **IA**                           | **A相电流**       |            |          |                                      |
+| Value                            | 值                | A          | float64  |                                      |
+| Max                              | 最大值            | A          | float64  |                                      |
+| Min                              | 最小值            | A          | float64  |                                      |
+| **IB**                           | **B相电流**       |            |          |                                      |
+| Value                            | 值                | A          | float64  |                                      |
+| Max                              | 最大值            | A          | float64  |                                      |
+| Min                              | 最小值            | A          | float64  |                                      |
+| **IC**                           | **C相电流**       |            |          |                                      |
+| Value                            | 值                | A          | float64  |                                      |
+| Max                              | 最大值            | A          | float64  |                                      |
+| Min                              | 最小值            | A          | float64  |                                      |
+| IMaxString                       | 电流最大值字符串  | A          | string   |                                      |
+| IMinString                       | 电流最小值字符串  | A          | string   |                                      |
+| **VA**                           | **A相电压**       |            |          |                                      |
+| Value                            | 值                | V          | float64  |                                      |
+| Max                              | 最大值            | V          | float64  |                                      |
+| Min                              | 最小值            | V          | float64  |                                      |
+| **VB**                           | **B相电压**       |            |          |                                      |
+| Value                            | 值                | V          | float64  |                                      |
+| Max                              | 最大值            | V          | float64  |                                      |
+| Min                              | 最小值            | V          | float64  |                                      |
+| **VC**                           | **C相电压**       |            |          |                                      |
+| Value                            | 值                | V          | float64  |                                      |
+| Max                              | 最大值            | V          | float64  |                                      |
+| Min                              | 最小值            | V          | float64  |                                      |
+| VMaxString                       | 电压最大值字符串  | V          | string   |                                      |
+| VMinString                       | 电压最小值字符串  | V          | string   |                                      |
+| **RunFrequency**                 | **频率**          |            |          |                                      |
+| Value                            | 值                | HZ         | float64  |                                      |
+| Max                              | 最大值            | HZ         | float64  |                                      |
+| Min                              | 最小值            | HZ         | float64  |                                      |
+| **RPM**                          | **转速**          |            |          |                                      |
+| Value                            | 值                | r/min      | float64  |                                      |
+| Max                              | 最大值            | r/min      | float64  |                                      |
+| Min                              | 最小值            | r/min      | float64  |                                      |
+
+**[1]** *计算结果状态:1:计算成功，-44:请求数据读取失败，-55:请求数据json解码失败， -66:井数许可超限，-77:计算异常， -88:响应数据json编码失败， -99:数据校验错误* 
 
 ### 9.2.2 输出实例
 
 ```
 {
-    "WellName": "03-033",
-    "AcquisitionTime": "2018-10-21 09: 00: 00",
-    "RPM": 90.15,
-    "RunStatus": 1,
-    "CalculationStatus": {                         （1）计算状态
-        "ResultStatus": 1,
-        "ResultCode": 0
-    },
-    "Verification": {                              （2）数据校验
-        "ErrorCounter": 0,
-        "ErrorString": "",
-        "WarningCounter": 0,
-        "WarningString": ""
-    },
-    "RodString": {                                 （3）抽油杆参数
-        "CNT": 2,
-        "LengthAll": 658.1,
-        "WeightAll": 16.19,
-        "BuoyancyForceAll": 2.01,
-        "LengthString": "246.80/411.30",
-        "GradeString": "D/D",
-        "OutsideDiameterString": "0.022/0.019",
-        "InsideDiameterString": "0.000/0.000",
-        "EveryRod": [
-            {
-                "Type": 1,
-                "Grade": "D",
-                "Length": 246.8,
-                "OutsideDiameter": 0.022,
-                "InsideDiameter": 0,
-                "Area": 0.00038,
-                "Weight": 7.22,
-                "WeightPerMeter": 0.0292,
-                "BuoyancyForce": 0.895,
-                "Density": 7.85,
-                "TE": 793,
-                "SF": 1,
-                "DampingFactor": 0,
-                "MaxStress": 0,
-                "MinStress": 0,
-                "AllowableStress": 0,
-                "StressRatio": 0
-            },
-            {
-                "Type": 1,
-                "Grade": "D",
-                "Length": 411.3,
-                "OutsideDiameter": 0.019,
-                "InsideDiameter": 0,
-                "Area": 0.000284,
-                "Weight": 8.97,
-                "WeightPerMeter": 0.0218,
-                "BuoyancyForce": 1.11,
-                "Density": 7.85,
-                "TE": 793,
-                "SF": 1,
-                "DampingFactor": 0,
-                "MaxStress": 0,
-                "MinStress": 0,
-                "AllowableStress": 0,
-                "StressRatio": 0
-            }
-        ]
-    },
-    "ProductionParameter": {                           （4）生产数据
-        "WaterCut": 80.7,
-        "ProductionGasOilRatio": 4.15,
-        "TubingPressure": 0.7,
-        "CasingPressure": 0.6,
-        "BackPressure": 0,
-        "WellHeadFluidTemperature": 35.15,
-        "ProducingfluidLevel": 645.25,
-        "PumpSettingDepth": 674.35,
-        "Submergence": 29.1,
-        "PumpIntakeP": 0.996,
-        "PumpIntakeT": 62.86,
-        "PumpIntakeGOL": 0.00696,
-        "PumpIntakeVisl": 0.935,
-        "PumpIntakeBo": 1.05,
-        "PumpOutletP": 7,
-        "PumpOutletT": 62.76,
-        "PumpOutletGOL": 0,
-        "PumpOutletVisl": 0.932,
-        "PumpOutletBo": 1.05,
-        "TheoreticalProduction": 64.91,
-        "LiquidVolumetricProduction": 63.9,
-        "OilVolumetricProduction": 12.33,
-        "WaterVolumetricProduction": 51.57,
-        "LiquidWeightProduction": 62.17,
-        "OilWeightProduction": 10.61,
-        "WaterWeightProduction": 51.57
-    },
-    "PumpEfficiency": {                               （5）泵效
-        "PumpEff1": 0.993,
-        "PumpEff2": 0.991,
-        "PumpEff": 0.984
-    },
-    "SystemEfficiency": {                             （6）系统效率
-        "SystemEfficiency": 2.01,
-        "PowerConsumptionPerTHM": 0.135,
-        "MotorInputActivePower": 2.3,
-        "WaterPower": 4.62
-    }
+	"WellName": "J01-001",
+	"ResultStatus": 1,
+	"Verification": {
+		"ErrorCounter": 0,
+		"ErrorString": "",
+		"WarningCounter": 0,
+		"WarningString": ""
+	},
+	"CommStatus": 1,
+	"CommTime": 21,
+	"CommTimeEfficiency": 0.875,
+	"CommRange": "00:00-21:00",
+	"RunStatus": 1,
+	"RunTime": 21,
+	"RunTimeEfficiency": 0.875,
+	"RunRange": "00:00-21:00",
+	"StopReason": 1,
+	"StartReason": 1,
+	"TubingPressure": {
+		"Value": 1.8,
+		"Max": 2.1,
+		"Min": 1.5
+	},
+	"CasingPressure": {
+		"Value": 1.85,
+		"Max": 2.2,
+		"Min": 1.5
+	},
+	"WellHeadFluidTemperature": {
+		"Value": 22.5,
+		"Max": 30,
+		"Min": 15
+	},
+	"ProductionGasOilRatio": {
+		"Value": 65,
+		"Max": 75,
+		"Min": 55
+	},
+	"FSResultCode": 1202,
+	"FSResultString": "20:00:00  正常",
+	"ExtendedDays": 1,
+	"Stroke": {
+		"Value": 2.55,
+		"Max": 2.6,
+		"Min": 2.5
+	},
+	"SPM": {
+		"Value": 4,
+		"Max": 4.1,
+		"Min": 3.9
+	},
+	"FullnessCoefficient": {
+		"Value": 0.775,
+		"Max": 0.85,
+		"Min": 0.7
+	},
+	"LiquidVolumetricProduction": {
+		"Value": 4.62,
+		"Max": 5.25,
+		"Min": 3.99
+	},
+	"OilVolumetricProduction": {
+		"Value": 0.913,
+		"Max": 1.05,
+		"Min": 0.796
+	},
+	"WaterVolumetricProduction": {
+		"Value": 3.71,
+		"Max": 4.2,
+		"Min": 3.19
+	},
+	"LiquidWeightProduction": {
+		"Value": 4.58,
+		"Max": 5.25,
+		"Min": 3.9
+	},
+	"OilWeightProduction": {
+		"Value": 0.905,
+		"Max": 1.05,
+		"Min": 0.709
+	},
+	"WaterWeightProduction": {
+		"Value": 3.67,
+		"Max": 4.2,
+		"Min": 3.19
+	},
+	"VolumeWaterCut": {
+		"Value": 80.23,
+		"Max": 80.8,
+		"Min": 80
+	},
+	"WeightWaterCut": {
+		"Value": 80.23,
+		"Max": 80.8,
+		"Min": 80
+	},
+	"PumpEff": {
+		"Value": 82.5,
+		"Max": 85,
+		"Min": 80
+	},
+	"PumpBoreDiameter": {
+		"Value": 0.032,
+		"Max": 0.032,
+		"Min": 0.032
+	},
+	"PumpSettingDepth": {
+		"Value": 1500,
+		"Max": 1500,
+		"Min": 1500
+	},
+	"ProducingfluidLevel": {
+		"Value": 1290,
+		"Max": 1300,
+		"Min": 1280
+	},
+	"Submergence": {
+		"Value": 210,
+		"Max": 220,
+		"Min": 200
+	},
+	"ETResultCode": 1202,
+	"ETResultString": "20:00:00  正常",
+	"WattDegreeBalance": {
+		"Value": 102,
+		"Max": 104,
+		"Min": 100
+	},
+	"IDegreeBalance": {
+		"Value": 102.5,
+		"Max": 105,
+		"Min": 100
+	},
+	"DeltaRadius": {
+		"Value": -0.1,
+		"Max": 0,
+		"Min": -0.2
+	},
+	"SurfaceSystemEfficiency": {
+		"Value": 65,
+		"Max": 70,
+		"Min": 60
+	},
+	"WellDownSystemEfficiency": {
+		"Value": 65,
+		"Max": 70,
+		"Min": 60
+	},
+	"SystemEfficiency": {
+		"Value": 38,
+		"Max": 40,
+		"Min": 36
+	},
+	"PowerConsumptionPerTHM": {
+		"Value": 1,
+		"Max": 1.5,
+		"Min": 0.5
+	},
+	"IA": {
+		"Value": 13.29,
+		"Max": 15,
+		"Min": 11
+	},
+	"IB": {
+		"Value": 13.29,
+		"Max": 15,
+		"Min": 11
+	},
+	"IC": {
+		"Value": 13.29,
+		"Max": 15,
+		"Min": 11
+	},
+	"IMaxString": "15.00/15.00/15.00",
+	"IMinString": "11.00/11.00/11.00",
+	"VA": {
+		"Value": 370,
+		"Max": 380,
+		"Min": 360
+	},
+	"VB": {
+		"Value": 370,
+		"Max": 380,
+		"Min": 360
+	},
+	"VC": {
+		"Value": 370,
+		"Max": 380,
+		"Min": 360
+	},
+	"VMaxString": "380.00/380.00/380.00",
+	"VMinString": "360.00/360.00/360.00",
+	"RunFrequency": {
+		"Value": 50.25,
+		"Max": 50.5,
+		"Min": 50
+	},
+	"RPM": {
+		"Value": 0,
+		"Max": 0,
+		"Min": 0
+	}
 }
 ```
 
-----[第八章 电参反演](.././Chapter8/Chapter8.md)----[返回章节目录](.././README.md)----[第十章 通信计算](.././Chapter10/Chapter10.md)----
+----[第八章 能耗计算](.././Chapter8/Chapter8.md)----[返回章节目录](.././README.md)----[第十章 插件](.././Chapter10/Chapter10.md)----
