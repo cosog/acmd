@@ -8,7 +8,6 @@
 	  - [10.1.2 输出文本](Chapter10.md#1012-输出文本)
       	- [10.1.2.1 输出参数说明](Chapter10.md#10121-输出参数说明)
       	- [10.1.2.2 输出实例](Chapter10.md#10122-输出实例)
-      	- [10.1.2.3 诊断结果代码](Chapter10.md#10123-诊断结果代码)
 	- [10.2 转直角坐标](Chapter10.md#102-采集处理)
       - [10.2.1 输入文本](Chapter10.md#1021-输入文本)
       	- [10.2.1.1 输入参数说明](Chapter10.md#10211-输入参数说明)
@@ -29,11 +28,12 @@
 | WellName       | 井名                |      | string  | *    |                     |
 | NameplateStroke| 铭牌冲程            | m    | float64 | *    | 与前臂长二选一填写  |
 | ForearmLength  | 前臂长              | m    | float64 |      | 与铭牌冲程二选一填写|
-| Interval       | 采样间隔            | ms   | float64 |      |                     |
-| **FADiagram**  | **载荷-角度数据**   |      |         |      |                     |
+| **FEADiagram**  | **采集数据**   |      |         |      |                     |
 | AcquisitionTime| 采集时间            |      | string  | *    |                     |
 | F              | 载荷                | kN   | float64 | *    |                     |
 | A              | 角度                | °    | float64 | *    |                     |
+| Watt           | 有功功率             | kW    | float64 | *    |                     |
+| I              | 电流                | A     | float64 | *    |                     |
 
 #### 10.1.1.2 输入实例
 
@@ -43,7 +43,7 @@
 "NameplateStroke": 4.35,    //（2）铭牌冲程
 "ForearmLength": 4.2,       //（3）前臂长
 "Interval": 66,             //（4）采集间隔
-"FADiagram": {              //（5）载荷-角度参数
+"FEADiagram": {              //（5）载荷-角度参数
 "AcquisitionTime": "2018-03-07 16:38:24", //（5-1）采集时间
 "F": [    //（5-2）载荷
         62.14,
@@ -85,7 +85,6 @@
 | WellName              | 井名             |       | string  |                                   |
 | **CalculationStatus** | **计算状态**     |       |         |                                   |
 | ResultStatus          | 计算结果状态     |       | int     | 详见表底注释[1]                   |
-| ResultCode            | 诊断结果         |       | int     | 详见表10-3                           |
 | **Verification**      | **数据校验**     |       |         |                                   |
 | ErrorCounter          | 错误参数计数器   |       | int     | 错误参数个数                      |
 | ErrorString           | 错误参数字符串   |       | string  | 数据错误，计算不成功              |
@@ -93,15 +92,15 @@
 | WarningString         | 报警字符串       |       | string  | 报警参数（取默认值，计算正常进行）|
 | NameplateStroke       | 铭牌冲程         | m     | float64 |                                   |
 | ForearmLength         | 前臂长           | m     | float64 |                                   |
-| OptimizedInterval     | 优化采集间隔     | ms    | float64 |                                   |
-| OptimizedCount        | 优化采集点数     |       | int     |                                   |
-| **FSDiagram**         |  **功图数据**    |       |         |                                   |
+| **FESDiagram**         |  **功图数据**    |       |         |                                   |
 | AcquisitionTime       | 采集时间         |       | string  |                                   |
 | Stroke                | 功图冲程         | m     | float64 |                                   |
 | SPM                   | 功图冲次         | 1/min | float64 |                                   |
 | CNT                   | 点数             |       | int     |                                   |
 | F                     | 载荷             | kN    | float64 |                                   |
 | S                     | 位移             | m     | float64 |                                   |
+| Watt                  | 有功功率          | kW    | float64 |                                   |
+| I                     | 电流             | A     | float64 |                                   |
 
 **[1]** *1:计算成功，-44:请求数据读取失败，-55:请求数据json解码失败， -66:井数许可超限，-77:计算异常， -88:响应数据json编码失败， -99:数据校验错误* 
 
@@ -166,18 +165,6 @@
     }
 }
 ```
-#### 10.1.2.3 诊断结果代码
-
-*表10-3 代码表*
-| 序号 | 代码         | 说明                                    |
-|------|--------------|-----------------------------------------|
-| 1    | 1102         | 正常                                    |
-| 2    | 1104         | 检查仪表                                |
-| 3    | 1106         | 少于半个周期，优化重新采集              |
-| 4    | 1107         | 少于1个周期，大于半个周期，优化重新采集 |
-| 5    | 1108         | 功图点数少于目标点数下限，优化重新采集  |
-| 6    | 1109         | 功图点数多于目标上限，优化重新采集      |
-| 7    | 1302         | 停抽                                    |
 
 ## 10.2 转直角坐标
 
