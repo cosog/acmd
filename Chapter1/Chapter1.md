@@ -44,8 +44,8 @@
 | WellName        | 井名     |       | string   | *       |                                 |
 | AcquisitionTime | 采集时间 |       | string   | *       | YYYY-MM-DD HH:NN:SS"            |
 | SPM             | 冲次     | 1/min | float64  | *       |                                 |
-| S               | 位移     | m     | float64  | *       |                                 |
-| F               | 载荷     | kN    | float64  | *       |                                 |
+| S               | 位移     | m     | []float64  | *       |                                 |
+| F               | 载荷     | kN    | []float64  | *       |                                 |
 | UpperLoadLine   | 上载荷线 | kN    | float64  | *       | 取非故障情况下功图上载荷平均值  |
 | LowerLoadLine   | 下载荷线 | kN    | float64  | *       | 取非故障情况下功图下载荷平均值  |
 
@@ -230,9 +230,9 @@
 | Depth                               | 油层中部深度              | m         | float64  | *        | 油层中部（测量）深度                  |
 | Temperature                         | 油层中部温度              | ℃        | float64  | *        |                           |
 | **WellboreTrajectory**              | **井身轨迹**            |           |          |          |                                         |
-| MeasuringDepth                      | 测量深度                | m         | float64  |          | 如直井可不填写，非直井按 实际数据填写   |
-| DeviationAngle                      | 井斜角                  | °         | float64  |          |                                         |
-| AzimuthAngle                        | 方位角                  | °         | float64  |          |                                         |
+| MeasuringDepth                      | 测量深度                | m         | []float64  |          | 如直井可不填写，非直井按 实际数据填写   |
+| DeviationAngle                      | 井斜角                  | °         | []float64  |          |                                         |
+| AzimuthAngle                        | 方位角                  | °         | []float64  |          |                                         |
 | **RodString**                       | **抽油杆参数**          |           |          |          |                                         |
 | Type                                | 抽油杆类型              |           | int      |          | 1-实心抽油杆，2-空心抽油杆              |
 | Grade                               | 杆级别                  |           | string   | *        | A,B,C,K,D,KD,HL,HY                      |
@@ -283,10 +283,10 @@
 | AcquisitionTime                     | 采集时间                |           | string   |          | "YYYY-MM-DD HH:NN:SS"                    |
 | Stroke                              | 冲程                    | m         | float64  |          |                                         |
 | SPM                                 | 冲次                    | 1/min     | float64  | *        |                                         |
-| F                                   | 载荷                    | kN        | float64  | *        |                                         |
-| S                                   | 位移                    | m         | float64  | *        |                                         |
-| Watt                                | 三相总有功功率          | kW        | float64  |          |                                         |
-| I                                   | 三相平均电流            | A         | float64  |          |                                         |
+| F                                   | 载荷                    | kN        | []float64  | *        |                                         |
+| S                                   | 位移                    | m         | []float64  | *        |                                         |
+| Watt                                | 三相总有功功率          | kW        | []float64  |          |                                         |
+| I                                   | 三相平均电流            | A         | []float64  |          |                                         |
 | **SystemEfficiency**                | **系统效率**            |           |          |          |                                         |
 | MotorInputWatt                      | 电机输入有功功率        | kW        | float64  |          | 在没有有功功率曲线情况下用于计算系统效率        |
 | **ManualIntervention**              | **人工干预**            |           |          |          |                                         |
@@ -804,10 +804,10 @@
 | FullnessCoefficient                        | 功图充满系数               | 小数        | float64  |                                   |
 | PlungerStroke                              | 柱塞冲程                   | m           | float64  |                                   |
 | AvailablePlungerStroke                     | 柱塞有效冲程               | m           | float64  |                                   |
-| F                                          | 载荷                       | kN          | float64  | 功图载荷                          |
-| S                                          | 位移                       | m           | float64  | 功图位移                          |
-| Watt                                       | 三相总有功功率             | kW          | float64  |                                   |
-| I                                          | 三相平均电流               | A           | float64  |                                   |
+| F                                          | 载荷                       | kN          | [][]float64  | 功图载荷                          |
+| S                                          | 位移                       | m           | [][]float64  | 功图位移                          |
+| Watt                                       | 三相总有功功率             | kW          | []float64  |                                   |
+| I                                          | 三相平均电流               | A           | []float64  |                                   |
 | FMax                                       | 最大载荷                   | kN          | float64  | 各级功图最大载荷                  |
 | FMin                                       | 最小载荷                   | kN          | float64  | 各级功图最小载荷                  |
 | SMaxIndex                                  | 位移最大值索引             |             | int      |                                   |
@@ -1160,9 +1160,9 @@
 | Depth                          | 油层中部深度            | m        | float64   | *        | 油层中部（测量）深度                              |
 | Temperature                    | 油层中部温度            | ℃       | float64   |          |                                                   |
 | **WellboreTrajectory**         | **井身轨迹**            |          |           |          |                                                   |
-| MeasuringDepth                 | 测量深度                | m        | float64   |          | 如直井可不填写，非直井按 实际数据填写             |
-| DeviationAngle                 | 井斜角                  | °        | float64   |          |                                                   |
-| AzimuthAngle                   | 方位角                  | °        | float64   |          |                                                   |
+| MeasuringDepth                 | 测量深度                | m        | []float64   |          | 如直井可不填写，非直井按 实际数据填写             |
+| DeviationAngle                 | 井斜角                  | °        | []float64   |          |                                                   |
+| AzimuthAngle                   | 方位角                  | °        | []float64   |          |                                                   |
 | **RodString**                  | **抽油杆参数**          |          |           |          |                                                   |
 | Type                           | 抽油杆类型              |          | int       |          | 1-实心抽油杆，2-空心抽油杆                        |
 | Grade                          | 杆级别                  |          | string    | *        | A，B，C，K，D，KD，HL，HY                         |
@@ -1834,13 +1834,13 @@
 | WarningString                              | 报警字符串                 |             | string    | 报警参数（取默认值，计算正常进行）     |
 | **WellboreTrajectory**                     | **井身轨迹**               |             |           |                                        |
 | CNT                                        | 点数                       |             | int       |                                        |
-| MeasuringDepth                             | 测量深度                   | m           | float64   |                                        |
-| VerticalDepth                              | 垂直深度                   | m           | float64   |                                        |
-| DeviationAngle                             | 井斜角                     | 度          | float64   |                                        |
-| AzimuthAngle                               | 方位角                     | 度          | float64   |                                        |
-| X                                          | 直角坐标X                  | m           | float64   |                                        |
-| Y                                          | 直角坐标Y                  | m           | float64   |                                        |
-| Z                                          | 直角坐标Z                  | m           | float64   |                                        |
+| MeasuringDepth                             | 测量深度                   | m           | []float64   |                                        |
+| VerticalDepth                              | 垂直深度                   | m           | []float64   |                                        |
+| DeviationAngle                             | 井斜角                     | 度          | []float64   |                                        |
+| AzimuthAngle                               | 方位角                     | 度          | []float64   |                                        |
+| X                                          | 直角坐标X                  | m           | []float64   |                                        |
+| Y                                          | 直角坐标Y                  | m           | []float64   |                                        |
+| Z                                          | 直角坐标Z                  | m           | []float64   |                                        |
 | **RodString**                              | **抽油杆参数**             |             |           |                                        |
 | CNT                                        | 杆数                       |             | int       |                                        |
 | LengthAll                                  | 总杆长                     | m           | float64   |                                        |
@@ -1916,10 +1916,10 @@
 | FullnessCoefficient                        | 功图充满系数               | 小数        | float64   |                                        |
 | PlungerStroke                              | 柱塞冲程                   | m           | float64   |                                        |
 | AvailablePlungerStroke                     | 柱塞有效冲程               | m           | float64   |                                        |
-| F                                          | 载荷                       | kN          | float64   | 功图载荷                               |
-| S                                          | 位移                       | m           | float64   | 功图位移                               |
-| Watt                                       | 三相总有功功率             | kW          | float64   |                                        |
-| I                                          | 三相平均电流               | A           | float64   |                                        |
+| F                                          | 载荷                       | kN          | [][]float64   | 功图载荷                               |
+| S                                          | 位移                       | m           | [][]float64   | 功图位移                               |
+| Watt                                       | 三相总有功功率             | kW          | []float64   |                                        |
+| I                                          | 三相平均电流               | A           | []float64   |                                        |
 | FMax                                       | 最大载荷                   | kN          | float64   | 各级功图最大载荷                       |
 | FMin                                       | 最小载荷                   | kN          | float64   | 各级功图最小载荷                       |
 | SMaxIndex                                  | 位移最大值索引             |             | int       |                                        |
@@ -1935,17 +1935,17 @@
 | IMaxRatioString                            | 电流比字符串               |             | string    |                                        |
 | UpStrokeCNT                                | 上冲程点数                 |             | int       |                                        |
 | DownStrokeCNT                              | 下冲程点数                 |             | int       |                                        |
-| CrankAngle                                 | 曲柄转角                   | 度          | float64   |                                        |
-| V                                          | 光杆速度                   | m/s         | float64   |                                        |
-| A                                          | 光杆加速度                 | m/s^2       | float64   |                                        |
-| PR                                         | 光杆位置因数               | %           | float64   |                                        |
-| TF                                         | 扭矩因数                   | m           | float64   |                                        |
-| LoadTorque                                 | 载荷扭矩                   | kN·m        | float64   |                                        |
-| CrankTorque                                | 曲柄扭矩                   | kN·m        | float64   |                                        |
-| CurrentBalanceTorque                       | 目前平衡块扭矩             | kN·m        | float64   |                                        |
-| CurrentNetTorque                           | 目前净扭矩                 | kN·m        | float64   |                                        |
-| ExpectedBalanceTorque                      | 预期平衡块扭矩             | kN·m        | float64   |                                        |
-| ExpectedNetTorque                          | 预期净扭矩                 | kN·m        | float64   |                                        |
+| CrankAngle                                 | 曲柄转角                   | 度          | []float64   |                                        |
+| V                                          | 光杆速度                   | m/s         | []float64   |                                        |
+| A                                          | 光杆加速度                 | m/s^2       | []float64   |                                        |
+| PR                                         | 光杆位置因数               | %           | []float64   |                                        |
+| TF                                         | 扭矩因数                   | m           | []float64   |                                        |
+| LoadTorque                                 | 载荷扭矩                   | kN·m        | []float64   |                                        |
+| CrankTorque                                | 曲柄扭矩                   | kN·m        | []float64   |                                        |
+| CurrentBalanceTorque                       | 目前平衡块扭矩             | kN·m        | []float64   |                                        |
+| CurrentNetTorque                           | 目前净扭矩                 | kN·m        | []float64   |                                        |
+| ExpectedBalanceTorque                      | 预期平衡块扭矩             | kN·m        | []float64   |                                        |
+| ExpectedNetTorque                          | 预期净扭矩                 | kN·m        | []float64   |                                        |
 | DeltaRadius                                | 移动距离                   | m           | float64   | + 代表向外移 -代表向内移               |
 | **PumpEfficiency**                         | **泵效**                   |             |           |                                        |
 | RodFlexLength                              | 抽油杆伸长量               | m           | float64   |                                        |
@@ -1958,13 +1958,13 @@
 | PumpEff                                    | 总泵效                     | 小数        | float64   |                                        |
 | **WellboreSlice**                          | **井身切片**               |             |           |                                        |
 | CNT                                        | 切片数                     |             |           |                                        |
-| MeasuringDepth                             | 切片深度                   | m           | float64   |                                        |
-| X                                          | 直角坐标X                  | m           | float64   |                                        |
-| Y                                          | 直角坐标Y                  | m           | float64   |                                        |
-| Z                                          | 直角坐标Z                  | m           | float64   |                                        |
-| **BlackOilSlice**                          | **黑油参数**               |             |           |                                        |
-|                                            |                            |             |           |                                        |
-|                                            |                            |             |           |                                        |
+| MeasuringDepth                             | 切片深度                   | m           | []float64   |                                        |
+| X                                          | 直角坐标X                  | m           | []float64   |                                        |
+| Y                                          | 直角坐标Y                  | m           | []float64   |                                        |
+| Z                                          | 直角坐标Z                  | m           | []float64   |                                        |
+| P                                          | 压力                      | Mpa         | []float64          |                                        |
+| Bo                                         | 原油体积系数               |             | []float64          |                                        |
+| GLRis                                      | 就地气液比                 | m^3/m^3     | []float64          |                                        |
 | **SystemEfficiency**                       | **系统效率**               |             |           |                                        |
 | SurfaceSystemEfficiency                    | 地面效率                   | 小数        | float64   |                                        |
 | WellDownSystemEfficiency                   | 井下效率                   | 小数        | float64   |                                        |
@@ -2394,31 +2394,38 @@
             1305.09,
             1311.54
         ],
-        "BlackOilSlice": [
-            {
-                "P": 0.5,
-                "T": 35,
-                "Rs": 2.26,
-                "Bo": 1.02,
-                "Bg": 0,
-                "VISo": 6.25,
-                "DENo": 0.848,
-                "TENo": 24.51,
-                "VISw": 0.8,
-                "TENw": 68.22,
-                "Bw": 1,
-                "Z": 0.974,
-                "DENg": 0.238,
-                "VISg": 0.014,
-                "DENl": 0.959,
-                "VISl": 2.27,
-                "TENl": 56.46,
-                "GLRis": 0.279,
-                "LGR": 3.58,
-                "Vg": 7.28e-8,
-                "Vl": 2.61e-7
-            },
+        "P": [
+            0.7,
+            0.748,
+            0.795,
+            0.843,
 			...
+            4.92,
+            4.97,
+            5.01,
+            5.09
+        ],
+        "Bo": [
+            1.02,
+            1.02,
+            1.02,
+            1.02,
+			...
+            1.09,
+            1.09,
+            1.09,
+            1.09
+        ],
+        "GLRis": [
+            1.1,
+            1.07,
+            0.997,
+            0.932,
+			...
+            0.068,
+            0.0662,
+            0.0646,
+            0.0623
         ]
     },
     "SystemEfficiency": {                                 //（9）系统效率

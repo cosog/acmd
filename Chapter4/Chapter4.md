@@ -21,9 +21,9 @@
 | WellName                      | 井名               |       | string   | *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|                                   |
 | AcquisitionTime               | 采集时间           |       | string   | *        |                                                                |
 | SPM                           | 冲次               | 1/min | float64  | *        |                                                                |
-| Watt                          | 有功功率           | kW    | float64  | *        |                                                                |
-| I                             | 电流               | A     | float64  | *        |                                                                |
-| RPM                           | 转速               | r/min | float64  | *        |                                                                |
+| Watt                          | 有功功率           | kW    | []float64  | *        |                                                                |
+| I                             | 电流               | A     | []float64  | *        |                                                                |
+| RPM                           | 转速               | r/min | []float64  | *        |                                                                |
 | **PumpingUnit**               | **抽油机数据**     |       |          |          |                                                                |
 | Manufacturer                  | 厂商               |       | string   | *        |                                                                |
 | Model                         | 型号               |       | string   | *        |                                                                |
@@ -39,9 +39,9 @@
 | Position                      | 位置               | m     | float64  | *        |                                                                |
 | Weight                        | 重量               | kN    | float64  | *        |                                                                |
 | **PRTF**                      | **光杆位置因数**   |       |          |          |                                                                |
-| CrankAngle                    | 曲柄转角           | °     | float64  | *        |                                                                |
-| PR                            | 光杆位置因数       | %     | float64  | *        |                                                                |
-| TF                            | 扭矩因数           | m     | float64  | *        |                                                                |
+| CrankAngle                    | 曲柄转角           | °     | []float64  | *        |                                                                |
+| PR                            | 光杆位置因数       | %     | []float64  | *        |                                                                |
+| TF                            | 扭矩因数           | m     | []float64  | *        |                                                                |
 | SurfaceSystemEfficiency       | 地面效率           | 小数  | float64  | *        |                                                                |
 | WattAngle                     | 功率滤波角度       | °     | float64  | *        |                                                                |
 | WattTimes                     | 功率滤波次数       |       | int      | *        |                                                                |
@@ -312,11 +312,11 @@
 | Stroke                     | 冲程               | m     | float64  |                                              |
 | SPM                        | 冲次               | 1/min | float64  |                                              |
 | CNT                        | 点数               |       | int      |                                              |
-| F                          | 载荷               | kN    | float64  |                                              |
-| S                          | 位移               | m     | float64  |                                              |
-| Watt                       | 有功功率           | kW    | float64  |                                              |
-| I                          | 电流               | A     | float64  |                                              |
-| RPM                        | 转速               | r/min | float64  |                                              |
+| F                          | 载荷               | kN    | []float64  |                                              |
+| S                          | 位移               | m     | []float64  |                                              |
+| Watt                       | 有功功率           | kW    | []float64  |                                              |
+| I                          | 电流               | A     | []float64  |                                              |
+| RPM                        | 转速               | r/min | []float64  |                                              |
 | UpstrokeIMax               | 上冲程最大电流     | A     | float64  |                                              |
 | DownstrokeIMax             | 下冲程最大电流     | A     | float64  |                                              |
 | UpstrokeWattMax            | 上冲程最大有功功率 | kW    | float64  |                                              |

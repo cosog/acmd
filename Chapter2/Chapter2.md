@@ -36,15 +36,15 @@
 | Position                         | 目前位置           | m     | float64  | *        |                                                         |
 | Weight                           | 重量               | kN    | float64  | *        |                                                         |
 | **PRTF**                         | **位置扭矩因数**   |       |          |          |                                                         |
-| CrankAngle                       | 曲柄转角           | °     | float64  |          |                                                         |
-| PR                               | 光杆位置因数       | %     | float64  |          | 国标为%，api为小数                                      |
-| TF                               | 扭矩因数           | m     | float64  |          |                                                         |
+| CrankAngle                       | 曲柄转角           | °     | []float64  |          |                                                         |
+| PR                               | 光杆位置因数       | %     | []float64  |          | 国标为%，api为小数                                      |
+| TF                               | 扭矩因数           | m     | []float64  |          |                                                         |
 | **FSDiagram**                    | **地面功图**       |       |          |          |                                                         |
 | AcquisitionTime                  | 采集时间           |       | string   |          | "YYYY-MM-DD HH:NN:SS"                                   |
 | Stroke                           | 冲程               | m     | float64  |          |                                                         |
 | SPM                              | 冲次               | 1/min | float64  | *        |                                                         |
-| F                                | 载荷               | kN    | float64  | *        |                                                         |
-| S                                | 位移               | m     | float64  | *        |                                                         |
+| F                                | 载荷               | kN    | []float64  | *        |                                                         |
+| S                                | 位移               | m     | []float64  | *        |                                                         |
 | **SystemEfficiency**             | **系统效率**       |       |          |          |                                                         |
 | FourBarLinkageEfficiency         | 四连杆效率         | 小数  | float64  |          |                                                         |
 
@@ -238,10 +238,10 @@
 | WarningCounter                | 报警计数器             |        | int      | 报警参数个数                            |
 | WarningString                 | 报警字符串             |        | string   | 报警参数（取默认值，计算正常进行）      |
 | **CurrentTorqueCurve**        | **目前扭矩曲线**       |        |          |                                         |
-| Load                          | 载荷扭矩               | kN·m   | float64  |                                         |
-| Balance                       | 平衡块扭矩             | kN·m   | float64  |                                         |
-| Crank                         | 曲柄扭矩               | kN·m   | float64  |                                         |
-| Net                           | 减速箱输出轴净扭矩     | kN·m   | float64  |                                         |
+| Load                          | 载荷扭矩               | kN·m   | []float64  |                                         |
+| Balance                       | 平衡块扭矩             | kN·m   | []float64  |                                         |
+| Crank                         | 曲柄扭矩               | kN·m   | []float64  |                                         |
+| Net                           | 减速箱输出轴净扭矩     | kN·m   | []float64  |                                         |
 | **NetAnalysis**               | **净扭矩曲线分析**     |        |          |                                         |
 | MeanSquareRoot                | 曲线均方根值           |        | float64  |                                         |
 | UpStrokeMaxValue              | 上冲程最大值           |        | float64  |                                         |
@@ -257,8 +257,8 @@
 | DeltaPowerDOB                 | 平均功率平衡度预期变化 | %      | float64  | + 代表平衡度上升 -代表平衡度下降        |
 | PercentageOfDifferenceMSR     | 均方根预期变化率       | %      | float64  | (预期均值-目前均值)/目前均值*100        |
 | **TorqueCurve**               | **扭矩曲线**           |        |          |                                         |
-| Balance                       | 平衡块扭矩             | kN·m   | float64  |                                         |
-| Net                           | 减速箱输出轴净扭矩     | kN·m   | float64  |                                         |
+| Balance                       | 平衡块扭矩             | kN·m   | []float64  |                                         |
+| Net                           | 减速箱输出轴净扭矩     | kN·m   | []float64  |                                         |
 | **NetAnalysis**               | **净扭矩曲线分析**     |        |          |                                         |
 | MeanSquareRoot                | 曲线均方根值           |        | float64  |                                         |
 | UpStrokeMaxValue              | 上冲程最大值           |        | float64  |                                         |
@@ -279,8 +279,8 @@
 | DeltaPowerDOB                 | 平均功率平衡度预期变化 | %      | float64  | + 代表平衡度上升 -代表平衡度下降        |
 | PercentageOfDifferenceMSR     | 均方根预期变化率       | %      | float64  | (预期均值-目前均值)/目前均值*100        |
 | **TorqueCurve**               | **扭矩曲线**           |        |          |                                         |
-| Balance                       | 平衡块扭矩             | kN·m   | float64  |                                         |
-| Net                           | 减速箱输出轴净扭矩     | kN·m   | float64  |                                         |
+| Balance                       | 平衡块扭矩             | kN·m   | []float64  |                                         |
+| Net                           | 减速箱输出轴净扭矩     | kN·m   | []float64  |                                         |
 | **NetAnalysis**               | **净扭矩曲线分析**     |        |          |                                         |
 | MeanSquareRoot                | 曲线均方根值           |        | float64  |                                         |
 | UpStrokeMaxValue              | 上冲程最大值           |        | float64  |                                         |
@@ -301,8 +301,8 @@
 | DeltaPowerDOB                 | 平均功率平衡度预期变化 | %      | float64  | + 代表平衡度上升 -代表平衡度下降        |
 | PercentageOfDifferenceMSR     | 均方根预期变化率       | %      | float64  | (预期均值-目前均值)/目前均值*100        |
 | **TorqueCurve**               | **扭矩曲线**           |        |          |                                         |
-| Balance                       | 平衡块扭矩             | kN·m   | float64  |                                         |
-| Net                           | 减速箱输出轴净扭矩     | kN·m   | float64  |                                         |
+| Balance                       | 平衡块扭矩             | kN·m   | []float64  |                                         |
+| Net                           | 减速箱输出轴净扭矩     | kN·m   | []float64  |                                         |
 | **NetAnalysis**               | **净扭矩曲线分析**     |        |          |                                         |
 | MeanSquareRoot                | 曲线均方根值           |        | float64  |                                         |
 | UpStrokeMaxValue              | 上冲程最大值           |        | float64  |                                         |
@@ -317,14 +317,14 @@
 | Position                      | 位置                   | m      | float64  |                                         |
 | Weight                        | 重量                   | kN     | float64  |                                         |
 | **PRTF**                      | **位置扭矩因数**       |        |          |                                         |
-| CrankAngle                    | 曲柄转角               | °      | float64  |                                         |
-| PR                            | 光杆位置因数           | %      | float64  |                                         |
-| TF                            | 扭矩因数               | m      | float64  |                                         |
+| CrankAngle                    | 曲柄转角               | °      | []float64  |                                         |
+| PR                            | 光杆位置因数           | %      | []float64  |                                         |
+| TF                            | 扭矩因数               | m      | []float64  |                                         |
 | **MotionCurve**               | **运动特性曲线**       |        |          |                                         |
-| CrankAngle                    | 曲柄转角               | °      | float64  |                                         |
-| S                             | 光杆位移               | m      | float64  |                                         |
-| V                             | 光杆速度               | m/s    | float64  |                                         |
-| A                             | 光杆加速度             | m/s^2  | float64  |                                         |
+| CrankAngle                    | 曲柄转角               | °      | []float64  |                                         |
+| S                             | 光杆位移               | m      | []float64  |                                         |
+| V                             | 光杆速度               | m/s    | []float64  |                                         |
+| A                             | 光杆加速度             | m/s^2  | []float64  |                                         |
 
 **[1]** *计算结果状态:1:计算成功，-44:请求数据读取失败，-55:请求数据json解码失败， -66:井数许可超限，-77:计算异常， -88:响应数据json编码失败， -99:数据校验错误*
 
