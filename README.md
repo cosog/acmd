@@ -95,7 +95,7 @@ AgileCalculation SDK V7.2版（以下简称SDK）提供http接口服务，采用
 | 11       | 时率计算             | http://IP:端口/api/calc/run                                   |
 | 12       | 能耗计算             | http://IP:端口/api/calc/energy                                |
 | 13       | 全井汇总             | http://IP:端口/api/analy/total/well                           |
-| 14       | 采集处理             | http://IP:端口/api/plugin/fa2fs                               |
+| 14       | 采集处理             | http://IP:端口/api/plugin/fea2fes                               |
 | 15       | 转直角坐标           | http://IP:端口/api/plugin/2xyz                                |
 
 # 软件使用

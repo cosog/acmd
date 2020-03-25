@@ -30,9 +30,9 @@
 | Depth                              | 油层中部深度       | m         | float64  | *        | 油层中部（测量）深度                         |
 | Temperature                        | 油层中部温度       | ℃        | float64  | *        |                                  |
 | **WellboreTrajectory**             | **井身轨迹**     |           |          |          |                                                |
-| MeasuringDepth                     | 测量深度         | m         | float64  |          | 如直井可不填写，非直井按 实际数据填写          |
-| DeviationAngle                     | 井斜角           | °         | float64  |          |                                                |
-| AzimuthAngle                       | 方位角           | °         | float64  |          |                                                |
+| MeasuringDepth                     | 测量深度         | m         | []float64  |          | 如直井可不填写，非直井按 实际数据填写          |
+| DeviationAngle                     | 井斜角           | °         | []float64  |          |                                                |
+| AzimuthAngle                       | 方位角           | °         | []float64  |          |                                                |
 | **RodString**                      | **抽油杆参数**   |           |          |          |                                                |
 | Type                               | 抽油杆类型       |           | int      |          | 1-实心抽油杆，2-空心抽油杆                     |
 | Grade                              | 杆级别           |           | string   | *        | A,B,C,K,D,KD,HL,HY                             |
