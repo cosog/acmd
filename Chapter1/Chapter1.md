@@ -1229,7 +1229,7 @@
 | ProducingfluidLevel            | 动液面                  | m        | float64   | *        |                                                   | 
 | PumpSettingDepth               | 泵挂                    | m        | float64   | *        |                                                   |
 | **FESDiagram**                 | **功图数据**            |          |           |          |                                                   |
-| AcquisitionTime                | 采集时间                |          | string    |          | YYYY-MM-DD HH:NN:SS"                              |
+| AcquisitionTime                | 采集时间                |          | string    |          | "YYYY-MM-DD HH:NN:SS"                              |
 | Stroke                         | 冲程                    | m        | float64   |          |                                                   |
 | SPM                            | 冲次                    | 1/min    | float64   | *        |                                                   |
 | F                              | 载荷                    | kN       | []float64 | *        |                                                   |

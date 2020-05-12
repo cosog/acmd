@@ -21,7 +21,7 @@ AgileCalculation SDK V7.2版（以下简称SDK）提供http接口服务，采用
 
 **SDK V7.2**  
 （1）修改了接口URL。  
-（2）增加功图软件专业版（Pro版）。  
+（2）增加功图计算专业版（Pro版）。  
 
 **SDK V7.1**  
 （1）取消MongoDB数据库。  
