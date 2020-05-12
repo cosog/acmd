@@ -2,20 +2,20 @@
 
 ## 软件介绍 
 
-AgileCalculation SDK V7.2版（以下简称SDK）提供http接口服务，采用post请求模式，json数据格式，实现分布式并行云计算。功能包括：功图诊断、功图计产、全井分析、功图平衡、功率平衡、电功图反演、转速计产、通信计算、时率计算、能耗计算、全井汇总及采集处理和转直角坐标插件等。
+AgileCalculation SDK V7.2版（以下简称SDK）提供http接口服务，采用post请求模式，json数据格式，实现分布式并行云计算。功能包括：功图诊断、功图计产、全井分析、时率计算、能耗计算、通信计算、全井汇总、转速计产、功图平衡、功率平衡、电功图反演、及转直角坐标和采集处理插件等。
 
 ## 章节目录
 
 * [第一章：功图软件](./Chapter1/Chapter1.md)
-* [第二章：功图平衡](./Chapter2/Chapter2.md)
-* [第三章：功率平衡](./Chapter3/Chapter3.md)
-* [第四章：电功图反演](./Chapter4/Chapter4.md)
-* [第五章：转速计产](./Chapter5/Chapter5.md)
-* [第六章：通信计算](./Chapter6/Chapter6.md)
-* [第七章：时率计算](./Chapter7/Chapter7.md)
-* [第八章：能耗计算](./Chapter8/Chapter8.md)
-* [第九章：全井汇总](./Chapter9/Chapter9.md)
-* [第十章：插件](./Chapter10/Chapter10.md)
+* [第二章：时率计算](./Chapter2/Chapter2.md)
+* [第三章：能耗计算](./Chapter3/Chapter3.md)
+* [第四章：通信计算](./Chapter4/Chapter4.md)
+* [第五章：全井汇总](./Chapter5/Chapter5.md)
+* [第六章：插件](./Chapter6/Chapter6.md)
+* [第七章：转速计产](./Chapter7/Chapter7.md)
+* [第八章：功图平衡](./Chapter8/Chapter8.md)
+* [第九章：功率平衡](./Chapter9/Chapter9.md)
+* [第十章：电功图反演](./Chapter10/Chapter10.md)
 
 ## 版本更新
 
@@ -85,18 +85,18 @@ AgileCalculation SDK V7.2版（以下简称SDK）提供http接口服务，采用
 | 1        | 功图软件精简版       | http://IP:端口/api/calc/rpc/fesdiagram/lite                   |
 | 2        | 功图软件标准版       | http://IP:端口/api/calc/rpc/fesdiagram/classic                |
 | 3        | 功图软件专业版       | http://IP:端口/api/calc/rpc/fesdiagram/pro                    |
-| 4        | 功图平衡             | http://IP:端口/api/calc/rpc/fsdiagram/balance/back            |
-| 5        | 功率平衡             | http://IP:端口/api/calc/rpc/esdiagram/balance/back            |
-| 6        | 电功图反演（自动）   | http://IP:端口/api/calc/rpc/esdiagram/inversion/motorauto     |
-| 7        | 电功图反演（半自动） | http://IP:端口/api/calc/rpc/esdiagram/inversion/motorsemiauto |
-| 8        | 电功图反演（角位移） | http://IP:端口/api/calc/rpc/esdiagram/inversion/beam          |
-| 9        | 转速计产             | http://IP:端口/api/calc/pcp/rpm                               |
-| 10       | 通信计算             | http://IP:端口/api/calc/comm                                  |
-| 11       | 时率计算             | http://IP:端口/api/calc/run                                   |
-| 12       | 能耗计算             | http://IP:端口/api/calc/energy                                |
-| 13       | 全井汇总             | http://IP:端口/api/analy/total/well                           |
-| 14       | 采集处理             | http://IP:端口/api/plugin/fea2fes                               |
-| 15       | 转直角坐标           | http://IP:端口/api/plugin/2xyz                                |
+| 4        | 时率计算             | http://IP:端口/api/calc/run                                   |
+| 5        | 能耗计算             | http://IP:端口/api/calc/energy                                |
+| 6        | 通信计算             | http://IP:端口/api/calc/comm                                  |
+| 7        | 全井汇总             | http://IP:端口/api/analy/total/well                           |
+| 8        | 转直角坐标           | http://IP:端口/api/plugin/2xyz                                |
+| 9        | 采集处理             | http://IP:端口/api/plugin/fea2fes                               |
+| 10       | 转速计产             | http://IP:端口/api/calc/pcp/rpm                               |
+| 11       | 功图平衡             | http://IP:端口/api/calc/rpc/fsdiagram/balance/back            |
+| 12       | 功率平衡             | http://IP:端口/api/calc/rpc/esdiagram/balance/back            |
+| 13       | 电功图反演（自动）   | http://IP:端口/api/calc/rpc/esdiagram/inversion/motorauto     |
+| 14       | 电功图反演（半自动） | http://IP:端口/api/calc/rpc/esdiagram/inversion/motorsemiauto |
+| 15       | 电功图反演（角位移） | http://IP:端口/api/calc/rpc/esdiagram/inversion/beam          |
 
 # 软件使用
 
