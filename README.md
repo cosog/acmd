@@ -2,11 +2,11 @@
 
 ## 软件介绍 
 
-AgileCalculation SDK V7.2版（以下简称SDK）提供http接口服务，采用post请求模式，json数据格式，实现分布式并行云计算。功能包括：功图诊断、功图计产、全井分析、时率计算、能耗计算、通信计算、全井汇总、转速计产、功图平衡、功率平衡、电功图反演、及转直角坐标和采集处理插件等。
+AgileCalculation SDK V7.2版（以下简称SDK）提供http接口服务，采用post请求模式，json数据格式，实现分布式并行云计算。功能包括：功图诊断、功图计产、时率计算、能耗计算、通信计算、全井汇总、转速计产、功图平衡、功率平衡、电功图反演、转直角坐标插件和采集处理插件等。
 
 ## 章节目录
 
-* [第一章：功图软件](./Chapter1/Chapter1.md)
+* [第一章：功图计算](./Chapter1/Chapter1.md)
 * [第二章：时率计算](./Chapter2/Chapter2.md)
 * [第三章：能耗计算](./Chapter3/Chapter3.md)
 * [第四章：通信计算](./Chapter4/Chapter4.md)
@@ -82,9 +82,9 @@ AgileCalculation SDK V7.2版（以下简称SDK）提供http接口服务，采用
 
 | **序号** | **模块**             | **接口URL**                                                   |
 |----------|----------------------|---------------------------------------------------------------|
-| 1        | 功图软件精简版       | http://IP:端口/api/calc/rpc/fesdiagram/lite                   |
-| 2        | 功图软件标准版       | http://IP:端口/api/calc/rpc/fesdiagram/classic                |
-| 3        | 功图软件专业版       | http://IP:端口/api/calc/rpc/fesdiagram/pro                    |
+| 1        | 功图计算精简版       | http://IP:端口/api/calc/rpc/fesdiagram/lite                   |
+| 2        | 功图计算标准版       | http://IP:端口/api/calc/rpc/fesdiagram/classic                |
+| 3        | 功图计算专业版       | http://IP:端口/api/calc/rpc/fesdiagram/pro                    |
 | 4        | 时率计算             | http://IP:端口/api/calc/run                                   |
 | 5        | 能耗计算             | http://IP:端口/api/calc/energy                                |
 | 6        | 通信计算             | http://IP:端口/api/calc/comm                                  |
