@@ -42,7 +42,7 @@
 |-----------------|----------|-------|----------|---------|---------------------------------|
 | AKString        | 应用密钥 |       | string   |         | 预留字段                        |
 | WellName        | 井名     |       | string   | *       |                                 |
-| AcquisitionTime | 采集时间 |       | string   | *       | YYYY-MM-DD HH:NN:SS"            |
+| AcquisitionTime | 采集时间 |       | string   | *       | "YYYY-MM-DD HH:NN:SS"            |
 | SPM             | 冲次     | 1/min | float64  | *       |                                 |
 | S               | 位移     | m     | []float64  | *       |                                 |
 | F               | 载荷     | kN    | []float64  | *       |                                 |
