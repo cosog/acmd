@@ -98,16 +98,6 @@ AgileCalculation SDK V7.2版（以下简称SDK）提供http接口服务，采用
 | 14       | 电功图反演（半自动） | http://IP:端口/api/calc/rpc/esdiagram/inversion/motorsemiauto |
 | 15       | 电功图反演（角位移） | http://IP:端口/api/calc/rpc/esdiagram/inversion/beam          |
 
-# 软件使用
-
-AgileCalculation软件运行后在指定端口提供http服务，通过post模式进行访问。
-
-![程序图标](./Image/1.png?raw=true)  
-*图1 运行程序图标(Windows)*
-
-![状态窗口](./Image/2.png?raw=true)  
-*图2 运行状态窗口(Windows)*
-
 # 端口配置说明
 
 软件安装完成之后，在本机防火墙中将**18100** (**SDK端口**)端口设置例外。如果涉及外网访问SDK端口，还需映射端口18100，映射对应的外部端口与内部端口一致。  
