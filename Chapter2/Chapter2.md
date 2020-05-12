@@ -152,4 +152,4 @@
 }
 ```
 
-----[第一章 功图软件](.././Chapter1/Chapter1.md)----[返回章节目录](.././README.md)----[第三章 能耗计算](.././Chapter3/Chapter3.md)----
+----[第一章 功图计算](.././Chapter1/Chapter1.md)----[返回章节目录](.././README.md)----[第三章 能耗计算](.././Chapter3/Chapter3.md)----
