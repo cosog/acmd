@@ -98,8 +98,8 @@
 | ResultStatus           | 计算结果状态     |      | int      |                                    |
 | ResultCode             | 工况类型         |      | int      | 见工况类型代码表                   |
 | CNT                    | 点数             |      | int      |                                    |
-| Stroke                 | 功图冲程         | m    | float64  |                                    |
-| FullnessCoefficient    | 功图充满系数     | 小数 | float64  |                                    |
+| Stroke                 | 冲程             | m    | float64  |                                    |
+| FullnessCoefficient    | 充满系数         | 小数 | float64  |                                    |
 | PlungerStroke          | 柱塞冲程         | m    | float64  |                                    |
 | AvailablePlungerStroke | 柱塞有效冲程     | m    | float64  |                                    |
 | FMax                   | 最大载荷         | kN   | float64  | 功图最大载荷                       |
@@ -287,8 +287,6 @@
 | S                                   | 位移                    | m         | []float64  | *        |                                         |
 | Watt                                | 三相总有功功率          | kW        | []float64  |          |                                         |
 | I                                   | 三相平均电流            | A         | []float64  |          |                                         |
-| **SystemEfficiency**                | **系统效率**            |           |          |          |                                         |
-| MotorInputWatt                      | 电机输入有功功率        | kW        | float64  |          | 在没有有功功率曲线情况下用于计算系统效率        |
 | **ManualIntervention**              | **人工干预**            |           |          |          |                                         |
 | Code                                | 人工干预                |           | int      |          | 0-不干预，其他工况类型-干预             |
 | NetGrossRatio                       | 净毛比                  | 小数      | float64  |          | 实际产量/软件计算产量，默认1            |
@@ -449,10 +447,7 @@
 			17.79
 			]
 	},
-	"SystemEfficiency": {            //（12） 系统效率
-		"MotorInputWatt": 0
-	},
-	"ManualIntervention": {          //（13） 人工干预
+	"ManualIntervention": {          //（12） 人工干预
 		"Code": 0,
 		"NetGrossRatio": 1
 	}
@@ -636,10 +631,7 @@
 			17.79
 			]
 	},
-	"SystemEfficiency": {             //（13） 系统效率
-		"MotorInputWatt": 0
-	},
-	"ManualIntervention": {           //（14）人工干预
+	"ManualIntervention": {           //（13）人工干预
 		"Code": 0,
 		"NetGrossRatio": 1
 	}
@@ -795,13 +787,16 @@
 | GasInfluenceWeightProduction               | 气影响（吨）               | t/d         | float64  |                                   |
 | **FESDiagram**                             | **功图数据**               |             |          |                                   |
 | AcquisitionTime                            | 采集时间                   |             | string   |                                   |
-| Stroke                                     | 功图冲程                   | m           | float64  |                                   |
-| SPM                                        | 功图冲次                   | 1/min       | float64  |                                   |
+| Stroke                                     | 冲程                       | m           | float64  |                                   |
+| SPM                                        | 冲次                       | 1/min       | float64  |                                   |
 | CNT                                        | 点数                       |             | int      |                                   |
 | Area                                       | 功图面积                   |             | float64  |                                   |
 | UpperLoadLine                              | 理论上载荷                 | kN          | float64  |                                   |
 | LowerLoadLine                              | 理论下载荷                 | kN          | float64  |                                   |
-| FullnessCoefficient                        | 功图充满系数               | 小数        | float64  |                                   |
+| UpperLoadLineOfExact                       | 考虑沉没压力的理论上载荷   | kN          | float64  |                                   |
+| DeltaLoadLine                              | 理论液柱载荷               | kN          | float64  |                                   |
+| DeltaLoadLineOfExact                       | 考虑沉没压力的理论液柱载荷 | kN          | float64  |                                   |
+| FullnessCoefficient                        | 充满系数                   | 小数        | float64  |                                   |
 | PlungerStroke                              | 柱塞冲程                   | m           | float64  |                                   |
 | AvailablePlungerStroke                     | 柱塞有效冲程               | m           | float64  |                                   |
 | F                                          | 载荷                       | kN          | [][]float64  | 功图载荷                          |
@@ -810,13 +805,14 @@
 | I                                          | 三相平均电流               | A           | []float64  |                                   |
 | FMax                                       | 最大载荷                   | kN          | float64  | 各级功图最大载荷                  |
 | FMin                                       | 最小载荷                   | kN          | float64  | 各级功图最小载荷                  |
+| DeltaF                                     | 载荷差                     | kN          | []float64 | 各级功图载荷差                   |
 | SMaxIndex                                  | 位移最大值索引             |             | int      |                                   |
 | SMinIndex                                  | 位移最小值索引             |             | int      |                                   |
 | UpStrokeWattMax                            | 上冲程功率最大值           | kW          | float64  |                                   |
 | DownStrokeWattMax                          | 下冲程功率最大值           | kW          | float64  |                                   |
 | WattDegreeBalance                          | 功率平衡度                 | %           | float64  |                                   |
 | WattMaxRatioString                         | 功率比字符串               |             | string   |                                   |
-| AverageWatt                                | 平均总有功功率             | kW          | float64  |                                   |
+| AvgWatt                                    | 平均总有功功率             | kW          | float64  |                                   |
 | UpStrokeIMax                               | 上冲程电流最大值           | A           | float64  |                                   |
 | DownStrokeIMax                             | 下冲程电流最大值           | A           | float64  |                                   |
 | IDegreeBalance                             | 电流平衡度                 | %           | float64  |                                   |
@@ -834,7 +830,6 @@
 | SurfaceSystemEfficiency                    | 地面效率                   | 小数        | float64  |                                   |
 | WellDownSystemEfficiency                   | 井下效率                   | 小数        | float64  |                                   |
 | SystemEfficiency                           | 系统效率                   | 小数        | float64  |                                   |
-| MotorInputWatt                             | 电机输入有功功率           | kW          | float64  |                                   |
 | PolishRodPower                             | 光杆功率                   | kW          | float64  |                                   |
 | WaterPower                                 | 水功率                     | kW          | float64  |                                   |
 | EnergyPer100mLift                          | 吨液百米耗电量             | kW·h/100m·t | float64  |                                   |
@@ -948,6 +943,9 @@
         "Area": 19.21,
         "UpperLoadLine": 35.65,
         "LowerLoadLine": 21.69,
+		"UpperLoadLineOfExact": 32.15,
+		"DeltaLoadLine": 13.96,
+		"DeltaLoadLineOfExact": 10.46,
         "FullnessCoefficient": 0.30,
         "PlungerStroke": 2.7,
         "AvailablePlungerStroke": 0.82,
@@ -1033,13 +1031,18 @@
             9.59,
             -3.53
         ],
+		"DeltaF": [
+			18.73,
+			18.6,
+			18.42
+		],
         "SMaxIndex": 99,
         "SMinIndex": 0,
         "UpStrokeWattMax": 93,
         "DownStrokeWattMax": 84.6,
         "WattDegreeBalance": 90.97,
         "WattMaxRatioString": 20.1/22.09,
-        "AverageWatt": 28.14,
+        "AvgWatt": 28.14,
         "UpStrokeIMax": 58.1,
         "DownStrokeIMax": 51.04,
         "IDegreeBalance": 87.85,
@@ -1060,7 +1063,6 @@
         "WellDownSystemEfficiency": 0.268,
         "SystemEfficiency": 0.0492,
         "EnergyPer100mLift": 5.54,
-        "MotorInputWatt": 12.86,
         "PolishRodPower": 2.36,
         "WaterPower": 0.633
     }
@@ -1253,7 +1255,6 @@
 | BeltEfficiency                 | 皮带效率                | 小数     | float64   |          |                                                   |
 | GearReducerEfficiency          | 减速箱效率              | 小数     | float64   |          |                                                   |
 | FourBarLinkageEfficiency       | 四连杆效率              | 小数     | float64   |          |                                                   |
-| MotorInputWatt                 | 电机输入有功功率        | kW       | float64   |          | 在没有有功功率曲线情况下用于计算系统效率                  |
 | **ManualIntervention**         | **人工干预**            |          |           |          |                                                   |
 | Code                           | 人工干预                |          | int       |          | 0-不干预，其他工况类型-干预                       |
 | NetGrossRatio                  | 净毛比                  | 小数     | float64   |          | 实际产量/软件计算产量，不标定产量直接填写1        |
@@ -1476,8 +1477,7 @@
         "MotorEfficiency":0.9,
         "BeltEfficiency":0.9,
         "GearReducerEfficiency":0.9,
-        "FourBarLinkageEfficiency":0.9,
-        "MotorInputWatt":0
+        "FourBarLinkageEfficiency":0.9
     },
     "ManualIntervention":{
         "Code":0,
@@ -1726,8 +1726,7 @@
         "MotorEfficiency":0.9,
         "BeltEfficiency":0.9,
         "GearReducerEfficiency":0.9,
-        "FourBarLinkageEfficiency":0.9,
-        "MotorInputWatt":0
+        "FourBarLinkageEfficiency":0.9
     },
     "ManualIntervention":{
         "Code":0,
@@ -1906,13 +1905,16 @@
 | GasInfluenceWeightProduction               | 气影响（吨）               | t/d         | float64   |                                        |
 | **FESDiagram**                             | **功图数据**               |             |           |                                        |
 | AcquisitionTime                            | 采集时间                   |             | string    |                                        |
-| Stroke                                     | 功图冲程                   | m           | float64   |                                        |
-| SPM                                        | 功图冲次                   | 1/min       | float64   |                                        |
+| Stroke                                     | 冲程                       | m           | float64   |                                        |
+| SPM                                        | 冲次                       | 1/min       | float64   |                                        |
 | CNT                                        | 点数                       |             | int       |                                        |
 | Area                                       | 功图面积                   |             | float64   |                                        |
 | UpperLoadLine                              | 理论上载荷                 | kN          | float64   |                                        |
 | LowerLoadLine                              | 理论下载荷                 | kN          | float64   |                                        |
-| FullnessCoefficient                        | 功图充满系数               | 小数        | float64   |                                        |
+| UpperLoadLineOfExact                       | 考虑沉没压力的理论上载荷   | kN          | float64   |                                        |
+| DeltaLoadLine                              | 理论液柱载荷               | kN          | float64   |                                        |
+| DeltaLoadLineOfExact                       | 考虑沉没压力的理论液柱载荷 | kN          | float64   |                                        |
+| FullnessCoefficient                        | 充满系数                   | 小数        | float64   |                                        |
 | PlungerStroke                              | 柱塞冲程                   | m           | float64   |                                        |
 | AvailablePlungerStroke                     | 柱塞有效冲程               | m           | float64   |                                        |
 | F                                          | 载荷                       | kN          | [][]float64   | 功图载荷                               |
@@ -1921,13 +1923,14 @@
 | I                                          | 三相平均电流               | A           | []float64   |                                        |
 | FMax                                       | 最大载荷                   | kN          | float64   | 各级功图最大载荷                       |
 | FMin                                       | 最小载荷                   | kN          | float64   | 各级功图最小载荷                       |
+| DeltaF                                     | 载荷差                     | kN          | []float64 | 各级功图载荷差                         |
 | SMaxIndex                                  | 位移最大值索引             |             | int       |                                        |
 | SMinIndex                                  | 位移最小值索引             |             | int       |                                        |
 | UpStrokeWattMax                            | 上冲程功率最大值           | kW          | float64   |                                        |
 | DownStrokeWattMax                          | 下冲程功率最大值           | kW          | float64   |                                        |
 | WattDegreeBalance                          | 功率平衡度                 | %           | float64   |                                        |
 | WattMaxRatioString                         | 功率比字符串               |             | string    |                                        |
-| AverageWatt                                | 平均总有功功率             | kW          | float64   |                                        |
+| AvgWatt                                    | 平均总有功功率             | kW          | float64   |                                        |
 | UpStrokeIMax                               | 上冲程电流最大值           | A           | float64   |                                        |
 | DownStrokeIMax                             | 下冲程电流最大值           | A           | float64   |                                        |
 | IDegreeBalance                             | 电流平衡度                 | %           | float64   |                                        |
@@ -1961,10 +1964,14 @@
 | X                                          | 直角坐标X                  | m           | []float64   |                                        |
 | Y                                          | 直角坐标Y                  | m           | []float64   |                                        |
 | Z                                          | 直角坐标Z                  | m           | []float64   |                                        |
-| P                                          | 压力                      | Mpa         | []float64          |                                        |
+| P                                          | 压力                       | Mpa         | []float64          |                                        |
 | Bo                                         | 原油体积系数               |             | []float64          |                                        |
 | GLRis                                      | 就地气液比                 | m^3/m^3     | []float64          |                                        |
 | **SystemEfficiency**                       | **系统效率**               |             |           |                                        |
+| MotorEfficiency                            | 电机效率                   | 小数        | float64   |                                        |
+| BeltEfficiency                             | 皮带效率                   | 小数        | float64   |                                        |
+| GearReducerEfficiency                      | 减速箱效率                 | 小数        | float64   |                                        |
+| FourBarLinkageEfficiency                   | 四连杆效率                 | 小数        | float64   |                                        |
 | SurfaceSystemEfficiency                    | 地面效率                   | 小数        | float64   |                                        |
 | WellDownSystemEfficiency                   | 井下效率                   | 小数        | float64   |                                        |
 | SystemEfficiency                           | 系统效率                   | 小数        | float64   |                                        |
@@ -2161,6 +2168,9 @@
         "Area": 19.21,
         "UpperLoadLine": 35.65,
         "LowerLoadLine": 21.69,
+		"UpperLoadLineOfExact": 32.15,
+		"DeltaLoadLine": 13.96,
+		"DeltaLoadLineOfExact": 10.46,
         "FullnessCoefficient": 0.30,
         "PlungerStroke": 2.7,
         "AvailablePlungerStroke": 0.82,
@@ -2246,13 +2256,18 @@
             9.59,
             -3.53
         ],
+		"DeltaF": [
+			18.73,
+			18.6,
+			18.42
+		],
         "SMaxIndex": 99,
         "SMinIndex": 0,
         "UpStrokeWattMax": 93,
         "DownStrokeWattMax": 84.6,
         "WattDegreeBalance": 90.97,
         "WattMaxRatioString": 20.1/22.09,
-        "AverageWatt": 28.14,
+        "AvgWatt": 28.14,
         "UpStrokeIMax": 58.1,
         "DownStrokeIMax": 51.04,
         "IDegreeBalance": 87.85,
