@@ -830,7 +830,6 @@
 | SurfaceSystemEfficiency                    | 地面效率                   | 小数        | float64  |                                   |
 | WellDownSystemEfficiency                   | 井下效率                   | 小数        | float64  |                                   |
 | SystemEfficiency                           | 系统效率                   | 小数        | float64  |                                   |
-| MotorInputWatt                             | 电机输入有功功率           | kW          | float64  |                                   |
 | PolishRodPower                             | 光杆功率                   | kW          | float64  |                                   |
 | WaterPower                                 | 水功率                     | kW          | float64  |                                   |
 | EnergyPer100mLift                          | 吨液百米耗电量             | kW·h/100m·t | float64  |                                   |
