@@ -819,7 +819,7 @@
 | IMaxRatioString                            | 电流比字符串               |             | string   |                                   |
 | **PumpEfficiency**                         | **泵效**                   |             |          |                                   |
 | RodFlexLength                              | 抽油杆伸长量               | m           | float64  |                                   |
-| TubingFlexLength                           | 油管伸缩值                 | m           | float64  |                                   |
+| TubingFlexLength                           | 油管伸缩量                 | m           | float64  |                                   |
 | InertiaLength                              | 惯性载荷增量               | m           | float64  |                                   |
 | PumpEff1                                   | 冲程损失系数               | 小数        | float64  |                                   |
 | PumpEff2                                   | 充满系数                   | 小数        | float64  |                                   |
@@ -1951,7 +1951,7 @@
 | DeltaRadius                                | 移动距离                   | m           | float64   | + 代表向外移 -代表向内移               |
 | **PumpEfficiency**                         | **泵效**                   |             |           |                                        |
 | RodFlexLength                              | 抽油杆伸长量               | m           | float64   |                                        |
-| TubingFlexLength                           | 油管伸缩值                 | m           | float64   |                                        |
+| TubingFlexLength                           | 油管伸缩量                 | m           | float64   |                                        |
 | InertiaLength                              | 惯性载荷增量               | m           | float64   |                                        |
 | PumpEff1                                   | 冲程损失系数               | 小数        | float64   |                                        |
 | PumpEff2                                   | 充满系数                   | 小数        | float64   |                                        |

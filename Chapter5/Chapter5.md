@@ -71,7 +71,7 @@
 | PumpEff                                    | 泵效                       | %          | float64  |          |               |
 | PumpEff1                                   | 冲程损失系数               | 小数       | float64  |          |               |
 | RodFlexLength                              | 抽油杆伸长量               | m          | float64  |          |               |
-| TubingFlexLength                           | 计算油管伸缩值             | m          | float64  |          |               |
+| TubingFlexLength                           | 油管伸缩量                 | m          | float64  |          |               |
 | InertiaLength                              | 惯性载荷增量               | m          | float64  |          |               |
 | PumpEff2                                   | 充满系数                   | 小数       | float64  |          |               |
 | PumpEff3                                   | 间隙漏失系数               | 小数       | float64  |          |               |
@@ -618,7 +618,7 @@
 | Value                                           | 值                               | m          | float64  |                                       |
 | Max                                             | 最大值                           | m          | float64  |                                        |
 | Min                                             | 最小值                           | m          | float64  |                                        |
-| **TubingFlexLength**                            | **计算油管伸缩值**              |            |          |                                        |
+| **TubingFlexLength**                            | **油管伸缩量**                   |            |          |                                        |
 | Value                                           | 值                               | m          | float64  |                                       |
 | Max                                             | 最大值                           | m          | float64  |                                       |
 | Min                                             | 最小值                           | m          | float64  |                                      |
