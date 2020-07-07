@@ -534,6 +534,10 @@
 | Value                                           | 值                               | 小数       | float64  |                                      |
 | Max                                             | 最大值                           | 小数       | float64  |                                      |
 | Min                                             | 最小值                           | 小数       | float64  |                                      |
+| **TheoreticalProduction**                       | **理论排量**                     |            |          |                                      |
+| Value                                           | 值                               | m^3/d      | float64  |                                      |
+| Max                                             | 最大值                           | m^3/d      | float64  |                                      |
+| Min                                             | 最小值                           | m^3/d      | float64  |                                      |
 | **LiquidVolumetricProduction**                  | **日产液量(方)**                 |            |          |                                      |
 | Value                                           | 值                               | m^3/d      | float64  |                                      |
 | Max                                             | 最大值                           | m^3/d      | float64  |                                      |
@@ -546,8 +550,8 @@
 | Value                                           | 值                               | m^3/d      | float64  |                                      |
 | Max                                             | 最大值                           | m^3/d      | float64  |                                      |
 | Min                                             | 最小值                           | m^3/d      | float64  |                                      |
-| **AvailablePlungerStrokeVolumetricProduction**  | **柱塞有效冲程计算产量(方)**    |            |          |                                     |
-| Value                                           | 值                               | m^3/d      | float64  |                                     |
+| **AvailablePlungerStrokeVolumetricProduction**  | **柱塞有效冲程计算产量(方)**    |            |          |                                       |
+| Value                                           | 值                               | m^3/d      | float64  |                                       |
 | Max                                             | 最大值                           | m^3/d      | float64  |                                        |
 | Min                                             | 最小值                           | m^3/d      | float64  |                                        |
 | **PumpClearanceLeakVolumetricProduction**       | **泵间隙漏失量(方)**             |             |          |                                        |
