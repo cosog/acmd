@@ -273,13 +273,14 @@
 | DailyFluidProduction                | 日产液量                | m^3/d     | float64  |          | 有产量计量数据时输入，只诊断不计产            |
 | WaterCut                            | 体积含水率              | %         | float64  | *        | 煤层气井填100                           |
 | ProductionGasOilRatio               | 生产气油比              | m^3/t     | float64  | *        | 煤层气井不填                            |
-| TubingPressure                      | 油压                   | MPa       | float64  | *        | 如无油压，可录入回压                    |
+| TubingPressure                      | 油压                    | MPa       | float64  | *        | 如无油压，可录入回压                    |
 | CasingPressure                      | 套压                    | MPa       | float64  | *        |                                         |
 | BackPressure                        | 回压                    | MPa       | float64  | *        | 如无油压，可录入回压                    |
 | WellHeadFluidTemperature            | 井口油温                | ℃        | float64  |          |                                         |
 | ProducingfluidLevel                 | 动液面                  | m         | float64  | *        |                                         |
 | PumpSettingDepth                    | 泵挂                    | m         | float64  | *        |                                         |
-| **FESDiagram**                       | **功图数据**            |           |          |          |                                         |
+| LevelCorrectValue                   | 液面反演校正值          | MPa       | float64  |          | 详见表底注释[6]                         |
+| **FESDiagram**                      | **功图数据**            |           |          |          |                                         |
 | AcquisitionTime                     | 采集时间                |           | string   |          | "YYYY-MM-DD HH:NN:SS"                    |
 | Stroke                              | 冲程                    | m         | float64  |          |                                         |
 | SPM                                 | 冲次                    | 1/min     | float64  | *        |                                         |
@@ -295,7 +296,8 @@
 **[2]** *泵筒类型:H-厚壁筒,用于金属柱塞; W-薄壁筒,用于金属柱塞; L-组合泵筒,用于金属柱塞; P-厚壁筒,用于软密封柱塞; S-薄壁筒,用于软密封柱塞; X-厚壁筒,用于金属柱塞,薄壁形螺纹构形*  
 **[3]** *泵级别:整筒泵：1-一级泵 2-二级泵 3-三级泵 4-四级泵 5-五级泵 组合泵：1-一级泵 2-二级泵 3-三级泵*  
 **[4]** *泵径:组合泵筒：0.028，0.032，0.038，0.044，0.051，0.057，0.063，0.070，0.083，0.095 整筒泵：0.02699，0.0318，0.0381，0.0445，0.0452， 0.0508，0.0572，0.0635，0.0699，0.0953*  
-**[5]** *尾管设备类型:TailTubing-尾管，FilterTubing-滤管（花管），Anchor-锚定器，GasAnchor-油气分离器*
+**[5]** *尾管设备类型:TailTubing-尾管，FilterTubing-滤管（花管），Anchor-锚定器，GasAnchor-油气分离器*  
+**[6]** *如果输入的动液面数据为0或正数，正常计算同时返回液面反演校正值；如果输入的动液面数据为负值，建议输入-99，结合校正值计算动液面*
 
 
 ### 1.3.2 输入实例（无尾管）
@@ -387,9 +389,9 @@
 		"TubingPressure": 0.5,
 		"CasingPressure": 0.6,
 		"WellHeadFluidTemperature": 35,
-		"ProducingfluidLevel": 975,
+		"ProducingfluidLevel": 775,
 		"PumpSettingDepth": 1012.36,
-		"Submergence": 37.36
+		"LevelCorrectValue": 0
 	},
 	"FESDiagram": {                   //（11） 功图数据
 		"AcquisitionTime": "2016-02-01 16:38:24",
@@ -569,9 +571,9 @@
 		"TubingPressure": 0.5,
 		"CasingPressure": 0.6,
 		"WellHeadFluidTemperature": 35,
-		"ProducingfluidLevel": 975,
+		"ProducingfluidLevel": 775,
 		"PumpSettingDepth": 1012.36,
-		"Submergence": 37.36
+		"LevelCorrectValue": 0
 	},
 	"FESDiagram": {                 //（12） 功图数据
 		"AcquisitionTime": "2016-02-01 16:38:24",
@@ -749,34 +751,35 @@
 | StressRatio                                | 应力范围比                 | 小数        | float64  |                                   |
 | **Production**                             | **生产参数**               |             |          |                                   |
 | WaterCut                                   | 体积含水率                 | %           | float64  | 煤层气井为100                     |
-| ProductionGasOilRatio                      | 生产气油比                 | m^3/t     | float64  |                                   |
-| TubingPressure                             | 油压                      | MPa         | float64  |                                   |
+| ProductionGasOilRatio                      | 生产气油比                 | m^3/t       | float64  |                                   |
+| TubingPressure                             | 油压                      | MPa          | float64  |                                   |
 | CasingPressure                             | 套压                       | MPa         | float64  |                                   |
-| BackPressure                               | 回压                      | MPa         | float64  |                                   |
+| BackPressure                               | 回压                      | MPa          | float64  |                                   |
 | WellHeadFluidTemperature                   | 井口流温                   | ℃          | float64  |                                   |
 | ProducingfluidLevel                        | 动液面                     | m           | float64  |                                   |
+| LevelCorrectValue                          | 液面反演校正值             | MPa         | float64  |                                   |
 | PumpSettingDepth                           | 泵挂                       | m           | float64  |                                   |
 | Submergence                                | 沉没度                     | m           | float64  |                                   |
 | PumpIntakeP                                | 泵入口压力                 | MPa         | float64  |                                   |
 | PumpIntakeT                                | 泵入口温度                 | ℃          | float64  |                                   |
-| PumpIntakeGOL                              | 泵入口就地气液比           | m^3/m^3            | float64  |                                   |
+| PumpIntakeGOL                              | 泵入口就地气液比           | m^3/m^3     | float64  |                                   |
 | PumpInletVisl                              | 泵入口粘度                 | mPa·s       | float64  |                                   |
 | PumpInletBo                                | 泵入口原油体积系数         | 小数        | float64  |                                   |
 | PumpOutletP                                | 泵出口压力                 | MPa         | float64  |                                   |
 | PumpOutletT                                | 泵出口温度                 | ℃          | float64  |                                   |
-| PumpOutletGOL                              | 泵出口就地气液比           | m^3/m^3            | float64  |                                   |
+| PumpOutletGOL                              | 泵出口就地气液比           | m^3/m^3     | float64  |                                   |
 | PumpOutletVisl                             | 泵出口粘度                 | mPa·s       | float64  |                                   |
 | PumpOutletBo                               | 泵出口原油体积系数         | 小数        | float64  |                                   |
 | NetGrossRatio                              | 净毛比                     | 小数        | float64  |                                   |
-| TheoreticalProduction                      | 理论排量                   | m^3/d      | float64  |                                   |
-| LiquidVolumetricProduction                 | 产液量（方）               | m^3/d      | float64  | 煤层气井取产液量                  |
-| OilVolumetricProduction                    | 产油量（方）               | m^3/d      | float64  |                                   |
-| WaterVolumetricProduction                  | 产水量（方）               | m^3/d      | float64  |                                   |
-| AvailablePlungerStrokeVolumetricProduction | 柱塞有效冲程计算产量（方） | m^3/d      | float64  |                                   |
-| PumpClearanceLeakVolumetricProduction      | 泵间隙漏失量（方）         | m^3/d      | float64  |                                   |
-| TVLeakVolumetricProduction                 | 游动凡尔漏失量（方）       | m^3/d      | float64  |                                   |
-| SVLeakVolumetricProduction                 | 固定凡尔漏失量（方）       | m^3/d      | float64  |                                   |
-| GasInfluenceVolumetricProduction           | 气影响（方）               | m^3/d      | float64  |                                   |
+| TheoreticalProduction                      | 理论排量                   | m^3/d       | float64  |                                   |
+| LiquidVolumetricProduction                 | 产液量（方）               | m^3/d       | float64  | 煤层气井取产液量                  |
+| OilVolumetricProduction                    | 产油量（方）               | m^3/d       | float64  |                                   |
+| WaterVolumetricProduction                  | 产水量（方）               | m^3/d       | float64  |                                   |
+| AvailablePlungerStrokeVolumetricProduction | 柱塞有效冲程计算产量（方） | m^3/d       | float64  |                                   |
+| PumpClearanceLeakVolumetricProduction      | 泵间隙漏失量（方）         | m^3/d       | float64  |                                   |
+| TVLeakVolumetricProduction                 | 游动凡尔漏失量（方）       | m^3/d       | float64  |                                   |
+| SVLeakVolumetricProduction                 | 固定凡尔漏失量（方）       | m^3/d       | float64  |                                   |
+| GasInfluenceVolumetricProduction           | 气影响（方）               | m^3/d       | float64  |                                   |
 | LiquidWeightProduction                     | 产液量（吨）               | t/d         | float64  | 煤层气井取产液量                  |
 | OilWeightProduction                        | 产油量（吨）               | t/d         | float64  |                                   |
 | WaterWeightProduction                      | 产水量（吨）               | t/d         | float64  |                                   |
@@ -797,12 +800,14 @@
 | DeltaLoadLine                              | 理论液柱载荷               | kN          | float64  |                                   |
 | DeltaLoadLineOfExact                       | 考虑沉没压力的理论液柱载荷 | kN          | float64  |                                   |
 | FullnessCoefficient                        | 充满系数                   | 小数        | float64  |                                   |
+| NoLiquidFullnessCoefficient                | 抽空充满系数               | 小数        | float64  |                                   |
 | PlungerStroke                              | 柱塞冲程                   | m           | float64  |                                   |
 | AvailablePlungerStroke                     | 柱塞有效冲程               | m           | float64  |                                   |
-| F                                          | 载荷                       | kN          | [][]float64  | 功图载荷                          |
-| S                                          | 位移                       | m           | [][]float64  | 功图位移                          |
-| Watt                                       | 三相总有功功率             | kW          | []float64  |                                   |
-| I                                          | 三相平均电流               | A           | []float64  |                                   |
+| NoLiquidAvailablePlungerStroke             | 抽空柱塞有效冲程           | m           | float64  |                                   |
+| F                                          | 载荷                       | kN          | [][]float64  | 功图载荷                      |
+| S                                          | 位移                       | m           | [][]float64  | 功图位移                      |
+| Watt                                       | 三相总有功功率             | kW          | []float64  |                                 |
+| I                                          | 三相平均电流               | A           | []float64  |                                 |
 | FMax                                       | 最大载荷                   | kN          | float64  | 各级功图最大载荷                  |
 | FMin                                       | 最小载荷                   | kN          | float64  | 各级功图最小载荷                  |
 | DeltaF                                     | 载荷差                     | kN          | []float64 | 各级功图载荷差                   |
@@ -832,7 +837,7 @@
 | SystemEfficiency                           | 系统效率                   | 小数        | float64  |                                   |
 | PolishRodPower                             | 光杆功率                   | kW          | float64  |                                   |
 | WaterPower                                 | 水功率                     | kW          | float64  |                                   |
-| EnergyPer100mLift                          | 吨液百米耗电量             | kW·h/100m·t | float64  |                                   |
+| EnergyPer100mLift                          | 吨液百米耗电量             | kW·h/100·t  | float64  |                                   |
 
 **[1]** *计算结果状态:1:计算成功，-44:请求数据读取失败，-55:请求数据json解码失败， -66:井数许可超限，-77:计算异常， -88:响应数据json编码失败， -99:数据校验错误*
 
@@ -906,8 +911,10 @@
         "CasingPressure": 0.3,
 		"BackPressure": 0,
         "WellHeadFluidTemperature": 40,
-        "ProducingfluidLevel": 800,
-        "PumpSettingDepth": 1000,
+        "ProducingfluidLevel": 775,
+		"LevelCorrectValue": 1.22,
+        "PumpSettingDepth": 1012.36,
+		"Submergence": 237.36,
         "PumpIntakeP": 2.21,
         "PumpIntakeT": 70.01,
         "PumpIntakeGOL": 0.43,
@@ -947,8 +954,10 @@
 		"DeltaLoadLine": 13.96,
 		"DeltaLoadLineOfExact": 10.46,
         "FullnessCoefficient": 0.30,
+		"NoLiquidFullnessCoefficient": 0.0022,
         "PlungerStroke": 2.7,
         "AvailablePlungerStroke": 0.82,
+		"NoLiquidAvailablePlungerStroke": 0.00591,
         "F": [
             [ //各项值代表意义：光杆功图载荷、各级杆顶端功图载荷，按实际杆数依次输出，泵顶端载荷即为泵功图载荷
 				26.53, //光杆功图载荷（一级杆顶端功图载荷）
@@ -1230,6 +1239,7 @@
 | WellHeadFluidTemperature       | 井口油温                | ℃       | float64   |          |                                                   |
 | ProducingfluidLevel            | 动液面                  | m        | float64   | *        |                                                   | 
 | PumpSettingDepth               | 泵挂                    | m        | float64   | *        |                                                   |
+| LevelCorrectValue              | 液面反演校正值          | MPa      | float64   | *        | 详见表底注释[6]                                   |
 | **FESDiagram**                 | **功图数据**            |          |           |          |                                                   |
 | AcquisitionTime                | 采集时间                |          | string    |          | "YYYY-MM-DD HH:NN:SS"                              |
 | Stroke                         | 冲程                    | m        | float64   |          |                                                   |
@@ -1263,7 +1273,8 @@
 **[2]** *泵筒类型:H-厚壁筒,用于金属柱塞; W-薄壁筒,用于金属柱塞; L-组合泵筒,用于金属柱塞; P-厚壁筒,用于软密封柱塞; S-薄壁筒,用于软密封柱塞; X-厚壁筒,用于金属柱塞,薄壁形螺纹构形*  
 **[3]** *泵级别:整筒泵：1-一级泵 2-二级泵 3-三级泵 4-四级泵 5-五级泵 组合泵：1-一级泵 2-二级泵 3-三级泵*  
 **[4]** *泵径:组合泵筒：0.028，0.032，0.038，0.044，0.051，0.057，0.063，0.070，0.083，0.095 整筒泵：0.02699，0.0318，0.0381，0.0445，0.0452， 0.0508，0.0572，0.0635，0.0699，0.0953*  
-**[5]** *尾管设备类型:TailTubing-尾管，FilterTubing-滤管（花管），Anchor-锚定器，GasAnchor-油气分离器*
+**[5]** *尾管设备类型:TailTubing-尾管，FilterTubing-滤管（花管），Anchor-锚定器，GasAnchor-油气分离器*  
+**[6]** *如果输入的动液面数据为0或正数，正常计算同时返回液面反演校正值；如果输入的动液面数据为负值，建议输入-99，结合校正值计算动液面*
 
 ### 1.5.2 输入实例（无尾管）
 
@@ -1406,9 +1417,9 @@
         "TubingPressure":0.5,
         "CasingPressure":0.6,
         "WellHeadFluidTemperature":35,
-        "ProducingfluidLevel":975,
+        "ProducingfluidLevel":775,
         "PumpSettingDepth":1012.36,
-        "Submergence":37.36
+        "LevelCorrectValue":0
     },
     "FESDiagram":{
         "AcquisitionTime":"2016-02-01 16:38:24",
@@ -1656,9 +1667,9 @@
         "TubingPressure":0.5,
         "CasingPressure":0.6,
         "WellHeadFluidTemperature":35,
-        "ProducingfluidLevel":975,
+        "ProducingfluidLevel":775,
         "PumpSettingDepth":1012.36,
-        "Submergence":37.36
+        "LevelCorrectValue":0
     },
     "FESDiagram":{
         "AcquisitionTime":"2016-02-01 16:38:24",
@@ -1873,6 +1884,7 @@
 | CasingPressure                             | 套压                       | MPa         | float64   |                                        |
 | WellHeadFluidTemperature                   | 井口流温                   | ℃          | float64   |                                        |
 | ProducingfluidLevel                        | 动液面                     | m           | float64   |                                        |
+| LevelCorrectValue                          | 液面反演校正值             | MPa         | float64   |                                        |
 | PumpSettingDepth                           | 泵挂                       | m           | float64   |                                        |
 | Submergence                                | 沉没度                     | m           | float64   |                                        |
 | PumpIntakeP                                | 泵入口压力                 | MPa         | float64   |                                        |
@@ -1915,12 +1927,14 @@
 | DeltaLoadLine                              | 理论液柱载荷               | kN          | float64   |                                        |
 | DeltaLoadLineOfExact                       | 考虑沉没压力的理论液柱载荷 | kN          | float64   |                                        |
 | FullnessCoefficient                        | 充满系数                   | 小数        | float64   |                                        |
+| NoLiquidFullnessCoefficient                | 抽空充满系数               | 小数        | float64   |                                        |
 | PlungerStroke                              | 柱塞冲程                   | m           | float64   |                                        |
 | AvailablePlungerStroke                     | 柱塞有效冲程               | m           | float64   |                                        |
-| F                                          | 载荷                       | kN          | [][]float64   | 功图载荷                               |
-| S                                          | 位移                       | m           | [][]float64   | 功图位移                               |
-| Watt                                       | 三相总有功功率             | kW          | []float64   |                                        |
-| I                                          | 三相平均电流               | A           | []float64   |                                        |
+| NoLiquidAvailablePlungerStroke             | 抽空柱塞有效冲程           | m           | float64   |                                        |
+| F                                          | 载荷                       | kN          | [][]float64   | 功图载荷                           |
+| S                                          | 位移                       | m           | [][]float64   | 功图位移                           |
+| Watt                                       | 三相总有功功率             | kW          | []float64   |                                      |
+| I                                          | 三相平均电流               | A           | []float64   |                                      |
 | FMax                                       | 最大载荷                   | kN          | float64   | 各级功图最大载荷                       |
 | FMin                                       | 最小载荷                   | kN          | float64   | 各级功图最小载荷                       |
 | DeltaF                                     | 载荷差                     | kN          | []float64 | 各级功图载荷差                         |
@@ -1978,7 +1992,7 @@
 | MotorInputWatt                             | 电机输入有功功率           | kW          | float64   |                                        |
 | PolishRodPower                             | 光杆功率                   | kW          | float64   |                                        |
 | WaterPower                                 | 水功率                     | kW          | float64   |                                        |
-| EnergyPer100mLift                          | 吨液百米耗电量             | kW·h/100m·t | float64   |                                        |
+| EnergyPer100mLift                          | 吨液百米耗电量             | kW·h/100·t  | float64   |                                        |
 
 **[1]** *计算结果状态:1:计算成功，-44:请求数据读取失败，-55:请求数据json解码失败， -66:井数许可超限，-77:计算异常， -88:响应数据json编码失败， -99:数据校验错误*
 
@@ -2131,8 +2145,10 @@
         "TubingPressure": 0.5,
         "CasingPressure": 0.3,
         "WellHeadFluidTemperature": 40,
-        "ProducingfluidLevel": 800,
-        "PumpSettingDepth": 1000,
+        "ProducingfluidLevel": 775,
+		"LevelCorrectValue": 1.22,
+        "PumpSettingDepth": 1012.36,
+		"Submergence": 237.36,
         "PumpIntakeP": 2.21,
         "PumpIntakeT": 70.01,
         "PumpIntakeGOL": 0.43,
@@ -2172,8 +2188,10 @@
 		"DeltaLoadLine": 13.96,
 		"DeltaLoadLineOfExact": 10.46,
         "FullnessCoefficient": 0.30,
+		"NoLiquidFullnessCoefficient": 0.0022,
         "PlungerStroke": 2.7,
         "AvailablePlungerStroke": 0.82,
+		"NoLiquidAvailablePlungerStroke": 0.00591,
         "F": [
             [  //各项值代表意义：光杆功图载荷、各级杆顶端功图载荷，按实际杆数依次输出，泵顶端载荷即为泵功图载荷
 				26.53,     //光杆功图载荷（一级杆顶端功图载荷）
