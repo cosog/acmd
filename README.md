@@ -1,8 +1,8 @@
-# 《油气生产敏捷计算SDK V7.2》用户手册
+# 《油气生产敏捷计算SDK V7.3》用户手册
 
 ## 软件介绍 
 
-AgileCalculation SDK V7.2版（以下简称SDK）提供http接口服务，采用post请求模式，json数据格式，实现分布式并行云计算。功能包括：功图诊断、功图计产、时率计算、能耗计算、通信计算、全井汇总、转速计产、功图平衡、功率平衡、电功图反演、转直角坐标插件和采集处理插件等。
+AgileCalculation SDK V7.3版（以下简称SDK）提供http接口服务，采用post请求模式，json数据格式，实现分布式并行云计算。功能包括：功图诊断、功图计产、时率计算、能耗计算、通信计算、全井汇总、转速计产、功图平衡、功率平衡、电功图反演、转直角坐标插件和采集处理插件等。
 
 ## 章节目录
 
@@ -18,6 +18,9 @@ AgileCalculation SDK V7.2版（以下简称SDK）提供http接口服务，采用
 * [第十章：电功图反演](./Chapter10/Chapter10.md)
 
 ## 版本更新
+
+**SDK V7.3**  
+（1）功图计算Classic版和Pro版增加动液面计算。  
 
 **SDK V7.2**  
 （1）修改了接口URL。  
@@ -81,7 +84,7 @@ AgileCalculation SDK V7.2版（以下简称SDK）提供http接口服务，采用
 ## 接口URL
 
 | **序号** | **模块**             | **URL**                                                        |
-|----------|----------------------|---------------------------------------------------------------|
+|----------|----------------------|----------------------------------------------------------------|
 | 1        | 功图计算精简版       | http://IP:18100/api/calc/rpc/fesdiagram/lite                   |
 | 2        | 功图计算标准版       | http://IP:18100/api/calc/rpc/fesdiagram/classic                |
 | 3        | 功图计算专业版       | http://IP:18100/api/calc/rpc/fesdiagram/pro                    |
@@ -90,7 +93,7 @@ AgileCalculation SDK V7.2版（以下简称SDK）提供http接口服务，采用
 | 6        | 通信计算             | http://IP:18100/api/calc/comm                                  |
 | 7        | 全井汇总             | http://IP:18100/api/analy/total/well                           |
 | 8        | 转直角坐标           | http://IP:18100/api/plugin/2xyz                                |
-| 9        | 采集处理             | http://IP:18100/api/plugin/fea2fes                               |
+| 9        | 采集处理             | http://IP:18100/api/plugin/fea2fes                             |
 | 10       | 转速计产             | http://IP:18100/api/calc/pcp/rpm                               |
 | 11       | 功图平衡             | http://IP:18100/api/calc/rpc/fsdiagram/balance/back            |
 | 12       | 功率平衡             | http://IP:18100/api/calc/rpc/esdiagram/balance/back            |
