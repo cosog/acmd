@@ -542,7 +542,15 @@
 | Value                                           | 值                               | m          | float64  |                                       |
 | Max                                             | 最大值                           | m          | float64  |                                       |
 | Min                                             | 最小值                           | m          | float64  |                                       |
+| **NoLiquidAvailablePlungerStroke**              | **抽空柱塞有效冲程**            |            |          |                                       |
+| Value                                           | 值                               | m          | float64  |                                       |
+| Max                                             | 最大值                           | m          | float64  |                                       |
+| Min                                             | 最小值                           | m          | float64  |                                       |
 | **FullnessCoefficient**                         | **充满系数**                     |            |          |                                      |
+| Value                                           | 值                               | 小数       | float64  |                                      |
+| Max                                             | 最大值                           | 小数       | float64  |                                      |
+| Min                                             | 最小值                           | 小数       | float64  |                                      |
+| **NoLiquidFullnessCoefficient**                 | **抽空充满系数**                |            |          |                                      |
 | Value                                           | 值                               | 小数       | float64  |                                      |
 | Max                                             | 最大值                           | 小数       | float64  |                                      |
 | Min                                             | 最小值                           | 小数       | float64  |                                      |
@@ -666,6 +674,10 @@
 | Value                                           | 值                               | m          | float64  |                                      |
 | Max                                             | 最大值                           | m          | float64  |                                      |
 | Min                                             | 最小值                           | m          | float64  |                                      |
+| **LevelCorrectValue**                           | **液面反演校正值**               |            |          |                                      |
+| Value                                           | 值                               | MPa        | float64  |                                      |
+| Max                                             | 最大值                           | MPa        | float64  |                                      |
+| Min                                             | 最小值                           | MPa        | float64  |                                      |
 | **Submergence**                                 | **沉没度**                       |            |          |                                      |
 | Value                                           | 值                               | m          | float64  |                                      |
 | Max                                             | 最大值                           | m          | float64  |                                      |
