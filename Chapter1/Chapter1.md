@@ -837,7 +837,7 @@
 | SystemEfficiency                           | 系统效率                   | 小数        | float64  |                                   |
 | PolishRodPower                             | 光杆功率                   | kW          | float64  |                                   |
 | WaterPower                                 | 水功率                     | kW          | float64  |                                   |
-| EnergyPer100mLift                          | 吨液百米耗电量             | kW·h/100·t  | float64  |                                   |
+| EnergyPer100mLift                          | 吨液百米耗电量             | kW·h/100m·t | float64  |                                   |
 
 **[1]** *计算结果状态:1:计算成功，-44:请求数据读取失败，-55:请求数据json解码失败， -66:井数许可超限，-77:计算异常， -88:响应数据json编码失败， -99:数据校验错误*
 
@@ -1992,7 +1992,7 @@
 | MotorInputWatt                             | 电机输入有功功率           | kW          | float64   |                                        |
 | PolishRodPower                             | 光杆功率                   | kW          | float64   |                                        |
 | WaterPower                                 | 水功率                     | kW          | float64   |                                        |
-| EnergyPer100mLift                          | 吨液百米耗电量             | kW·h/100·t  | float64   |                                        |
+| EnergyPer100mLift                          | 吨液百米耗电量             | kW·h/100m·t | float64   |                                        |
 
 **[1]** *计算结果状态:1:计算成功，-44:请求数据读取失败，-55:请求数据json解码失败， -66:井数许可超限，-77:计算异常， -88:响应数据json编码失败， -99:数据校验错误*
 

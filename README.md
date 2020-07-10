@@ -20,7 +20,7 @@ AgileCalculation SDK V7.3版（以下简称SDK）提供http接口服务，采用
 ## 版本更新
 
 **SDK V7.3**  
-（1）功图计算Classic版和Pro版增加动液面计算。  
+（1）功图计算Classic版和Pro版增加动液面反演。  
 
 **SDK V7.2**  
 （1）修改了接口URL。  
